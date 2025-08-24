@@ -1,0 +1,33 @@
+disabled_rules:
+- trailing_comma
+  
+opt_in_rules:
+- attributes
+- closure_end_indentation
+- closure_spacing
+- collection_alignment
+- comma_inheritance
+- direct_return
+- file_header
+- multiline_arguments
+- multiline_arguments_brackets
+- multiline_literal_brackets
+- multiline_parameters
+- multiline_parameters_brackets
+  
+analyzer_rules:
+- unused_import
+    
+included:
+- HwanYulMate
+excluded:
+- HwanYulMate/Application/AppDelegate.swift
+- HwanYulMate/Application/SceneDelegate.swift
+
+trailing_whitespace:
+  ignores_empty_lines: true
+
+force_cast: warning
+force_try:
+  severity: warning
+reporter: "xcode"
