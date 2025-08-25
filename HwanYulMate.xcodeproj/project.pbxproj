@@ -35,6 +35,7 @@
 		37E1C56A2E5C59BE00D9D687 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C55C2E5C59BE00D9D687 /* Pretendard-Bold.otf */; };
 		37E1C56B2E5C59BE00D9D687 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C55E2E5C59BE00D9D687 /* Pretendard-ExtraLight.otf */; };
 		37E1C56C2E5C59BE00D9D687 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */; };
+		37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		37E1C5612E5C59BE00D9D687 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		37E1C5622E5C59BE00D9D687 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		37E1C53C2E5B4DF300D9D687 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				37E1C56E2E5C63AD00D9D687 /* TabBar */,
 				37E1C5432E5B4EE600D9D687 /* Home */,
 				37E1C5442E5B4FC100D9D687 /* Util */,
 			);
@@ -195,6 +198,14 @@
 				37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */,
 			);
 			path = Pretendard;
+			sourceTree = "<group>";
+		};
+		37E1C56E2E5C63AD00D9D687 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */,
 				37E1C5592E5C58B500D9D687 /* UIFont+Extension.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
