@@ -56,8 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appearance.shadowImage = nil
         appearance.shadowColor = nil
         appearance.backgroundColor = .white
-//        appearance.titleTextAttributes = [.foregroundColor: UIColor.primaryText]
-//        UINavigationBar.appearance().tintColor
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
