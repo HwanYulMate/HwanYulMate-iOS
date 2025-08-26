@@ -6,15 +6,25 @@
 //
 
 import UIKit
+import SnapKit
+import Then
 
-class SplashView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+final class SplashView: BaseView {
+    
+    // MARK: - properties
+    private let splashImageView = UIImageView().then {
+        $0.image = .splash
+        $0.contentMode = .scaleAspectFill
     }
-    */
-
+    
+    // MARK: - methods
+    override func configureHierarchy() {
+        addSubview(splashImageView)
+    }
+    
+    override func configureConstraints() {
+        splashImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 }

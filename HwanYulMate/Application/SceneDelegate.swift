@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         configureNavigationBarAppearence()
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = TabBarViewController()
+        window?.rootViewController = SplashViewController()
         window?.makeKeyAndVisible()
     }
 
