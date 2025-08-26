@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
-class SplashViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+final class SplashViewController: UIViewController {
+    
+    // MARK: - properties
+    private let splashView = SplashView()
+    
+    private let disposeBag = DisposeBag()
+    
+    // MARK: - life cycles
+    override func loadView() {
+        view = splashView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        moveToMainAfterDelay()
     }
-    */
-
+    
+    // MARK: - methods
+    private func moveToMainAfterDelay() {
+        Observable<Int>
+            .timer(.seconds(2), scheduler: MainScheduler.instance)
+            .bind(with: self) { _, _ in
+                let tabBarViewController = TabBarViewController()
+                
+                if let windowScene = UIApplication.shared
+                    .connectedScenes
+                    .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+                   let window = windowScene.windows.first {
+                    window.rootViewController = tabBarViewController
+                    window.makeKeyAndVisible()
+                }
+            }
+            .disposed(by: disposeBag)
+    }
 }
