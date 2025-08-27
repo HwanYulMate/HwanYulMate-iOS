@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 final class SplashView: BaseView {
-    
+
     // MARK: - properties
     private let splashImageView = UIImageView().then {
         $0.image = .splash
