@@ -149,6 +149,7 @@
 		37E1C53B2E5B4DDB00D9D687 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				37E1C55A2E5C598F00D9D687 /* Font */,
 				37E1C5262E5B4B5200D9D687 /* Assets.xcassets */,
 				37E1C5272E5B4B5200D9D687 /* Info.plist */,
 				37E1C5292E5B4B5200D9D687 /* LaunchScreen.storyboard */,
@@ -182,7 +183,6 @@
 			children = (
 				37E1C5572E5C58A100D9D687 /* Extension */,
 				37E1C5452E5B4FD800D9D687 /* Base */,
-				37E1C55A2E5C598F00D9D687 /* Font */,
 			);
 			path = Util;
 			sourceTree = "<group>";
