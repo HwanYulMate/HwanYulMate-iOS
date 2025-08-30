@@ -15,6 +15,7 @@
 		37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A8B2E62C522000A7C74 /* NotificationView.swift */; };
 		37426A8E2E62C534000A7C74 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A8D2E62C534000A7C74 /* NotificationViewController.swift */; };
 		37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A8F2E62D571000A7C74 /* HomeReactor.swift */; };
+		37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A912E62E511000A7C74 /* NotificationReactor.swift */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
 		37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C50F2E5B454A00D9D687 /* SnapKit */; };
@@ -57,6 +58,7 @@
 		37426A8B2E62C522000A7C74 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		37426A8D2E62C534000A7C74 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		37426A8F2E62D571000A7C74 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReactor.swift; sourceTree = "<group>"; };
+		37426A912E62E511000A7C74 /* NotificationReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationReactor.swift; sourceTree = "<group>"; };
 		37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37D1B11F2E5DB9A9000732A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		37E1C4F62E5B444500D9D687 /* HwanYulMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HwanYulMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				37426A892E62C518000A7C74 /* NotificationCell.swift */,
 				37426A8B2E62C522000A7C74 /* NotificationView.swift */,
 				37426A8D2E62C534000A7C74 /* NotificationViewController.swift */,
+				37426A912E62E511000A7C74 /* NotificationReactor.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */,
 				3728CAF92E5DA4F600D3DC98 /* SplashViewController.swift in Sources */,
+				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
