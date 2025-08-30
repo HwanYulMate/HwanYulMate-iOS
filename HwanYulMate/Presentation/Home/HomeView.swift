@@ -16,7 +16,7 @@ final class HomeView: BaseView {
         $0.clipsToBounds = true
     }
     
-    private let titleLabel = UILabel().then {
+    let titleLabel = UILabel().then {
         $0.text = "실시간 환율 정보를\n조회해보세요"
         $0.font = .pretendard(size: 20, weight: .semibold)
         $0.numberOfLines = 2
@@ -49,6 +49,7 @@ final class HomeView: BaseView {
     }
     
     let tableView = UITableView().then {
+        $0.bounces = false
         $0.separatorStyle = .none
         $0.showsVerticalScrollIndicator = false
     }
