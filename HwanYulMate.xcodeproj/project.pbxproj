@@ -16,6 +16,8 @@
 		37426A8E2E62C534000A7C74 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A8D2E62C534000A7C74 /* NotificationViewController.swift */; };
 		37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A8F2E62D571000A7C74 /* HomeReactor.swift */; };
 		37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A912E62E511000A7C74 /* NotificationReactor.swift */; };
+		37426A952E62EC49000A7C74 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A942E62EC49000A7C74 /* NotificationSettingViewController.swift */; };
+		37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A962E62EC69000A7C74 /* NotificationSettingView.swift */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
 		37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C50F2E5B454A00D9D687 /* SnapKit */; };
@@ -59,6 +61,8 @@
 		37426A8D2E62C534000A7C74 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		37426A8F2E62D571000A7C74 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReactor.swift; sourceTree = "<group>"; };
 		37426A912E62E511000A7C74 /* NotificationReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationReactor.swift; sourceTree = "<group>"; };
+		37426A942E62EC49000A7C74 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
+		37426A962E62EC69000A7C74 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
 		37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37D1B11F2E5DB9A9000732A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		37E1C4F62E5B444500D9D687 /* HwanYulMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HwanYulMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,15 @@
 				37426A912E62E511000A7C74 /* NotificationReactor.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		37426A932E62EBD5000A7C74 /* NotificationSetting */ = {
+			isa = PBXGroup;
+			children = (
+				37426A962E62EC69000A7C74 /* NotificationSettingView.swift */,
+				37426A942E62EC49000A7C74 /* NotificationSettingViewController.swift */,
+			);
+			path = NotificationSetting;
 			sourceTree = "<group>";
 		};
 		37D1B11C2E5DB97F000732A3 /* Login */ = {
@@ -190,6 +203,7 @@
 				37D1B11C2E5DB97F000732A3 /* Login */,
 				37E1C5432E5B4EE600D9D687 /* Home */,
 				37426A882E62C4F6000A7C74 /* Notification */,
+				37426A932E62EBD5000A7C74 /* NotificationSetting */,
 				37E1C5442E5B4FC100D9D687 /* Util */,
 			);
 			path = Presentation;
@@ -372,6 +386,7 @@
 				37E1C5592E5C58B500D9D687 /* UIFont+Extension.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */,
+				37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */,
 				3728CAF92E5DA4F600D3DC98 /* SplashViewController.swift in Sources */,
 				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
@@ -386,6 +401,7 @@
 				37E1C54B2E5B522A00D9D687 /* BaseTableViewCell.swift in Sources */,
 				37E1C5402E5B4E9000D9D687 /* HomeViewController.swift in Sources */,
 				37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */,
+				37426A952E62EC49000A7C74 /* NotificationSettingViewController.swift in Sources */,
 				37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
