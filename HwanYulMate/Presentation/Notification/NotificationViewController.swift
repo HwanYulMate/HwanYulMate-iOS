@@ -40,6 +40,27 @@ final class NotificationViewController: UIViewController, View {
     
     // MARK: - methods
     private func configureUI() {
+        configureTableView()
+        configureNavigation()
+    }
+    
+    private func configureTableView() {
+        notificationView.tableView.register(
+            NotificationHeaderView.self,
+            forHeaderFooterViewReuseIdentifier: NotificationHeaderView.identifier
+        )
+        
+        notificationView.tableView.register(
+            NotificationCell.self,
+            forCellReuseIdentifier: NotificationCell.identifier
+        )
+        
+        notificationView.tableView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
+    }
+    
+    private func configureNavigation() {
         navigationItem.titleView = notificationView.navigationTitleLabel
         navigationItem.leftBarButtonItem = notificationView.backBarButtonItem
     }
@@ -56,5 +77,20 @@ final class NotificationViewController: UIViewController, View {
                 owner.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - extensions
+extension NotificationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: NotificationHeaderView.identifier
+        ) as? NotificationHeaderView else { return UITableViewHeaderFooterView() }
+        
+        return headerView
     }
 }
