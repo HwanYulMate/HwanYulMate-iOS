@@ -37,6 +37,7 @@ final class HomeView: BaseView {
     private let notificationLabel = UILabel().then {
         $0.text = "환율 알림 설정하기"
         $0.font = .pretendard(size: 16, weight: .medium)
+        $0.textColor = .gray900
     }
     
     private let notificationArrowImageView = UIImageView().then {

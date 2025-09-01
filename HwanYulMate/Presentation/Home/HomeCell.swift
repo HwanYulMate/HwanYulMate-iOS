@@ -18,6 +18,7 @@ final class HomeCell: BaseTableViewCell {
     
     private let currencyNameLabel = UILabel().then {
         $0.font = .pretendard(size: 16, weight: .medium)
+        $0.textColor = .gray900
     }
     
     private let rateStackView = UIStackView().then {
@@ -29,6 +30,7 @@ final class HomeCell: BaseTableViewCell {
     
     private let exchangeRateLabel = UILabel().then {
         $0.font = .pretendard(size: 16, weight: .medium)
+        $0.textColor = .gray900
         $0.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
