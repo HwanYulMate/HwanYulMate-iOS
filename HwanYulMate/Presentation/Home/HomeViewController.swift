@@ -71,7 +71,7 @@ final class HomeViewController: UIViewController, View {
         reactor.action
             .filter { $0 == .tapNotificationButton }
             .bind(with: self) { owner, _ in
-                let notificationVC = NotificationViewController()
+                let notificationVC = NotificationViewController(reactor: NotificationReactor())
                 notificationVC.hidesBottomBarWhenPushed = true
                 owner.navigationController?.pushViewController(notificationVC, animated: true)
             }
