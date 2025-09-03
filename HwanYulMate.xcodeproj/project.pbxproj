@@ -293,13 +293,13 @@
 			buildConfigurationList = 37E1C5092E5B444600D9D687 /* Build configuration list for PBXNativeTarget "HwanYulMate" */;
 			buildPhases = (
 				37E1C4F22E5B444500D9D687 /* Sources */,
+				D63D2BBE2E609B5E00BE8327 /* Run SwiftLint */,
 				37E1C4F32E5B444500D9D687 /* Frameworks */,
 				37E1C4F42E5B444500D9D687 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				37E1C5372E5B4CA400D9D687 /* PBXTargetDependency */,
 			);
 			name = HwanYulMate;
 			packageProductDependencies = (
@@ -383,6 +383,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D63D2BBE2E609B5E00BE8327 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		37E1C4F22E5B444500D9D687 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -415,13 +437,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		37E1C5372E5B4CA400D9D687 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 37E1C5362E5B4CA400D9D687 /* SwiftLintBuildToolPlugin */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		37E1C5292E5B4B5200D9D687 /* LaunchScreen.storyboard */ = {
@@ -537,7 +552,7 @@
 				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -601,7 +616,7 @@
 				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -750,11 +765,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37E1C5222E5B45FA00D9D687 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
-		};
-		37E1C5362E5B4CA400D9D687 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 37E1C5352E5B4C7200D9D687 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
