@@ -77,7 +77,7 @@ final class LoginView: BaseView {
         config.attributedTitle?.font = UIFont.pretendard(size: 19, weight: .medium)
         config.attributedTitle?.foregroundColor = UIColor.loginText
         config.background.strokeWidth = 1
-        config.background.strokeColor = .gray900
+        config.background.strokeColor = .loginButtonLine
         config.background.cornerRadius = 10
         button.configuration = config
         button.configurationUpdateHandler = { btn in

@@ -19,7 +19,7 @@ final class TabBarViewController: UITabBarController {
     
     // MARK: - methods
     private func configureTabBarController() {
-        let homeVC = UINavigationController(rootViewController: HomeViewController())
+        let homeVC = UINavigationController(rootViewController: HomeViewController(reactor: HomeReactor()))
         homeVC.tabBarItem = UITabBarItem(title: "환율", image: .exchangeRate, tag: 0)
         
         setViewControllers([homeVC], animated: true)
