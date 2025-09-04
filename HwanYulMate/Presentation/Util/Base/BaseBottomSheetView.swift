@@ -44,7 +44,7 @@ class BaseBottomSheetView: BaseView {
         }
     }
     
-    private let buttonStackView = UIStackView().then {
+    let buttonStackView = UIStackView().then {
         $0.spacing = 12
         $0.distribution = .fillEqually
     }
