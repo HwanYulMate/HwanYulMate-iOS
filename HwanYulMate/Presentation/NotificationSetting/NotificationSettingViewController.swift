@@ -69,7 +69,9 @@ final class NotificationSettingViewController: UIViewController, View {
                 case .pop:
                     owner.navigationController?.popViewController(animated: true)
                 case .targetRate:
-                    let targetRateBottomSheetViewController = TargetRateBottomSheetViewController()
+                    let targetRateBottomSheetViewController = TargetRateBottomSheetViewController(
+                        reactor: TargetRateBottomSheetReactor()
+                    )
                     targetRateBottomSheetViewController.modalPresentationStyle = .overFullScreen
                     owner.present(targetRateBottomSheetViewController, animated: false)
                 }
