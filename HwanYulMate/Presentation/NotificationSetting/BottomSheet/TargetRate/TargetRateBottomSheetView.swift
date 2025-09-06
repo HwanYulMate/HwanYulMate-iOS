@@ -12,6 +12,20 @@ import Then
 final class TargetRateBottomSheetView: BaseBottomSheetView {
     
     // MARK: - properties
+    private let backgroundView = UIView().then {
+        $0.backgroundColor = .modalBackdrop
+    }
+    
+    let containerView = UIView().then {
+        $0.clipsToBounds = true
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 20
+        $0.layer.maskedCorners = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner
+        ]
+    }
+    
     private let titleLabel = UILabel().then {
         $0.font = .pretendard(size: 18, weight: .semibold)
         $0.textColor = .gray900
@@ -26,7 +40,8 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
     lazy var textField = UITextField().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textColor = .gray900
-        $0.leftView = paddingLeftView
+        $0.tintColor = .cursor
+        $0.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
         $0.rightView = unitContainerView
         $0.leftViewMode = .always
         $0.rightViewMode = .always
@@ -35,18 +50,9 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray100.cgColor
         $0.layer.cornerRadius = 6
-        $0.attributedPlaceholder = NSAttributedString(
-            string: "임시로 알려드려요",
-            attributes: [
-                .foregroundColor: UIColor.gray400,
-                .font: UIFont.pretendard(size: 14, weight: .medium)
-            ]
-        )
     }
     
-    private let paddingLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
-    
-    private lazy var unitContainerView = UIView()
+    private let unitContainerView = UIView()
     
     private let unitLabel = UILabel().then {
         $0.text = "원"
@@ -55,34 +61,51 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
     }
     
     // MARK: - methods
+    override func configureUI() {
+        backgroundColor = .clear
+    }
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        titleLabel.text = "1 USD 가 얼마가 됐을 때 알려드릴까요?"
-        
-        addSubview(titleLabel)
-        addSubview(bodyLabel)
-        addSubview(textField)
+        addSubview(backgroundView)
+        addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(bodyLabel)
+        containerView.addSubview(textField)
+        containerView.addSubview(buttonStackView)
         unitContainerView.addSubview(unitLabel)
     }
     
     override func configureConstraints() {
-        super.configureConstraints()
+        backgroundView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        containerView.snp.makeConstraints {
+            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.height.equalTo(290)
+        }
         
         titleLabel.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(28)
-            $0.bottom.equalTo(bodyLabel.snp.top).offset(-12)
+            $0.top.equalToSuperview().offset(32)
+            $0.horizontalEdges.equalToSuperview().inset(28)
         }
         
         bodyLabel.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(28)
-            $0.bottom.equalTo(textField.snp.top).offset(-24)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+            $0.horizontalEdges.equalToSuperview().inset(28)
         }
         
         textField.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(24)
-            $0.bottom.equalTo(buttonStackView.snp.top).offset(-36)
+            $0.top.equalTo(bodyLabel.snp.bottom).offset(24)
+            $0.horizontalEdges.equalToSuperview().inset(24)
             $0.height.equalTo(44)
+        }
+        
+        buttonStackView.snp.makeConstraints {
+            $0.top.equalTo(textField.snp.bottom).offset(36)
+            $0.horizontalEdges.equalToSuperview().inset(24)
         }
         
         unitLabel.snp.makeConstraints {
