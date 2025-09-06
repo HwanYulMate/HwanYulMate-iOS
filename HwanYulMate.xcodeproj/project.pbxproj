@@ -24,6 +24,7 @@
 		37426AE02E69BE25000A7C74 /* TargetRateBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426ADF2E69BE25000A7C74 /* TargetRateBottomSheetView.swift */; };
 		37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AE12E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift */; };
 		37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */; };
+		37426AE72E6B582A000A7C74 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
 		37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C50F2E5B454A00D9D687 /* SnapKit */; };
@@ -112,6 +113,7 @@
 				37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */,
 				37E1C5212E5B45CB00D9D687 /* Kingfisher in Frameworks */,
 				37E1C51B2E5B45AB00D9D687 /* RxSwift in Frameworks */,
+				37426AE72E6B582A000A7C74 /* IQKeyboardManagerSwift in Frameworks */,
 				37E1C5192E5B45AB00D9D687 /* RxCocoa in Frameworks */,
 				37E1C51E2E5B45BB00D9D687 /* ReactorKit in Frameworks */,
 				37E1C5132E5B455900D9D687 /* Then in Frameworks */,
@@ -339,6 +341,7 @@
 				37E1C51D2E5B45BB00D9D687 /* ReactorKit */,
 				37E1C5202E5B45CB00D9D687 /* Kingfisher */,
 				37E1C5232E5B45FA00D9D687 /* DGCharts */,
+				37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */,
 			);
 			productName = HwanYulMate;
 			productReference = 37E1C4F62E5B444500D9D687 /* HwanYulMate.app */;
@@ -377,6 +380,7 @@
 				37E1C51F2E5B45CB00D9D687 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				37E1C5222E5B45FA00D9D687 /* XCRemoteSwiftPackageReference "Charts" */,
 				37E1C5352E5B4C7200D9D687 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 37E1C4F72E5B444500D9D687 /* Products */;
@@ -691,6 +695,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.1;
+			};
+		};
 		37E1C50E2E5B454A00D9D687 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -758,6 +770,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		37E1C50F2E5B454A00D9D687 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37E1C50E2E5B454A00D9D687 /* XCRemoteSwiftPackageReference "SnapKit" */;
