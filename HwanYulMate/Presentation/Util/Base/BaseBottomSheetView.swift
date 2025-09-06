@@ -51,15 +51,7 @@ class BaseBottomSheetView: BaseView {
     
     // MARK: - methods
     override func configureHierarchy() {
-        addSubview(buttonStackView)
         buttonStackView.addArrangedSubview(leadingButton)
         buttonStackView.addArrangedSubview(trailingButton)
-    }
-    
-    override func configureConstraints() {
-        buttonStackView.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(24)
-            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
-        }
     }
 }
