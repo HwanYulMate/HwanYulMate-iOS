@@ -60,6 +60,12 @@ final class NotificationSettingViewController: UIViewController, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        notificationSettingView.scheduleSwitch.rx.isOn
+            .changed
+            .map { _ in NotificationSettingReactor.Action.tapScheduleSwitch }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.route }
             .bind(with: self) { owner, route in
@@ -73,6 +79,11 @@ final class NotificationSettingViewController: UIViewController, View {
                     targetRateBottomSheetViewController.reactor = TargetRateBottomSheetReactor()
                     targetRateBottomSheetViewController.modalPresentationStyle = .overFullScreen
                     owner.present(targetRateBottomSheetViewController, animated: false)
+                case .timeSelection:
+                    let timeSelectionBottomSheetViewController = TimeSelectionBottomSheetViewController()
+                    timeSelectionBottomSheetViewController.reactor = TimeSelectionBottomSheetReactor()
+                    timeSelectionBottomSheetViewController.modalPresentationStyle = .overFullScreen
+                    owner.present(timeSelectionBottomSheetViewController, animated: false)
                 }
             }
             .disposed(by: disposeBag)

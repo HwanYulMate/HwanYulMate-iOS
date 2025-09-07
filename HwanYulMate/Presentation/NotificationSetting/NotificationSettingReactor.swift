@@ -14,6 +14,7 @@ final class NotificationSettingReactor: Reactor {
     enum Action {
         case tapBackBarButtonItem
         case tapAlarmSwitch
+        case tapScheduleSwitch
     }
     
     enum Mutation {
@@ -27,6 +28,7 @@ final class NotificationSettingReactor: Reactor {
     enum Route {
         case pop
         case targetRate
+        case timeSelection
     }
     
     // MARK: - properties
@@ -39,6 +41,8 @@ final class NotificationSettingReactor: Reactor {
             return .just(.setRoute(.pop))
         case .tapAlarmSwitch:
             return .just(.setRoute(.targetRate))
+        case .tapScheduleSwitch:
+            return .just(.setRoute(.timeSelection))
         }
     }
     
