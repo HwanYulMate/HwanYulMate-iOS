@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import ReactorKit
+import RxCocoa
+import RxSwift
 
-class TargetRateBottomSheetViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+final class TargetRateBottomSheetViewController: UIViewController, View {
+    
+    // MARK: - properties
+    private let targetRateBottomSheetView = TargetRateBottomSheetView()
+    
+    var disposeBag = DisposeBag()
+    
+    // MARK: - life cycles
+    override func loadView() {
+        view = targetRateBottomSheetView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reactor?.action.onNext(.willAppearView)
     }
-    */
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        reactor?.action.onNext(.willDisappearView)
+    }
+    
+    // MARK: - methods
+    func bind(reactor: TargetRateBottomSheetReactor) {
+        reactor.state
+            .map { $0.keyboardDistance }
+            .bind { distance in
+                IQKeyboardManager.shared.keyboardDistance = distance
+            }
+            .disposed(by: disposeBag)
+    }
 }
