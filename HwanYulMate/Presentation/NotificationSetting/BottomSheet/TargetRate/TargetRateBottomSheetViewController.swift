@@ -43,6 +43,16 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
     
     // MARK: - methods
     func bind(reactor: TargetRateBottomSheetReactor) {
+        targetRateBottomSheetView.leadingButton.rx.tap
+            .map { TargetRateBottomSheetReactor.Action.tapLeadingButton }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        targetRateBottomSheetView.trailingButton.rx.tap
+            .map { TargetRateBottomSheetReactor.Action.tapTrailingButton }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.keyboardDistance }
             .bind { distance in
@@ -52,11 +62,15 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
         
         reactor.state
             .map { $0.containerBottomConstraint }
+            .distinctUntilChanged()
             .bind(with: self) { owner, constraint in
-                owner.targetRateBottomSheetView.containerBottomConstraint?.update(offset: constraint)
-                
                 UIView.animate(withDuration: 0.3) {
+                    owner.targetRateBottomSheetView.containerBottomConstraint?.update(offset: constraint)
                     owner.view.layoutIfNeeded()
+                } completion: { completion in
+                    if constraint == 290 && completion {
+                        owner.dismiss(animated: false)
+                    }
                 }
             }
             .disposed(by: disposeBag)
