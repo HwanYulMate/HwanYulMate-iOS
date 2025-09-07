@@ -12,20 +12,6 @@ import Then
 final class TargetRateBottomSheetView: BaseBottomSheetView {
     
     // MARK: - properties
-    private let backgroundView = UIView().then {
-        $0.backgroundColor = .modalBackdrop
-    }
-    
-    let containerView = UIView().then {
-        $0.clipsToBounds = true
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 20
-        $0.layer.maskedCorners = [
-            .layerMinXMinYCorner,
-            .layerMaxXMinYCorner
-        ]
-    }
-    
     private let titleLabel = UILabel().then {
         $0.font = .pretendard(size: 18, weight: .semibold)
         $0.textColor = .gray900
@@ -60,8 +46,6 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
         $0.textColor = .gray500
     }
     
-    var containerBottomConstraint: Constraint?
-    
     // MARK: - methods
     override func configureUI() {
         backgroundColor = .clear
@@ -70,8 +54,6 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        addSubview(backgroundView)
-        addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(bodyLabel)
         containerView.addSubview(textField)
@@ -80,15 +62,7 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
     }
     
     override func configureConstraints() {
-        backgroundView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        containerView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview()
-            containerBottomConstraint = $0.bottom.equalToSuperview().offset(290).constraint
-            $0.height.equalTo(290)
-        }
+        super.configureConstraints()
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(32)

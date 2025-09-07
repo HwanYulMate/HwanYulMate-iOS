@@ -12,6 +12,20 @@ import Then
 class BaseBottomSheetView: BaseView {
     
     // MARK: - properties
+    private let backgroundView = UIView().then {
+        $0.backgroundColor = .modalBackdrop
+    }
+    
+    let containerView = UIView().then {
+        $0.clipsToBounds = true
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 20
+        $0.layer.maskedCorners = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner
+        ]
+    }
+    
     let leadingButton = UIButton().then {
         var config = UIButton.Configuration.filled()
         config.contentInsets = .init(top: 16, leading: 0, bottom: 16, trailing: 0)
@@ -49,9 +63,25 @@ class BaseBottomSheetView: BaseView {
         $0.distribution = .fillEqually
     }
     
+    var containerBottomConstraint: Constraint?
+    
     // MARK: - methods
     override func configureHierarchy() {
+        addSubview(backgroundView)
+        addSubview(containerView)
         buttonStackView.addArrangedSubview(leadingButton)
         buttonStackView.addArrangedSubview(trailingButton)
+    }
+    
+    override func configureConstraints() {
+        backgroundView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        containerView.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview()
+            containerBottomConstraint = $0.bottom.equalToSuperview().offset(290).constraint
+            $0.height.equalTo(290)
+        }
     }
 }
