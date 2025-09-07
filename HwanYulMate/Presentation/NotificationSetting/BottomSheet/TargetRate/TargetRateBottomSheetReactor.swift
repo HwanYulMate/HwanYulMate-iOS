@@ -14,14 +14,17 @@ final class TargetRateBottomSheetReactor: Reactor {
     enum Action {
         case willAppearView
         case willDisappearView
+        case didAppearView
     }
     
     enum Mutation {
         case updateKeyboardDistance(CGFloat)
+        case updateContainerBottomConstraint(Float)
     }
     
     struct State {
         var keyboardDistance: CGFloat = 10
+        var containerBottomConstraint: Float = 290
     }
     
     // MARK: - properties
@@ -34,6 +37,8 @@ final class TargetRateBottomSheetReactor: Reactor {
             return .just(.updateKeyboardDistance(50))
         case .willDisappearView:
             return .just(.updateKeyboardDistance(10))
+        case .didAppearView:
+            return .just(.updateContainerBottomConstraint(0.0))
         }
     }
     
@@ -43,6 +48,8 @@ final class TargetRateBottomSheetReactor: Reactor {
         switch mutation {
         case .updateKeyboardDistance(let distance):
             newState.keyboardDistance = distance
+        case .updateContainerBottomConstraint(let constraint):
+            newState.containerBottomConstraint = constraint
         }
         
         return newState

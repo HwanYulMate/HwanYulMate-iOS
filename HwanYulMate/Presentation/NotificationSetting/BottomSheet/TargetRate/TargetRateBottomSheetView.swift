@@ -60,6 +60,8 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
         $0.textColor = .gray500
     }
     
+    var containerBottomConstraint: Constraint?
+    
     // MARK: - methods
     override func configureUI() {
         backgroundColor = .clear
@@ -83,7 +85,8 @@ final class TargetRateBottomSheetView: BaseBottomSheetView {
         }
         
         containerView.snp.makeConstraints {
-            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            containerBottomConstraint = $0.bottom.equalToSuperview().offset(290).constraint
             $0.height.equalTo(290)
         }
         

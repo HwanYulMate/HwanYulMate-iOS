@@ -35,12 +35,29 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
         reactor?.action.onNext(.willDisappearView)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reactor?.action.onNext(.didAppearView)
+    }
+    
     // MARK: - methods
     func bind(reactor: TargetRateBottomSheetReactor) {
         reactor.state
             .map { $0.keyboardDistance }
             .bind { distance in
                 IQKeyboardManager.shared.keyboardDistance = distance
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.containerBottomConstraint }
+            .bind(with: self) { owner, constraint in
+                owner.targetRateBottomSheetView.containerBottomConstraint?.update(offset: constraint)
+                
+                UIView.animate(withDuration: 0.3) {
+                    owner.view.layoutIfNeeded()
+                }
             }
             .disposed(by: disposeBag)
     }
