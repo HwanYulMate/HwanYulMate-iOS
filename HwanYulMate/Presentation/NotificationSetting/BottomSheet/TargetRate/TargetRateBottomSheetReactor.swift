@@ -20,15 +20,17 @@ final class TargetRateBottomSheetReactor: Reactor {
     }
     
     enum Mutation {
+        case setRoute(Route)
+        case setContainerHeightConstraint(Float)
         case updateKeyboardDistance(CGFloat)
         case updateContainerBottomConstraint(Float)
-        case setRoute(Route)
     }
     
     struct State {
+        var route: Route?
         var keyboardDistance: CGFloat = 10
         var containerBottomConstraint: Float = 290
-        var route: Route?
+        var containerHeightConstraint: Float = 290
     }
     
     enum Route {
@@ -46,11 +48,14 @@ final class TargetRateBottomSheetReactor: Reactor {
         case .willDisappearView:
             return .just(.updateKeyboardDistance(10))
         case .didAppearView:
-            return .just(.updateContainerBottomConstraint(0.0))
+            return .merge(
+                .just(.setContainerHeightConstraint(290)),
+                .just(.updateContainerBottomConstraint(0.0))
+            )
         case .tapLeadingButton:
             return .merge(
                 .just(.updateKeyboardDistance(10)),
-                .just(.updateContainerBottomConstraint(290)),
+                .just(.updateContainerBottomConstraint(290))
             )
         case .tapTrailingButton:
             return .just(.setRoute(.dismiss))
@@ -61,12 +66,14 @@ final class TargetRateBottomSheetReactor: Reactor {
         var newState = state
         
         switch mutation {
+        case .setRoute(let route):
+            newState.route = route
+        case .setContainerHeightConstraint(let constraint):
+            newState.containerHeightConstraint = constraint
         case .updateKeyboardDistance(let distance):
             newState.keyboardDistance = distance
         case .updateContainerBottomConstraint(let constraint):
             newState.containerBottomConstraint = constraint
-        case .setRoute(let route):
-            newState.route = route
         }
         
         return newState

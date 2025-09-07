@@ -64,6 +64,7 @@ class BaseBottomSheetView: BaseView {
     }
     
     var containerBottomConstraint: Constraint?
+    var containerHeightConstraint: Constraint?
     
     // MARK: - methods
     override func configureHierarchy() {
@@ -80,8 +81,8 @@ class BaseBottomSheetView: BaseView {
         
         containerView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            containerBottomConstraint = $0.bottom.equalToSuperview().offset(290).constraint
-            $0.height.equalTo(290)
+            containerBottomConstraint = $0.bottom.equalToSuperview().constraint
+            containerHeightConstraint = $0.height.equalTo(0).constraint
         }
     }
 }

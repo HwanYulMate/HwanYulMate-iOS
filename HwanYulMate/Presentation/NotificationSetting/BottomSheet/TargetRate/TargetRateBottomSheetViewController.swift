@@ -74,5 +74,12 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
                 }
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.containerHeightConstraint }
+            .bind(with: self) { owner, constraint in
+                owner.targetRateBottomSheetView.containerHeightConstraint?.update(offset: constraint)
+            }
+            .disposed(by: disposeBag)
     }
 }
