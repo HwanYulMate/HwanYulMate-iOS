@@ -13,6 +13,8 @@ final class TimeSelectionBottomSheetReactor: Reactor {
     // MARK: - nested types
     enum Action {
         case didAppearView
+        case tapLeadingButton
+        case tapTrailingButton
     }
     
     enum Mutation {
@@ -21,13 +23,8 @@ final class TimeSelectionBottomSheetReactor: Reactor {
     }
     
     struct State {
-        var route: Route?
         var containerBottomConstraint: Float = 385
         var containerHeightConstraint: Float = 385
-    }
-    
-    enum Route {
-        case dismiss
     }
     
     // MARK: - properties
@@ -41,6 +38,10 @@ final class TimeSelectionBottomSheetReactor: Reactor {
                 .just(.setContainerHeightConstraint(385)),
                 .just(.updateContainerBottomConstraint(0.0))
             )
+        case .tapLeadingButton:
+            return .just(.updateContainerBottomConstraint(385))
+        case .tapTrailingButton:
+            return .just(.updateContainerBottomConstraint(385))
         }
     }
     

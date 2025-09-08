@@ -30,6 +30,16 @@ final class TimeSelectionBottomSheetViewController: UIViewController, View {
     
     // MARK: - methods
     func bind(reactor: TimeSelectionBottomSheetReactor) {
+        timeSelectionBottomSheetView.leadingButton.rx.tap
+            .map { TimeSelectionBottomSheetReactor.Action.tapLeadingButton }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        timeSelectionBottomSheetView.trailingButton.rx.tap
+            .map { TimeSelectionBottomSheetReactor.Action.tapTrailingButton }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.containerBottomConstraint }
             .distinctUntilChanged()
@@ -37,6 +47,10 @@ final class TimeSelectionBottomSheetViewController: UIViewController, View {
                 UIView.animate(withDuration: 0.3) {
                     owner.timeSelectionBottomSheetView.containerBottomConstraint?.update(offset: constraint)
                     owner.view.layoutIfNeeded()
+                } completion: { completion in
+                    if constraint == 385 && completion {
+                        owner.dismiss(animated: false)
+                    }
                 }
             }
             .disposed(by: disposeBag)
