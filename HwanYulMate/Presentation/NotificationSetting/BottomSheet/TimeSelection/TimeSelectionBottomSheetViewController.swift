@@ -6,24 +6,46 @@
 //
 
 import UIKit
+import ReactorKit
+import RxCocoa
+import RxSwift
 
-class TimeSelectionBottomSheetViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+final class TimeSelectionBottomSheetViewController: UIViewController, View {
+    
+    // MARK: - properties
+    private let timeSelectionBottomSheetView = TimeSelectionBottomSheetView()
+    
+    var disposeBag = DisposeBag()
+    
+    // MARK: - life cycles
+    override func loadView() {
+        view = timeSelectionBottomSheetView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reactor?.action.onNext(.didAppearView)
     }
-    */
-
+    
+    // MARK: - methods
+    func bind(reactor: TimeSelectionBottomSheetReactor) {
+        reactor.state
+            .map { $0.containerBottomConstraint }
+            .distinctUntilChanged()
+            .bind(with: self) { owner, constraint in
+                UIView.animate(withDuration: 0.3) {
+                    owner.timeSelectionBottomSheetView.containerBottomConstraint?.update(offset: constraint)
+                    owner.view.layoutIfNeeded()
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.containerHeightConstraint }
+            .bind(with: self) { owner, constraint in
+                owner.timeSelectionBottomSheetView.containerHeightConstraint?.update(offset: constraint)
+            }
+            .disposed(by: disposeBag)
+    }
 }
