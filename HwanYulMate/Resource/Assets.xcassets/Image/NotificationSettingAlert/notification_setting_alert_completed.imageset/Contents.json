@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "notification_setting_alert_completed.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
