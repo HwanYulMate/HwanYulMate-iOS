@@ -1,24 +1,22 @@
 //
-//  NotificationSettingReactor.swift
+//  NotificationSettingAlertReactor.swift
 //  HwanYulMate
 //
-//  Created by 김정호 on 9/1/25.
+//  Created by 김정호 on 9/9/25.
 //
 
 import Foundation
 import ReactorKit
 
-final class NotificationSettingReactor: Reactor {
+final class NotificationSettingAlertReactor: Reactor {
     
     // MARK: - nested types
     enum Action {
-        case tapBackBarButtonItem
-        case tapAlarmSwitch
-        case tapScheduleSwitch
+        case tapDoneButton
     }
     
     enum Mutation {
-        case setRoute(Route)
+        case setRoute(Route?)
     }
     
     struct State {
@@ -26,9 +24,7 @@ final class NotificationSettingReactor: Reactor {
     }
     
     enum Route {
-        case pop
-        case targetRate
-        case timeSelection
+        case dismiss
     }
     
     // MARK: - properties
@@ -37,12 +33,8 @@ final class NotificationSettingReactor: Reactor {
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .tapBackBarButtonItem:
-            return .just(.setRoute(.pop))
-        case .tapAlarmSwitch:
-            return .just(.setRoute(.targetRate))
-        case .tapScheduleSwitch:
-            return .just(.setRoute(.timeSelection))
+        case .tapDoneButton:
+            return .just(.setRoute(.dismiss))
         }
     }
     
@@ -50,7 +42,7 @@ final class NotificationSettingReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case let .setRoute(route):
+        case .setRoute(let route):
             newState.route = route
         }
         

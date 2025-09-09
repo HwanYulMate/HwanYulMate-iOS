@@ -54,10 +54,37 @@ final class NotificationSettingViewController: UIViewController, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        reactor.action
-            .filter { $0 == .tapBackBarButtonItem }
-            .bind(with: self) { owner, _ in
-                owner.navigationController?.popViewController(animated: true)
+        notificationSettingView.alarmSwitch.rx.isOn
+            .changed
+            .map { _ in NotificationSettingReactor.Action.tapAlarmSwitch }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        notificationSettingView.scheduleSwitch.rx.isOn
+            .changed
+            .map { _ in NotificationSettingReactor.Action.tapScheduleSwitch }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.route }
+            .bind(with: self) { owner, route in
+                guard let route else { return }
+                
+                switch route {
+                case .pop:
+                    owner.navigationController?.popViewController(animated: true)
+                case .targetRate:
+                    let targetRateBottomSheetViewController = TargetRateBottomSheetViewController()
+                    targetRateBottomSheetViewController.reactor = TargetRateBottomSheetReactor()
+                    targetRateBottomSheetViewController.modalPresentationStyle = .overFullScreen
+                    owner.present(targetRateBottomSheetViewController, animated: false)
+                case .timeSelection:
+                    let timeSelectionBottomSheetViewController = TimeSelectionBottomSheetViewController()
+                    timeSelectionBottomSheetViewController.reactor = TimeSelectionBottomSheetReactor()
+                    timeSelectionBottomSheetViewController.modalPresentationStyle = .overFullScreen
+                    owner.present(timeSelectionBottomSheetViewController, animated: false)
+                }
             }
             .disposed(by: disposeBag)
     }

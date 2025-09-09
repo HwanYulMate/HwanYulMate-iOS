@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		3728CAF92E5DA4F600D3DC98 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3728CAF82E5DA4F600D3DC98 /* SplashViewController.swift */; };
 		3728CAFB2E5DA4FE00D3DC98 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3728CAFA2E5DA4FE00D3DC98 /* SplashView.swift */; };
+		37423E0B2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E0A2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift */; };
+		37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E0C2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift */; };
+		37423E0F2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E0E2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift */; };
+		37423E142E6F44A400BE4D46 /* NotificationSettingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E132E6F44A400BE4D46 /* NotificationSettingAlertView.swift */; };
+		37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E152E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift */; };
+		37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */; };
 		37426A832E604D00000A7C74 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A822E604D00000A7C74 /* HomeCell.swift */; };
 		37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A842E617A1D000A7C74 /* UILabel+Extension.swift */; };
 		37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A892E62C518000A7C74 /* NotificationCell.swift */; };
@@ -20,6 +26,11 @@
 		37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A962E62EC69000A7C74 /* NotificationSettingView.swift */; };
 		37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AAC2E64995B000A7C74 /* NotificationHeaderView.swift */; };
 		37426AAF2E65A222000A7C74 /* NotificationSettingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AAE2E65A222000A7C74 /* NotificationSettingReactor.swift */; };
+		37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AD92E687AA4000A7C74 /* BaseBottomSheetView.swift */; };
+		37426AE02E69BE25000A7C74 /* TargetRateBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426ADF2E69BE25000A7C74 /* TargetRateBottomSheetView.swift */; };
+		37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AE12E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift */; };
+		37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */; };
+		37426AE72E6B582A000A7C74 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
 		37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C50F2E5B454A00D9D687 /* SnapKit */; };
@@ -56,6 +67,12 @@
 /* Begin PBXFileReference section */
 		3728CAF82E5DA4F600D3DC98 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		3728CAFA2E5DA4FE00D3DC98 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		37423E0A2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionBottomSheetView.swift; sourceTree = "<group>"; };
+		37423E0C2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionBottomSheetViewController.swift; sourceTree = "<group>"; };
+		37423E0E2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionBottomSheetReactor.swift; sourceTree = "<group>"; };
+		37423E132E6F44A400BE4D46 /* NotificationSettingAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertView.swift; sourceTree = "<group>"; };
+		37423E152E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertViewController.swift; sourceTree = "<group>"; };
+		37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertReactor.swift; sourceTree = "<group>"; };
 		37426A822E604D00000A7C74 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		37426A842E617A1D000A7C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37426A892E62C518000A7C74 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -67,6 +84,10 @@
 		37426A962E62EC69000A7C74 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
 		37426AAC2E64995B000A7C74 /* NotificationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHeaderView.swift; sourceTree = "<group>"; };
 		37426AAE2E65A222000A7C74 /* NotificationSettingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingReactor.swift; sourceTree = "<group>"; };
+		37426AD92E687AA4000A7C74 /* BaseBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBottomSheetView.swift; sourceTree = "<group>"; };
+		37426ADF2E69BE25000A7C74 /* TargetRateBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRateBottomSheetView.swift; sourceTree = "<group>"; };
+		37426AE12E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRateBottomSheetViewController.swift; sourceTree = "<group>"; };
+		37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRateBottomSheetReactor.swift; sourceTree = "<group>"; };
 		37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37D1B11F2E5DB9A9000732A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		37E1C4F62E5B444500D9D687 /* HwanYulMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HwanYulMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +125,7 @@
 				37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */,
 				37E1C5212E5B45CB00D9D687 /* Kingfisher in Frameworks */,
 				37E1C51B2E5B45AB00D9D687 /* RxSwift in Frameworks */,
+				37426AE72E6B582A000A7C74 /* IQKeyboardManagerSwift in Frameworks */,
 				37E1C5192E5B45AB00D9D687 /* RxCocoa in Frameworks */,
 				37E1C51E2E5B45BB00D9D687 /* ReactorKit in Frameworks */,
 				37E1C5132E5B455900D9D687 /* Then in Frameworks */,
@@ -120,6 +142,26 @@
 				3728CAF82E5DA4F600D3DC98 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		37423E092E6E078500BE4D46 /* TimeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				37423E0A2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift */,
+				37423E0C2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift */,
+				37423E0E2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift */,
+			);
+			path = TimeSelection;
+			sourceTree = "<group>";
+		};
+		37423E122E6F430000BE4D46 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				37423E132E6F44A400BE4D46 /* NotificationSettingAlertView.swift */,
+				37423E152E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift */,
+				37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		37426A882E62C4F6000A7C74 /* Notification */ = {
@@ -140,8 +182,29 @@
 				37426A962E62EC69000A7C74 /* NotificationSettingView.swift */,
 				37426A942E62EC49000A7C74 /* NotificationSettingViewController.swift */,
 				37426AAE2E65A222000A7C74 /* NotificationSettingReactor.swift */,
+				37423E122E6F430000BE4D46 /* Alert */,
+				37426ADB2E69BD4A000A7C74 /* BottomSheet */,
 			);
 			path = NotificationSetting;
+			sourceTree = "<group>";
+		};
+		37426ADB2E69BD4A000A7C74 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				37426ADE2E69BDF3000A7C74 /* TargetRate */,
+				37423E092E6E078500BE4D46 /* TimeSelection */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		37426ADE2E69BDF3000A7C74 /* TargetRate */ = {
+			isa = PBXGroup;
+			children = (
+				37426ADF2E69BE25000A7C74 /* TargetRateBottomSheetView.swift */,
+				37426AE12E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift */,
+				37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */,
+			);
+			path = TargetRate;
 			sourceTree = "<group>";
 		};
 		37D1B11C2E5DB97F000732A3 /* Login */ = {
@@ -240,6 +303,7 @@
 			children = (
 				37E1C54A2E5B522A00D9D687 /* BaseTableViewCell.swift */,
 				37E1C5462E5B4FFA00D9D687 /* BaseView.swift */,
+				37426AD92E687AA4000A7C74 /* BaseBottomSheetView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -311,6 +375,7 @@
 				37E1C51D2E5B45BB00D9D687 /* ReactorKit */,
 				37E1C5202E5B45CB00D9D687 /* Kingfisher */,
 				37E1C5232E5B45FA00D9D687 /* DGCharts */,
+				37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */,
 			);
 			productName = HwanYulMate;
 			productReference = 37E1C4F62E5B444500D9D687 /* HwanYulMate.app */;
@@ -349,6 +414,7 @@
 				37E1C51F2E5B45CB00D9D687 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				37E1C5222E5B45FA00D9D687 /* XCRemoteSwiftPackageReference "Charts" */,
 				37E1C5352E5B4C7200D9D687 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 37E1C4F72E5B444500D9D687 /* Products */;
@@ -411,13 +477,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */,
+				37426AE02E69BE25000A7C74 /* TargetRateBottomSheetView.swift in Sources */,
 				37E1C5592E5C58B500D9D687 /* UIFont+Extension.swift in Sources */,
+				37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */,
+				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */,
 				37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */,
+				37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */,
+				37423E0B2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift in Sources */,
 				3728CAF92E5DA4F600D3DC98 /* SplashViewController.swift in Sources */,
 				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
+				37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
@@ -425,14 +497,18 @@
 				37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */,
 				37E1C52E2E5B4B5200D9D687 /* SceneDelegate.swift in Sources */,
 				3728CAFB2E5DA4FE00D3DC98 /* SplashView.swift in Sources */,
+				37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */,
 				37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */,
+				37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */,
 				37426AAF2E65A222000A7C74 /* NotificationSettingReactor.swift in Sources */,
+				37423E142E6F44A400BE4D46 /* NotificationSettingAlertView.swift in Sources */,
 				37426A8E2E62C534000A7C74 /* NotificationViewController.swift in Sources */,
 				37E1C54B2E5B522A00D9D687 /* BaseTableViewCell.swift in Sources */,
 				37E1C5402E5B4E9000D9D687 /* HomeViewController.swift in Sources */,
 				37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */,
 				37426A952E62EC49000A7C74 /* NotificationSettingViewController.swift in Sources */,
 				37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */,
+				37423E0F2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +735,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.1;
+			};
+		};
 		37E1C50E2E5B454A00D9D687 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -726,6 +810,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		37E1C50F2E5B454A00D9D687 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37E1C50E2E5B454A00D9D687 /* XCRemoteSwiftPackageReference "SnapKit" */;
