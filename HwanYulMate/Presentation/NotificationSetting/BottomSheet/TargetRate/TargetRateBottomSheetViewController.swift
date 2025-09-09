@@ -54,6 +54,23 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
             .disposed(by: disposeBag)
         
         reactor.state
+            .map { $0.route }
+            .bind(with: self) { owner, route in
+                guard let route else { return }
+                
+                switch route {
+                case .alert:
+                    let notificationSettingAlertViewController = NotificationSettingAlertViewController()
+                    notificationSettingAlertViewController.reactor = NotificationSettingAlertReactor()
+                    notificationSettingAlertViewController.modalPresentationStyle = .overFullScreen
+                    owner.present(notificationSettingAlertViewController, animated: false)
+                case .dismiss:
+                    break
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
             .map { $0.keyboardDistance }
             .bind { distance in
                 IQKeyboardManager.shared.keyboardDistance = distance

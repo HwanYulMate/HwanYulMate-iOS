@@ -20,7 +20,7 @@ final class TargetRateBottomSheetReactor: Reactor {
     }
     
     enum Mutation {
-        case setRoute(Route)
+        case setRoute(Route?)
         case setContainerHeightConstraint(Float)
         case updateKeyboardDistance(CGFloat)
         case updateContainerBottomConstraint(Float)
@@ -35,6 +35,7 @@ final class TargetRateBottomSheetReactor: Reactor {
     
     enum Route {
         case dismiss
+        case alert
     }
     
     // MARK: - properties
@@ -58,7 +59,11 @@ final class TargetRateBottomSheetReactor: Reactor {
                 .just(.updateContainerBottomConstraint(290))
             )
         case .tapTrailingButton:
-            return .just(.setRoute(.dismiss))
+            return .concat(
+                .just(.setRoute(.alert)),
+                .just(.updateKeyboardDistance(10)),
+                .just(.setRoute(nil)),
+            )
         }
     }
     
