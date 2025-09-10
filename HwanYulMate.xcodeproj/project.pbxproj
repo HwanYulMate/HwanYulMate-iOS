@@ -15,6 +15,10 @@
 		37423E142E6F44A400BE4D46 /* NotificationSettingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E132E6F44A400BE4D46 /* NotificationSettingAlertView.swift */; };
 		37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E152E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift */; };
 		37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */; };
+		37423E1B2E7038D000BE4D46 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1A2E7038D000BE4D46 /* HomeDetailView.swift */; };
+		37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */; };
+		37423E1F2E70391B00BE4D46 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */; };
+		37423E212E70393900BE4D46 /* HomeDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E202E70393900BE4D46 /* HomeDetailReactor.swift */; };
 		37426A832E604D00000A7C74 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A822E604D00000A7C74 /* HomeCell.swift */; };
 		37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A842E617A1D000A7C74 /* UILabel+Extension.swift */; };
 		37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A892E62C518000A7C74 /* NotificationCell.swift */; };
@@ -73,6 +77,10 @@
 		37423E132E6F44A400BE4D46 /* NotificationSettingAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertView.swift; sourceTree = "<group>"; };
 		37423E152E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertViewController.swift; sourceTree = "<group>"; };
 		37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertReactor.swift; sourceTree = "<group>"; };
+		37423E1A2E7038D000BE4D46 /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
+		37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailCell.swift; sourceTree = "<group>"; };
+		37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		37423E202E70393900BE4D46 /* HomeDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailReactor.swift; sourceTree = "<group>"; };
 		37426A822E604D00000A7C74 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		37426A842E617A1D000A7C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37426A892E62C518000A7C74 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -162,6 +170,17 @@
 				37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		37423E192E70388E00BE4D46 /* HomeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */,
+				37423E1A2E7038D000BE4D46 /* HomeDetailView.swift */,
+				37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */,
+				37423E202E70393900BE4D46 /* HomeDetailReactor.swift */,
+			);
+			path = HomeDetail;
 			sourceTree = "<group>";
 		};
 		37426A882E62C4F6000A7C74 /* Notification */ = {
@@ -271,6 +290,7 @@
 				3728CAF72E5DA4D000D3DC98 /* Splash */,
 				37D1B11C2E5DB97F000732A3 /* Login */,
 				37E1C5432E5B4EE600D9D687 /* Home */,
+				37423E192E70388E00BE4D46 /* HomeDetail */,
 				37426A882E62C4F6000A7C74 /* Notification */,
 				37426A932E62EBD5000A7C74 /* NotificationSetting */,
 				37E1C5442E5B4FC100D9D687 /* Util */,
@@ -482,17 +502,21 @@
 				37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */,
 				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
+				37423E1B2E7038D000BE4D46 /* HomeDetailView.swift in Sources */,
 				37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */,
 				37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */,
+				37423E212E70393900BE4D46 /* HomeDetailReactor.swift in Sources */,
 				37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */,
 				37423E0B2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift in Sources */,
 				3728CAF92E5DA4F600D3DC98 /* SplashViewController.swift in Sources */,
+				37423E1F2E70391B00BE4D46 /* HomeDetailViewController.swift in Sources */,
 				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
 				37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
+				37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
 				37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */,
 				37E1C52E2E5B4B5200D9D687 /* SceneDelegate.swift in Sources */,
