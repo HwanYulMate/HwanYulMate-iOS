@@ -30,7 +30,7 @@ final class HomeDetailView: BaseView {
         $0.showsVerticalScrollIndicator = false
     }
     
-    let exchangeAmountComparisonButton = UIButton().then {
+    let exchangeEstimateComparisonButton = UIButton().then {
         var config = UIButton.Configuration.filled()
         config.contentInsets = .init(top: 14, leading: 0, bottom: 14, trailing: 0)
         config.attributedTitle = "환전 예상 금액 비교"
@@ -48,7 +48,7 @@ final class HomeDetailView: BaseView {
     // MARK: - methods
     override func configureHierarchy() {
         addSubview(tableView)
-        addSubview(exchangeAmountComparisonButton)
+        addSubview(exchangeEstimateComparisonButton)
     }
     
     override func configureConstraints() {
@@ -56,7 +56,7 @@ final class HomeDetailView: BaseView {
             $0.edges.equalTo(safeAreaLayoutGuide)
         }
         
-        exchangeAmountComparisonButton.snp.makeConstraints {
+        exchangeEstimateComparisonButton.snp.makeConstraints {
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(32)
             $0.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
         }

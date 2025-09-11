@@ -52,6 +52,11 @@ final class HomeDetailViewController: UIViewController, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        homeDetailView.exchangeEstimateComparisonButton.rx.tap
+            .map { HomeDetailReactor.Action.tapExchangeEstimateComparisonButton }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         reactor.state
             .map { $0.route }
             .bind(with: self) { owner, route in
@@ -60,6 +65,11 @@ final class HomeDetailViewController: UIViewController, View {
                 switch route {
                 case .pop:
                     owner.navigationController?.popViewController(animated: true)
+                case .bottomSheet:
+                    let exchangeEstimateComparisonBottomSheetVC = ExchangeEstimateComparisonBottomSheetViewController()
+                    exchangeEstimateComparisonBottomSheetVC.reactor = ExchangeEstimateComparisonBottomSheetReactor()
+                    exchangeEstimateComparisonBottomSheetVC.modalPresentationStyle = .overFullScreen
+                    owner.present(exchangeEstimateComparisonBottomSheetVC, animated: false)
                 }
             }
             .disposed(by: disposeBag)

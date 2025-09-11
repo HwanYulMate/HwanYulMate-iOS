@@ -13,6 +13,7 @@ final class HomeDetailReactor: Reactor {
     // MARK: - nested types
     enum Action {
         case tapBackBarButtonItem
+        case tapExchangeEstimateComparisonButton
     }
     
     enum Mutation {
@@ -25,6 +26,7 @@ final class HomeDetailReactor: Reactor {
     
     enum Route {
         case pop
+        case bottomSheet
     }
     
     // MARK: - properties
@@ -35,6 +37,8 @@ final class HomeDetailReactor: Reactor {
         switch action {
         case .tapBackBarButtonItem:
             return .just(.setRoute(.pop))
+        case .tapExchangeEstimateComparisonButton:
+            return .just(.setRoute(.bottomSheet))
         }
     }
     

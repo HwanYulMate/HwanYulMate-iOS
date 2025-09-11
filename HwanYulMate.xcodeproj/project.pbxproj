@@ -19,6 +19,9 @@
 		37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */; };
 		37423E1F2E70391B00BE4D46 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */; };
 		37423E212E70393900BE4D46 /* HomeDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E202E70393900BE4D46 /* HomeDetailReactor.swift */; };
+		37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E292E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift */; };
+		37423E2C2E72F12E00BE4D46 /* ExchangeEstimateComparisonBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E2B2E72F12E00BE4D46 /* ExchangeEstimateComparisonBottomSheetView.swift */; };
+		37423E2E2E72F13E00BE4D46 /* ExchangeEstimateComparisonBottomSheetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E2D2E72F13E00BE4D46 /* ExchangeEstimateComparisonBottomSheetReactor.swift */; };
 		37426A832E604D00000A7C74 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A822E604D00000A7C74 /* HomeCell.swift */; };
 		37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A842E617A1D000A7C74 /* UILabel+Extension.swift */; };
 		37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A892E62C518000A7C74 /* NotificationCell.swift */; };
@@ -81,6 +84,9 @@
 		37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailCell.swift; sourceTree = "<group>"; };
 		37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		37423E202E70393900BE4D46 /* HomeDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailReactor.swift; sourceTree = "<group>"; };
+		37423E292E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonBottomSheetViewController.swift; sourceTree = "<group>"; };
+		37423E2B2E72F12E00BE4D46 /* ExchangeEstimateComparisonBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonBottomSheetView.swift; sourceTree = "<group>"; };
+		37423E2D2E72F13E00BE4D46 /* ExchangeEstimateComparisonBottomSheetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonBottomSheetReactor.swift; sourceTree = "<group>"; };
 		37426A822E604D00000A7C74 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		37426A842E617A1D000A7C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37426A892E62C518000A7C74 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -179,8 +185,19 @@
 				37423E1A2E7038D000BE4D46 /* HomeDetailView.swift */,
 				37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */,
 				37423E202E70393900BE4D46 /* HomeDetailReactor.swift */,
+				37423E222E72ECD300BE4D46 /* BottomSheet */,
 			);
 			path = HomeDetail;
+			sourceTree = "<group>";
+		};
+		37423E222E72ECD300BE4D46 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				37423E2B2E72F12E00BE4D46 /* ExchangeEstimateComparisonBottomSheetView.swift */,
+				37423E292E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift */,
+				37423E2D2E72F13E00BE4D46 /* ExchangeEstimateComparisonBottomSheetReactor.swift */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		37426A882E62C4F6000A7C74 /* Notification */ = {
@@ -515,6 +532,7 @@
 				37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
+				37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
 				37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
@@ -531,6 +549,8 @@
 				37E1C5402E5B4E9000D9D687 /* HomeViewController.swift in Sources */,
 				37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */,
 				37426A952E62EC49000A7C74 /* NotificationSettingViewController.swift in Sources */,
+				37423E2C2E72F12E00BE4D46 /* ExchangeEstimateComparisonBottomSheetView.swift in Sources */,
+				37423E2E2E72F13E00BE4D46 /* ExchangeEstimateComparisonBottomSheetReactor.swift in Sources */,
 				37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */,
 				37423E0F2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift in Sources */,
 			);
