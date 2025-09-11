@@ -13,14 +13,20 @@ final class HomeReactor: Reactor {
     // MARK: - nested types
     enum Action {
         case tapNotificationButton
+        case tapCellItem(IndexPath)
     }
     
     enum Mutation {
-        
+        case setRoute(Route?)
     }
     
     struct State {
-        
+        var route: Route?
+    }
+    
+    enum Route {
+        case notification
+        case homeDetail
     }
     
     // MARK: - properties
@@ -30,7 +36,20 @@ final class HomeReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .tapNotificationButton:
-            return .empty()
+            return .just(.setRoute(.notification))
+        case .tapCellItem:
+            return .just(.setRoute(.homeDetail))
         }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        
+        switch mutation {
+        case .setRoute(let route):
+            newState.route = route
+        }
+        
+        return newState
     }
 }
