@@ -25,6 +25,8 @@
 		37423E312E7420E800BE4D46 /* ExchangeEstimateComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E302E7420E800BE4D46 /* ExchangeEstimateComparisonView.swift */; };
 		37423E332E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E322E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift */; };
 		37423E352E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E342E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift */; };
+		37423E4F2E74777900BE4D46 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E4E2E74777900BE4D46 /* NetworkService.swift */; };
+		37423E512E747AD800BE4D46 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E502E747AD800BE4D46 /* Endpoint.swift */; };
 		37426A832E604D00000A7C74 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A822E604D00000A7C74 /* HomeCell.swift */; };
 		37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A842E617A1D000A7C74 /* UILabel+Extension.swift */; };
 		37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A892E62C518000A7C74 /* NotificationCell.swift */; };
@@ -93,6 +95,8 @@
 		37423E302E7420E800BE4D46 /* ExchangeEstimateComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonView.swift; sourceTree = "<group>"; };
 		37423E322E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonViewController.swift; sourceTree = "<group>"; };
 		37423E342E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonReactor.swift; sourceTree = "<group>"; };
+		37423E4E2E74777900BE4D46 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		37423E502E747AD800BE4D46 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		37426A822E604D00000A7C74 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		37426A842E617A1D000A7C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37426A892E62C518000A7C74 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -216,6 +220,23 @@
 			path = ExchangeEstimateComparison;
 			sourceTree = "<group>";
 		};
+		37423E4A2E7469D500BE4D46 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				37423E4B2E746A4200BE4D46 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		37423E4B2E746A4200BE4D46 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				37423E4E2E74777900BE4D46 /* NetworkService.swift */,
+				37423E502E747AD800BE4D46 /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		37426A882E62C4F6000A7C74 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +312,7 @@
 			children = (
 				37E1C53A2E5B4DAE00D9D687 /* Application */,
 				37E1C53C2E5B4DF300D9D687 /* Presentation */,
+				37423E4A2E7469D500BE4D46 /* Infrastructure */,
 				37E1C53B2E5B4DDB00D9D687 /* Resource */,
 			);
 			path = HwanYulMate;
@@ -549,9 +571,11 @@
 				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
 				37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */,
+				37423E512E747AD800BE4D46 /* Endpoint.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
 				37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */,
+				37423E4F2E74777900BE4D46 /* NetworkService.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
 				37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
