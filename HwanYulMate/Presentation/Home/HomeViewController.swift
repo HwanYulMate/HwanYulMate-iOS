@@ -68,12 +68,27 @@ final class HomeViewController: UIViewController, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        reactor.action
-            .filter { $0 == .tapNotificationButton }
-            .bind(with: self) { owner, _ in
-                let notificationVC = NotificationViewController(reactor: NotificationReactor())
-                notificationVC.hidesBottomBarWhenPushed = true
-                owner.navigationController?.pushViewController(notificationVC, animated: true)
+        homeView.tableView.rx.itemSelected
+            .map { HomeReactor.Action.tapCellItem($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.route }
+            .bind(with: self) { owner, route in
+                guard let route else { return }
+                
+                switch route {
+                case .notification:
+                    let notificationVC = NotificationViewController(reactor: NotificationReactor())
+                    notificationVC.hidesBottomBarWhenPushed = true
+                    owner.navigationController?.pushViewController(notificationVC, animated: true)
+                case .homeDetail:
+                    let homeDetailVC = HomeDetailViewController()
+                    homeDetailVC.reactor = HomeDetailReactor()
+                    homeDetailVC.hidesBottomBarWhenPushed = true
+                    owner.navigationController?.pushViewController(homeDetailVC, animated: true)
+                }
             }
             .disposed(by: disposeBag)
     }

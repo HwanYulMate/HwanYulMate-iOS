@@ -1,19 +1,18 @@
 //
-//  HomeReactor.swift
+//  ExchangeEstimateComparisonReactor.swift
 //  HwanYulMate
 //
-//  Created by 김정호 on 8/30/25.
+//  Created by 김정호 on 9/12/25.
 //
 
 import Foundation
 import ReactorKit
 
-final class HomeReactor: Reactor {
+final class ExchangeEstimateComparisonReactor: Reactor {
     
     // MARK: - nested types
     enum Action {
-        case tapNotificationButton
-        case tapCellItem(IndexPath)
+        case tapBackButton
     }
     
     enum Mutation {
@@ -25,8 +24,7 @@ final class HomeReactor: Reactor {
     }
     
     enum Route {
-        case notification
-        case homeDetail
+        case dismiss
     }
     
     // MARK: - properties
@@ -35,10 +33,11 @@ final class HomeReactor: Reactor {
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .tapNotificationButton:
-            return .just(.setRoute(.notification))
-        case .tapCellItem:
-            return .just(.setRoute(.homeDetail))
+        case .tapBackButton:
+            return .concat(
+                .just(.setRoute(.dismiss)),
+                .just(.setRoute(nil)),
+            )
         }
     }
     
