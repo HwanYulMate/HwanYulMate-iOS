@@ -6,24 +6,39 @@
 //
 
 import UIKit
+import ReactorKit
+import RxCocoa
+import RxSwift
 
-class ExchangeEstimateComparisonViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+final class ExchangeEstimateComparisonViewController: UIViewController, View {
+    
+    // MARK: - properties
+    private let exchangeEstimateComparisonView = ExchangeEstimateComparisonView()
+    
+    var disposeBag = DisposeBag()
+    
+    // MARK: - life cycles
+    override func loadView() {
+        view = exchangeEstimateComparisonView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - methods
+    func bind(reactor: ExchangeEstimateComparisonReactor) {
+        exchangeEstimateComparisonView.backButton.rx.tap
+            .map { ExchangeEstimateComparisonReactor.Action.tapBackButton }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.route }
+            .bind(with: self) { owner, route in
+                guard let route else { return }
+                
+                switch route {
+                case .dismiss:
+                    owner.dismiss(animated: true)
+                }
+            }
+            .disposed(by: disposeBag)
     }
-    */
-
 }

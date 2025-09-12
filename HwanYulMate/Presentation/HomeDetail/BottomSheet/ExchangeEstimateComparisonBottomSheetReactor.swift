@@ -62,6 +62,7 @@ final class ExchangeEstimateComparisonBottomSheetReactor: Reactor {
             return .concat(
                 .just(.updateKeyboardDistance(10)),
                 .just(.setRoute(.exchangeEstimateComparison)),
+                .just(.setRoute(nil)),
             )
         }
     }
