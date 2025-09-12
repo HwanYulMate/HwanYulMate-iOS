@@ -59,6 +59,10 @@ final class ExchangeEstimateComparisonBottomSheetViewController: UIViewControlle
                 guard let route else { return }
                 
                 switch route {
+                case .exchangeEstimateComparison:
+                    let exchangeEstimateComparisonVC = ExchangeEstimateComparisonViewController()
+                    exchangeEstimateComparisonVC.modalPresentationStyle = .fullScreen
+                    owner.present(exchangeEstimateComparisonVC, animated: true)
                 case .dismiss:
                     break
                 }

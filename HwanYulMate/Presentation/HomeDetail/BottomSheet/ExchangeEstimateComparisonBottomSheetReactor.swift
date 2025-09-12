@@ -34,6 +34,7 @@ final class ExchangeEstimateComparisonBottomSheetReactor: Reactor {
     }
     
     enum Route {
+        case exchangeEstimateComparison
         case dismiss
     }
     
@@ -60,7 +61,7 @@ final class ExchangeEstimateComparisonBottomSheetReactor: Reactor {
         case .tapTrailingButton:
             return .concat(
                 .just(.updateKeyboardDistance(10)),
-                .just(.setRoute(nil)),
+                .just(.setRoute(.exchangeEstimateComparison)),
             )
         }
     }
