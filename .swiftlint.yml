@@ -25,6 +25,7 @@ excluded:
 - HwanYulMate/Application/SceneDelegate.swift
 - HwanYulMate/Presentation/HomeDetail/HomeDetailCell.swift
 - HwanYulMate/Presentation/HomeDetail/BottomSheet/*
+- HwanYulMate/Presentation/ExchangeEstimateComparison/ExchangeEstimateComparisonView.swift
 
 trailing_whitespace:
   ignores_empty_lines: true
