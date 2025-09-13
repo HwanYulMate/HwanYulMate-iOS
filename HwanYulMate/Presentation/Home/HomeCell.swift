@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 import Then
 
@@ -79,6 +80,27 @@ final class HomeCell: BaseTableViewCell {
         rateStackView.snp.makeConstraints {
             $0.verticalEdges.equalToSuperview().inset(10)
             $0.trailing.equalToSuperview().offset(-16)
+        }
+    }
+    
+    func bind(exchangeRate: ExchangeRate) {
+        countryImageView.kf.setImage(with: URL(string: AppConfig.shared.baseURL + exchangeRate.flagImageUrl))
+        currencyNameLabel.text = exchangeRate.currencyName
+        exchangeRateLabel.text = exchangeRate.exchangeRate.toCurrencyString() + "원"
+        
+        let changeAmount = exchangeRate.changeAmount.toCurrencyString()
+        let changePercent = exchangeRate.changePercent.toCurrencyString()
+        
+        switch exchangeRate.changeDirection {
+        case .up:
+            rateChangeLabel.text = "+" + changeAmount + "원 (" + changePercent + "%)"
+            rateChangeLabel.textColor = .increase
+        case .down:
+            rateChangeLabel.text = "-" + changeAmount + "원 (" + changePercent + "%)"
+            rateChangeLabel.textColor = .decrease
+        case .stable:
+            rateChangeLabel.text = changeAmount + "원 (" + changePercent + "%)"
+            rateChangeLabel.textColor = .gray900
         }
     }
 }

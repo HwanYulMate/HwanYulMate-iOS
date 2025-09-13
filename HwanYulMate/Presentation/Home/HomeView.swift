@@ -50,7 +50,6 @@ final class HomeView: BaseView {
     }
     
     let tableView = UITableView().then {
-        $0.bounces = false
         $0.separatorStyle = .none
         $0.showsVerticalScrollIndicator = false
     }
@@ -112,5 +111,9 @@ final class HomeView: BaseView {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(safeAreaLayoutGuide)
         }
+    }
+    
+    func bind(date: String) {
+        tableTitleLabel.text = "실시간 환율 (기준일자 : " + date.toFormattedDate() + ")"
     }
 }

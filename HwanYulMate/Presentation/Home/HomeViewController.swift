@@ -35,6 +35,10 @@ final class HomeViewController: UIViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        homeView.tableView.register(HomeCell.self, forCellReuseIdentifier: HomeCell.identifier)
+        
+        reactor?.action.onNext(.didLoadView)
+        
         homeView.tableView.rx.contentOffset
             .map { $0.y }
             .bind(with: self) { owner, offset in
@@ -89,6 +93,25 @@ final class HomeViewController: UIViewController, View {
                     homeDetailVC.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(homeDetailVC, animated: true)
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.exchangeRates }
+            .bind(
+                to: homeView.tableView.rx.items(
+                    cellIdentifier: HomeCell.identifier,
+                    cellType: HomeCell.self
+                )
+            ) { (_, element, cell) in
+                cell.bind(exchangeRate: element)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.baseDate }
+            .bind(with: self) { owner, date in
+                owner.homeView.bind(date: date)
             }
             .disposed(by: disposeBag)
     }

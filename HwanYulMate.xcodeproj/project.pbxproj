@@ -27,6 +27,16 @@
 		37423E352E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E342E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift */; };
 		37423E4F2E74777900BE4D46 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E4E2E74777900BE4D46 /* NetworkService.swift */; };
 		37423E512E747AD800BE4D46 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E502E747AD800BE4D46 /* Endpoint.swift */; };
+		37423E5D2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E5C2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift */; };
+		37423E5F2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E5E2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift */; };
+		37423E612E74B40A00BE4D46 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E602E74B40A00BE4D46 /* ExchangeRate.swift */; };
+		37423E632E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E622E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift */; };
+		37423E652E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E642E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift */; };
+		37423E672E74BCE000BE4D46 /* ExchangeRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E662E74BCE000BE4D46 /* ExchangeRateRepository.swift */; };
+		37423E692E758EFD00BE4D46 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E682E758EFD00BE4D46 /* Double+Extension.swift */; };
+		37423E6B2E7595D800BE4D46 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E6A2E7595D800BE4D46 /* String+Extension.swift */; };
+		37423E6D2E759A7C00BE4D46 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 37423E6C2E759A7C00BE4D46 /* Config.xcconfig */; };
+		37423E6F2E759DBD00BE4D46 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E6E2E759DBD00BE4D46 /* AppConfig.swift */; };
 		37426A832E604D00000A7C74 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A822E604D00000A7C74 /* HomeCell.swift */; };
 		37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A842E617A1D000A7C74 /* UILabel+Extension.swift */; };
 		37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A892E62C518000A7C74 /* NotificationCell.swift */; };
@@ -97,6 +107,16 @@
 		37423E342E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonReactor.swift; sourceTree = "<group>"; };
 		37423E4E2E74777900BE4D46 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		37423E502E747AD800BE4D46 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		37423E5C2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		37423E5E2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateEndpoint.swift; sourceTree = "<group>"; };
+		37423E602E74B40A00BE4D46 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		37423E622E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExchangeRateResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37423E642E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRepositoryImpl.swift; sourceTree = "<group>"; };
+		37423E662E74BCE000BE4D46 /* ExchangeRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRepository.swift; sourceTree = "<group>"; };
+		37423E682E758EFD00BE4D46 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		37423E6A2E7595D800BE4D46 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		37423E6C2E759A7C00BE4D46 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		37423E6E2E759DBD00BE4D46 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		37426A822E604D00000A7C74 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		37426A842E617A1D000A7C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37426A892E62C518000A7C74 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -237,6 +257,82 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		37423E522E74AB2E00BE4D46 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				37423E542E74ABB000BE4D46 /* Repository */,
+				37423E5B2E74AE6800BE4D46 /* DataSource */,
+				37423E552E74ABD500BE4D46 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		37423E532E74AB9D00BE4D46 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				37423E592E74AD2900BE4D46 /* Entity */,
+				37423E582E74AD2000BE4D46 /* Interface */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		37423E542E74ABB000BE4D46 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				37423E642E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		37423E552E74ABD500BE4D46 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				37423E5E2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift */,
+				37423E562E74ABE200BE4D46 /* DataMapping */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		37423E562E74ABE200BE4D46 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				37423E622E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		37423E582E74AD2000BE4D46 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				37423E5A2E74AD3200BE4D46 /* Repository */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		37423E592E74AD2900BE4D46 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				37423E602E74B40A00BE4D46 /* ExchangeRate.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		37423E5A2E74AD3200BE4D46 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				37423E662E74BCE000BE4D46 /* ExchangeRateRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		37423E5B2E74AE6800BE4D46 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				37423E5C2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		37426A882E62C4F6000A7C74 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +408,8 @@
 			children = (
 				37E1C53A2E5B4DAE00D9D687 /* Application */,
 				37E1C53C2E5B4DF300D9D687 /* Presentation */,
+				37423E532E74AB9D00BE4D46 /* Domain */,
+				37423E522E74AB2E00BE4D46 /* Data */,
 				37423E4A2E7469D500BE4D46 /* Infrastructure */,
 				37E1C53B2E5B4DDB00D9D687 /* Resource */,
 			);
@@ -323,6 +421,8 @@
 			children = (
 				37E1C5252E5B4B5200D9D687 /* AppDelegate.swift */,
 				37E1C52A2E5B4B5200D9D687 /* SceneDelegate.swift */,
+				37423E6E2E759DBD00BE4D46 /* AppConfig.swift */,
+				37423E6C2E759A7C00BE4D46 /* Config.xcconfig */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -387,6 +487,8 @@
 		37E1C5572E5C58A100D9D687 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				37423E6A2E7595D800BE4D46 /* String+Extension.swift */,
+				37423E682E758EFD00BE4D46 /* Double+Extension.swift */,
 				37E1C5582E5C58B500D9D687 /* UIFont+Extension.swift */,
 				37426A842E617A1D000A7C74 /* UILabel+Extension.swift */,
 			);
@@ -519,6 +621,7 @@
 				37E1C56C2E5C59BE00D9D687 /* Pretendard-Thin.otf in Resources */,
 				37E1C5302E5B4B5200D9D687 /* Assets.xcassets in Resources */,
 				37E1C5342E5B4B6700D9D687 /* .gitignore in Resources */,
+				37423E6D2E759A7C00BE4D46 /* Config.xcconfig in Resources */,
 				37E1C5322E5B4B5200D9D687 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,8 +658,11 @@
 				37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */,
 				37426AE02E69BE25000A7C74 /* TargetRateBottomSheetView.swift in Sources */,
 				37E1C5592E5C58B500D9D687 /* UIFont+Extension.swift in Sources */,
+				37423E632E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift in Sources */,
+				37423E692E758EFD00BE4D46 /* Double+Extension.swift in Sources */,
 				37423E312E7420E800BE4D46 /* ExchangeEstimateComparisonView.swift in Sources */,
 				37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */,
+				37423E5F2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift in Sources */,
 				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37423E1B2E7038D000BE4D46 /* HomeDetailView.swift in Sources */,
@@ -568,21 +674,27 @@
 				37423E0B2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift in Sources */,
 				3728CAF92E5DA4F600D3DC98 /* SplashViewController.swift in Sources */,
 				37423E1F2E70391B00BE4D46 /* HomeDetailViewController.swift in Sources */,
+				37423E652E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift in Sources */,
 				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
 				37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */,
+				37423E6B2E7595D800BE4D46 /* String+Extension.swift in Sources */,
+				37423E5D2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift in Sources */,
 				37423E512E747AD800BE4D46 /* Endpoint.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
+				37423E6F2E759DBD00BE4D46 /* AppConfig.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
 				37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */,
 				37423E4F2E74777900BE4D46 /* NetworkService.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
 				37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */,
+				37423E612E74B40A00BE4D46 /* ExchangeRate.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
 				37423E332E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift in Sources */,
 				37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */,
 				37E1C52E2E5B4B5200D9D687 /* SceneDelegate.swift in Sources */,
 				3728CAFB2E5DA4FE00D3DC98 /* SplashView.swift in Sources */,
+				37423E672E74BCE000BE4D46 /* ExchangeRateRepository.swift in Sources */,
 				37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */,
 				37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */,
 				37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */,
@@ -616,6 +728,7 @@
 /* Begin XCBuildConfiguration section */
 		37E1C50A2E5B444600D9D687 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37423E6C2E759A7C00BE4D46 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -648,6 +761,7 @@
 		};
 		37E1C50B2E5B444600D9D687 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37423E6C2E759A7C00BE4D46 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -680,6 +794,7 @@
 		};
 		37E1C50C2E5B444600D9D687 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37423E6C2E759A7C00BE4D46 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -744,6 +859,7 @@
 		};
 		37E1C50D2E5B444600D9D687 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37423E6C2E759A7C00BE4D46 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
