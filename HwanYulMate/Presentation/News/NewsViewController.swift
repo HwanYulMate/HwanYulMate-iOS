@@ -12,9 +12,19 @@ final class NewsViewController: UIViewController {
     
     // MARK: - Properties
     private let newsView = NewsView()
-    private var allNews: [NewsModel] = NewsModel.mockData
+    private let networkService = NewsNetworkService.shared
+    
+    private var allNews: [NewsModel] = []
     private var filteredNews: [NewsModel] = []
     private var isSearching = false
+    private var isLoading = false
+    private var currentPage = 0
+    
+    // MARK: - Constants
+    private enum Constants {
+        static let defaultSearchKeyword = "달러"
+        static let pageSize = 10
+    }
     
     // MARK: - Life Cycles
     override func loadView() {
@@ -23,15 +33,17 @@ final class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
+        loadInitialNews()
+    }
+    
+    // MARK: - Setup Methods
+    private func setupUI() {
         setupTableView()
         setupSearchTextField()
         setupRefreshControl()
-        
-        filteredNews = allNews
     }
     
-    // MARK: - Methods
     private func setupTableView() {
         newsView.tableView.dataSource = self
         newsView.tableView.delegate = self
@@ -52,17 +64,66 @@ final class NewsViewController: UIViewController {
         }
     }
     
+    // MARK: - Data Loading Methods
+    private func loadInitialNews() {
+        loadNews(keyword: Constants.defaultSearchKeyword, page: 0)
+    }
+    
+    private func loadNews(keyword: String, page: Int) {
+        guard !isLoading else { return }
+        
+        isLoading = true
+        newsView.showLoading()
+        
+        networkService.searchNews(
+            searchKeyword: keyword,
+            page: page,
+            size: Constants.pageSize
+        ) { [weak self] result in
+            self?.handleNewsResult(result)
+        }
+    }
+    
+    private func handleNewsResult(_ result: Result<[NewsModel], NetworkError>) {
+        isLoading = false
+        newsView.hideLoading()
+        
+        switch result {
+        case .success(let news):
+            updateNewsData(with: news)
+        case .failure(let error):
+            handleNetworkError(error)
+        }
+    }
+    
+    private func updateNewsData(with news: [NewsModel]) {
+        allNews = news
+        if !isSearching {
+            filteredNews = news
+        }
+        newsView.tableView.reloadData()
+    }
+    
+    private func handleNetworkError(_ error: NetworkError) {
+        print("네트워크 오류: \(error.localizedDescription)")
+        // 목업 데이터로 폴백
+        allNews = NewsModel.mockData
+        filteredNews = allNews
+        newsView.tableView.reloadData()
+        showAlert(title: "네트워크 오류", message: "목업 데이터를 표시합니다.")
+    }
+    
+    // MARK: - Search Methods
     @objc private func searchTextChanged(_ textField: UITextField) {
         let searchText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
+        performSearch(with: searchText)
+    }
+    
+    private func performSearch(with searchText: String) {
         if searchText.isEmpty {
-            isSearching = false
-            filteredNews = allNews
+            resetToAllNews()
         } else {
-            isSearching = true
-            filteredNews = allNews.filter { news in
-                news.title.lowercased().contains(searchText.lowercased())
-            }
+            filterNews(with: searchText)
         }
         
         DispatchQueue.main.async { [weak self] in
@@ -70,36 +131,130 @@ final class NewsViewController: UIViewController {
         }
     }
     
-    private func refreshNews() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            guard let self = self else { return }
-            
-            self.allNews = NewsModel.mockData
-            
-            if !self.isSearching {
-                self.filteredNews = self.allNews
-            } else {
-                let searchText = self.newsView.searchTextField.text ?? ""
-                self.filteredNews = self.allNews.filter { news in
-                    news.title.lowercased().contains(searchText.lowercased())
-                }
-            }
-            
-            self.newsView.tableView.reloadData()
-            self.newsView.endRefreshing()
+    private func resetToAllNews() {
+        isSearching = false
+        filteredNews = allNews
+    }
+    
+    private func filterNews(with searchText: String) {
+        isSearching = true
+        filteredNews = allNews.filter { news in
+            news.title.localizedCaseInsensitiveContains(searchText)
         }
     }
     
-    private func openNewsURL(_ urlString: String) {
-        guard let url = URL(string: urlString) else {
-            showAlert(title: "오류", message: "유효하지 않은 URL입니다.")
+    // MARK: - Refresh Methods
+    private func refreshNews() {
+        guard !isLoading else {
+            newsView.endRefreshing()
             return
         }
         
+        let keyword = getCurrentSearchKeyword()
+        refreshNewsData(with: keyword)
+    }
+    
+    private func getCurrentSearchKeyword() -> String {
+        if isSearching {
+            return newsView.searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? Constants.defaultSearchKeyword
+        }
+        return Constants.defaultSearchKeyword
+    }
+    
+    private func refreshNewsData(with keyword: String) {
+        isLoading = true
+        
+        networkService.searchNews(
+            searchKeyword: keyword,
+            page: 0,
+            size: Constants.pageSize
+        ) { [weak self] result in
+            self?.handleRefreshResult(result, keyword: keyword)
+        }
+    }
+    
+    private func handleRefreshResult(_ result: Result<[NewsModel], NetworkError>, keyword: String) {
+        isLoading = false
+        newsView.endRefreshing()
+        
+        switch result {
+        case .success(let news):
+            updateRefreshedNews(with: news, keyword: keyword)
+        case .failure(let error):
+            showAlert(title: "새로고침 실패", message: error.localizedDescription)
+        }
+    }
+    
+    private func updateRefreshedNews(with news: [NewsModel], keyword: String) {
+        allNews = news
+        
+        if !isSearching {
+            filteredNews = news
+        } else {
+            filterNews(with: keyword)
+        }
+        
+        newsView.tableView.reloadData()
+    }
+    
+    // MARK: - Navigation Methods
+    private func openNewsURL(for news: NewsModel) {
+        if let validURL = getValidURL(from: news) {
+            openSafariViewController(with: validURL)
+        } else {
+            fetchAndOpenOriginalLink(for: news)
+        }
+    }
+    
+    private func getValidURL(from news: NewsModel) -> URL? {
+        if let link = news.link, !link.isEmpty, let url = URL(string: link) {
+            return url
+        }
+        return nil
+    }
+    
+    private func fetchAndOpenOriginalLink(for news: NewsModel) {
+        newsView.showLoading()
+        
+        networkService.getNewsOriginalLink(for: news.id) { [weak self] result in
+            self?.newsView.hideLoading()
+            self?.handleOriginalLinkResult(result, fallbackNews: news)
+        }
+    }
+    
+    private func handleOriginalLinkResult(_ result: Result<String, NetworkError>, fallbackNews: NewsModel) {
+        switch result {
+        case .success(let urlString):
+            if let url = URL(string: urlString) {
+                openSafariViewController(with: url)
+            } else {
+                showInvalidURLAlert()
+            }
+        case .failure(let error):
+            handleOriginalLinkFailure(error, fallbackNews: fallbackNews)
+        }
+    }
+    
+    private func handleOriginalLinkFailure(_ error: NetworkError, fallbackNews: NewsModel) {
+        print("원본 링크 가져오기 실패: \(error.localizedDescription)")
+        
+        if let url = URL(string: fallbackNews.url) {
+            openSafariViewController(with: url)
+        } else {
+            showAlert(title: "오류", message: "뉴스 링크를 열 수 없습니다.")
+        }
+    }
+    
+    private func openSafariViewController(with url: URL) {
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.preferredBarTintColor = .white
         safariViewController.preferredControlTintColor = .main
         present(safariViewController, animated: true)
+    }
+    
+    // MARK: - Alert Methods
+    private func showInvalidURLAlert() {
+        showAlert(title: "오류", message: "유효하지 않은 URL입니다.")
     }
     
     private func showAlert(title: String, message: String) {
@@ -109,6 +264,7 @@ final class NewsViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredNews.count
@@ -131,18 +287,17 @@ extension NewsViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let selectedNews = filteredNews[indexPath.row]
-        print("Selected news: \(selectedNews.title)")
-        
-        // TODO: Out Link - Naver API
-        openNewsURL(selectedNews.url)
+        openNewsURL(for: selectedNews)
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension NewsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
