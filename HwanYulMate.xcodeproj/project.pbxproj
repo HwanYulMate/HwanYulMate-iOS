@@ -62,6 +62,10 @@
 		37E1C56B2E5C59BE00D9D687 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C55E2E5C59BE00D9D687 /* Pretendard-ExtraLight.otf */; };
 		37E1C56C2E5C59BE00D9D687 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */; };
 		37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */; };
+		D6ADCF6F2E74653200A95D89 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF6E2E74653200A95D89 /* NewsCell.swift */; };
+		D6ADCF712E74655700A95D89 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF702E74655700A95D89 /* NewsView.swift */; };
+		D6ADCF732E7467C500A95D89 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF722E7467C500A95D89 /* NewsViewController.swift */; };
+		D6ADCF792E75671A00A95D89 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF782E75671A00A95D89 /* NewsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +117,10 @@
 		37E1C5622E5C59BE00D9D687 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		D6ADCF6E2E74653200A95D89 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		D6ADCF702E74655700A95D89 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		D6ADCF722E7467C500A95D89 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		D6ADCF782E75671A00A95D89 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +281,7 @@
 				37E1C5432E5B4EE600D9D687 /* Home */,
 				37426A882E62C4F6000A7C74 /* Notification */,
 				37426A932E62EBD5000A7C74 /* NotificationSetting */,
+				D6ADCF6D2E7464FA00A95D89 /* News */,
 				37E1C5442E5B4FC100D9D687 /* Util */,
 			);
 			path = Presentation;
@@ -347,6 +356,17 @@
 				37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		D6ADCF6D2E7464FA00A95D89 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				D6ADCF6E2E74653200A95D89 /* NewsCell.swift */,
+				D6ADCF702E74655700A95D89 /* NewsView.swift */,
+				D6ADCF722E7467C500A95D89 /* NewsViewController.swift */,
+				D6ADCF782E75671A00A95D89 /* NewsModel.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +499,7 @@
 				37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */,
 				37426AE02E69BE25000A7C74 /* TargetRateBottomSheetView.swift in Sources */,
 				37E1C5592E5C58B500D9D687 /* UIFont+Extension.swift in Sources */,
+				D6ADCF712E74655700A95D89 /* NewsView.swift in Sources */,
 				37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */,
 				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
@@ -490,8 +511,10 @@
 				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
 				37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */,
+				D6ADCF732E7467C500A95D89 /* NewsViewController.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
+				D6ADCF792E75671A00A95D89 /* NewsModel.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
 				37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */,
@@ -506,6 +529,7 @@
 				37E1C54B2E5B522A00D9D687 /* BaseTableViewCell.swift in Sources */,
 				37E1C5402E5B4E9000D9D687 /* HomeViewController.swift in Sources */,
 				37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */,
+				D6ADCF6F2E74653200A95D89 /* NewsCell.swift in Sources */,
 				37426A952E62EC49000A7C74 /* NotificationSettingViewController.swift in Sources */,
 				37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */,
 				37423E0F2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift in Sources */,
