@@ -48,61 +48,110 @@ final class NewsView: BaseView {
         $0.showsVerticalScrollIndicator = false
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = 100
+        $0.keyboardDismissMode = .onDrag
     }
     
     private let refreshControl = UIRefreshControl()
     
+    private let loadingIndicator = UIActivityIndicatorView(style: .medium).then {
+        $0.hidesWhenStopped = true
+        $0.color = .main
+    }
+    
+    // MARK: - Constants
+    private enum Constants {
+        static let headerHeight: CGFloat = 128
+        static let headerPadding: CGFloat = 16
+        static let titleSearchSpacing: CGFloat = 26
+        static let searchHeight: CGFloat = 44
+        static let searchHorizontalPadding: CGFloat = 12
+        static let searchIconSize: CGFloat = 18
+        static let searchIconTextSpacing: CGFloat = 8
+    }
+    
+    // MARK: - Callbacks
+    var onRefresh: (() -> Void)? {
+        didSet {
+            setupRefreshControl()
+        }
+    }
+    
     // MARK: - Methods
     override func configureUI() {
         super.configureUI()
+        setupTableView()
+    }
+    
+    override func configureHierarchy() {
+        [headerView, tableView, loadingIndicator].forEach { addSubview($0) }
+        [titleLabel, searchContainerView].forEach { headerView.addSubview($0) }
+        [searchImageView, searchTextField].forEach { searchContainerView.addSubview($0) }
+    }
+    
+    override func configureConstraints() {
+        setupHeaderConstraints()
+        setupTableViewConstraints()
+        setupLoadingIndicatorConstraints()
+    }
+    
+    // MARK: - Public Methods
+    func endRefreshing() {
+        refreshControl.endRefreshing()
+    }
+    
+    func showLoading() {
+        loadingIndicator.startAnimating()
+        tableView.isUserInteractionEnabled = false
+    }
+    
+    func hideLoading() {
+        loadingIndicator.stopAnimating()
+        tableView.isUserInteractionEnabled = true
+    }
+    
+    // MARK: - Private Methods
+    private func setupTableView() {
         tableView.refreshControl = refreshControl
         tableView.register(NewsCell.self, forCellReuseIdentifier: NewsCell.identifier)
     }
     
-    override func configureHierarchy() {
-        addSubview(headerView)
-        addSubview(tableView)
-        
-        headerView.addSubview(titleLabel)
-        headerView.addSubview(searchContainerView)
-        
-        searchContainerView.addSubview(searchImageView)
-        searchContainerView.addSubview(searchTextField)
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
     
-    override func configureConstraints() {
+    private func setupHeaderConstraints() {
         headerView.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(128)
+            $0.height.equalTo(Constants.headerHeight)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
+            $0.top.equalToSuperview().offset(Constants.headerPadding)
+            $0.leading.trailing.equalToSuperview().inset(Constants.headerPadding)
         }
         
         searchContainerView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(26)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(44)
-            $0.bottom.equalToSuperview().offset(-16)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.titleSearchSpacing)
+            $0.leading.trailing.equalToSuperview().inset(Constants.headerPadding)
+            $0.height.equalTo(Constants.searchHeight)
+            $0.bottom.equalToSuperview().offset(-Constants.headerPadding)
         }
         
         searchImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(12)
+            $0.leading.equalToSuperview().offset(Constants.searchHorizontalPadding)
             $0.centerY.equalToSuperview()
-            $0.width.height.equalTo(18)
+            $0.size.equalTo(Constants.searchIconSize)
         }
         
         searchTextField.snp.makeConstraints {
-            $0.leading.equalTo(searchImageView.snp.trailing).offset(8)
-            $0.trailing.equalToSuperview().offset(-12)
+            $0.leading.equalTo(searchImageView.snp.trailing).offset(Constants.searchIconTextSpacing)
+            $0.trailing.equalToSuperview().offset(-Constants.searchHorizontalPadding)
             $0.centerY.equalToSuperview()
         }
-        
+    }
+    
+    private func setupTableViewConstraints() {
         tableView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
@@ -110,13 +159,9 @@ final class NewsView: BaseView {
         }
     }
     
-    func endRefreshing() {
-        refreshControl.endRefreshing()
-    }
-    
-    var onRefresh: (() -> Void)? {
-        didSet {
-            refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    private func setupLoadingIndicatorConstraints() {
+        loadingIndicator.snp.makeConstraints {
+            $0.center.equalTo(tableView)
         }
     }
     
