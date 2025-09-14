@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  HwanYulMate
+//
+//  Created by HanJW on 9/14/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+BASE_URL = http://110.165.16.147:8084
+API_TIMEOUT = 30

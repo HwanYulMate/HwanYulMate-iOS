@@ -102,3 +102,5 @@ iOSInjectionProject/
 
 .DS_Store
 Config.xcconfig
+*.xcconfig
+HwanYulMate/Config/Config.xcconfig

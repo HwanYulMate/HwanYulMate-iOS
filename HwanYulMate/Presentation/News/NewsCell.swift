@@ -31,115 +31,106 @@ final class NewsCell: BaseTableViewCell {
         $0.textColor = .gray500
     }
     
+    // MARK: - Constants
+    private enum Constants {
+        static let horizontalPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 18
+        static let thumbnailSize: CGFloat = 56
+        static let thumbnailTitleSpacing: CGFloat = 12
+        static let titleDateSpacing: CGFloat = 4
+        static let lineSpacing: CGFloat = 4.0
+    }
+    
     // MARK: - Life Cycles
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        thumbnailImageView.image = nil
-        titleLabel.attributedText = nil
-        titleLabel.text = nil
-        dateLabel.text = nil
+        resetContent()
     }
     
     // MARK: - Methods
     override func configureUI() {
-        selectionStyle = .none
+        selectionStyle = .default
+        selectedBackgroundView = UIView().then {
+            $0.backgroundColor = .systemGray6
+        }
     }
     
     override func configureHierarchy() {
-        contentView.addSubview(thumbnailImageView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(dateLabel)
+        [thumbnailImageView, titleLabel, dateLabel].forEach {
+            contentView.addSubview($0)
+        }
     }
     
     override func configureConstraints() {
         thumbnailImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(16)
-            $0.top.equalToSuperview().offset(18)
-            $0.bottom.equalToSuperview().offset(-18)
-            $0.width.height.equalTo(56)
+            $0.leading.equalToSuperview().offset(Constants.horizontalPadding)
+            $0.top.bottom.equalToSuperview().inset(Constants.verticalPadding)
+            $0.size.equalTo(Constants.thumbnailSize)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(12)
-            $0.top.equalToSuperview().offset(18)
-            $0.trailing.equalToSuperview().offset(-16)
+            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(Constants.thumbnailTitleSpacing)
+            $0.top.equalToSuperview().offset(Constants.verticalPadding)
+            $0.trailing.equalToSuperview().offset(-Constants.horizontalPadding)
         }
         
         dateLabel.snp.makeConstraints {
             $0.leading.equalTo(titleLabel)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalToSuperview().offset(-18)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.titleDateSpacing)
+            $0.trailing.equalToSuperview().offset(-Constants.horizontalPadding)
+            $0.bottom.equalToSuperview().offset(-Constants.verticalPadding)
         }
     }
     
     func configure(with news: NewsModel, searchText: String = "") {
         thumbnailImageView.image = UIImage(named: "news_thumbnail")
         dateLabel.text = news.publishedDate
-        
-        let finalAttributed: NSAttributedString
-        if searchText.isEmpty {
-            finalAttributed = formattedText(news.title)
-        } else {
-            finalAttributed = highlightSearchText(in: news.title, searchText: searchText)
-        }
-        titleLabel.attributedText = finalAttributed
+        titleLabel.attributedText = createAttributedTitle(news.title, searchText: searchText)
     }
     
-    private func formattedText(_ text: String) -> NSAttributedString {
+    private func resetContent() {
+        thumbnailImageView.image = nil
+        titleLabel.attributedText = nil
+        titleLabel.text = nil
+        dateLabel.text = nil
+    }
+    
+    private func createAttributedTitle(_ text: String, searchText: String) -> NSAttributedString {
         guard !text.isEmpty else { return NSAttributedString() }
         
-        let attr = NSMutableAttributedString(string: text)
-        let full = NSRange(location: 0, length: text.count)
+        let attributedText = NSMutableAttributedString(string: text)
+        applyBasicTextAttributes(to: attributedText, range: NSRange(location: 0, length: text.count))
         
-        attr.addAttribute(.foregroundColor, value: UIColor.black, range: full)
-        
-        let lineSpacing: CGFloat = 4.0
-        if lineSpacing.isFinite && lineSpacing >= 0 {
-            let style = NSMutableParagraphStyle()
-            style.lineSpacing = lineSpacing
-            style.lineBreakMode = .byTruncatingTail
-            attr.addAttribute(.paragraphStyle, value: style, range: full)
+        if !searchText.isEmpty {
+            highlightSearchMatches(in: attributedText, text: text, searchText: searchText)
         }
         
-        return attr
+        return attributedText
     }
     
-    private func highlightSearchText(in text: String, searchText: String) -> NSAttributedString {
-        guard !text.isEmpty && !searchText.isEmpty else {
-            return formattedText(text)
-        }
+    private func applyBasicTextAttributes(to attributedText: NSMutableAttributedString, range: NSRange) {
+        attributedText.addAttribute(.foregroundColor, value: UIColor.black, range: range)
         
-        let attr = NSMutableAttributedString(string: text)
-        let full = NSRange(location: 0, length: text.count)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = Constants.lineSpacing
+        paragraphStyle.lineBreakMode = .byTruncatingTail
         
-        attr.addAttribute(.foregroundColor, value: UIColor.black, range: full)
+        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: range)
+    }
+    
+    private func highlightSearchMatches(in attributedText: NSMutableAttributedString,
+                                        text: String,
+                                        searchText: String) {
+        let lowercaseText = text.lowercased()
+        let lowercaseSearch = searchText.lowercased()
         
-        let lineSpacing: CGFloat = 4.0
-        if lineSpacing.isFinite && lineSpacing >= 0 {
-            let style = NSMutableParagraphStyle()
-            style.lineSpacing = lineSpacing
-            style.lineBreakMode = .byTruncatingTail
-            attr.addAttribute(.paragraphStyle, value: style, range: full)
-        }
+        var searchRange = lowercaseText.startIndex..<lowercaseText.endIndex
         
-        let lowerText = text.lowercased()
-        let lowerSearch = searchText.lowercased()
-        var searchRange = lowerText.range(of: lowerSearch)
-        
-        while let found = searchRange {
-            let nsRange = NSRange(found, in: text)
-            if nsRange.location != NSNotFound &&
-                nsRange.location >= 0 &&
-                nsRange.location + nsRange.length <= text.count {
-                attr.addAttribute(.foregroundColor, value: UIColor.main, range: nsRange)
-            }
+        while let foundRange = lowercaseText.range(of: lowercaseSearch, range: searchRange) {
+            let nsRange = NSRange(foundRange, in: text)
+            attributedText.addAttribute(.foregroundColor, value: UIColor.main, range: nsRange)
             
-            let nextStart = found.upperBound..<lowerText.endIndex
-            searchRange = lowerText.range(of: lowerSearch, range: nextStart)
+            searchRange = foundRange.upperBound..<lowercaseText.endIndex
         }
-        
-        return attr
     }
 }
