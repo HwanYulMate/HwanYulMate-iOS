@@ -16,7 +16,6 @@
 		37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E152E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift */; };
 		37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */; };
 		37423E1B2E7038D000BE4D46 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1A2E7038D000BE4D46 /* HomeDetailView.swift */; };
-		37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */; };
 		37423E1F2E70391B00BE4D46 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */; };
 		37423E212E70393900BE4D46 /* HomeDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E202E70393900BE4D46 /* HomeDetailReactor.swift */; };
 		37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E292E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift */; };
@@ -37,6 +36,14 @@
 		37423E6B2E7595D800BE4D46 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E6A2E7595D800BE4D46 /* String+Extension.swift */; };
 		37423E6D2E759A7C00BE4D46 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 37423E6C2E759A7C00BE4D46 /* Config.xcconfig */; };
 		37423E6F2E759DBD00BE4D46 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E6E2E759DBD00BE4D46 /* AppConfig.swift */; };
+		37423E712E76A22B00BE4D46 /* ExchangeRateRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E702E76A22B00BE4D46 /* ExchangeRateRequestDTO+Mapping.swift */; };
+		37423E732E76C35000BE4D46 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E722E76C35000BE4D46 /* Chart.swift */; };
+		37423E752E76C3EF00BE4D46 /* ChartRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E742E76C3EF00BE4D46 /* ChartRequestDTO+Mapping.swift */; };
+		37423E772E76C3FC00BE4D46 /* ChartResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E762E76C3FC00BE4D46 /* ChartResponseDTO+Mapping.swift */; };
+		37423E792E76C58E00BE4D46 /* ChartEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E782E76C58E00BE4D46 /* ChartEndpoint.swift */; };
+		37423E7B2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E7A2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift */; };
+		37423E7D2E76CB7E00BE4D46 /* ChartRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E7C2E76CB7E00BE4D46 /* ChartRepositoryImpl.swift */; };
+		37423E7F2E76CB8900BE4D46 /* ChartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37423E7E2E76CB8900BE4D46 /* ChartRepository.swift */; };
 		37426A832E604D00000A7C74 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A822E604D00000A7C74 /* HomeCell.swift */; };
 		37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A842E617A1D000A7C74 /* UILabel+Extension.swift */; };
 		37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426A892E62C518000A7C74 /* NotificationCell.swift */; };
@@ -55,6 +62,13 @@
 		37426AE72E6B582A000A7C74 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
+		37D843CB2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */; };
+		37D843CD2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843CC2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift */; };
+		37D843CF2E784F5D00839DC2 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843CE2E784F5D00839DC2 /* News.swift */; };
+		37D843D12E78518400839DC2 /* NewsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843D02E78518400839DC2 /* NewsEndpoint.swift */; };
+		37D843D52E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843D42E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift */; };
+		37D843D72E78573800839DC2 /* NewsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843D62E78573800839DC2 /* NewsRepositoryImpl.swift */; };
+		37D843D92E78573F00839DC2 /* NewsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843D82E78573F00839DC2 /* NewsRepository.swift */; };
 		37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C50F2E5B454A00D9D687 /* SnapKit */; };
 		37E1C5132E5B455900D9D687 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C5122E5B455900D9D687 /* Then */; };
 		37E1C5162E5B457200D9D687 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C5152E5B457200D9D687 /* Alamofire */; };
@@ -96,7 +110,6 @@
 		37423E152E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertViewController.swift; sourceTree = "<group>"; };
 		37423E172E6F451300BE4D46 /* NotificationSettingAlertReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingAlertReactor.swift; sourceTree = "<group>"; };
 		37423E1A2E7038D000BE4D46 /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
-		37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailCell.swift; sourceTree = "<group>"; };
 		37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		37423E202E70393900BE4D46 /* HomeDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailReactor.swift; sourceTree = "<group>"; };
 		37423E292E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeEstimateComparisonBottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +130,14 @@
 		37423E6A2E7595D800BE4D46 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		37423E6C2E759A7C00BE4D46 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		37423E6E2E759DBD00BE4D46 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		37423E702E76A22B00BE4D46 /* ExchangeRateRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExchangeRateRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37423E722E76C35000BE4D46 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		37423E742E76C3EF00BE4D46 /* ChartRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChartRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37423E762E76C3FC00BE4D46 /* ChartResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChartResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37423E782E76C58E00BE4D46 /* ChartEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEndpoint.swift; sourceTree = "<group>"; };
+		37423E7A2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		37423E7C2E76CB7E00BE4D46 /* ChartRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRepositoryImpl.swift; sourceTree = "<group>"; };
+		37423E7E2E76CB8900BE4D46 /* ChartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRepository.swift; sourceTree = "<group>"; };
 		37426A822E604D00000A7C74 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		37426A842E617A1D000A7C74 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		37426A892E62C518000A7C74 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -134,6 +155,13 @@
 		37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRateBottomSheetReactor.swift; sourceTree = "<group>"; };
 		37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37D1B11F2E5DB9A9000732A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37D843CC2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37D843CE2E784F5D00839DC2 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		37D843D02E78518400839DC2 /* NewsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEndpoint.swift; sourceTree = "<group>"; };
+		37D843D42E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		37D843D62E78573800839DC2 /* NewsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepositoryImpl.swift; sourceTree = "<group>"; };
+		37D843D82E78573F00839DC2 /* NewsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepository.swift; sourceTree = "<group>"; };
 		37E1C4F62E5B444500D9D687 /* HwanYulMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HwanYulMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E1C5252E5B4B5200D9D687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E1C5262E5B4B5200D9D687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,7 +239,6 @@
 		37423E192E70388E00BE4D46 /* HomeDetail */ = {
 			isa = PBXGroup;
 			children = (
-				37423E1C2E7038D900BE4D46 /* HomeDetailCell.swift */,
 				37423E1A2E7038D000BE4D46 /* HomeDetailView.swift */,
 				37423E1E2E70391B00BE4D46 /* HomeDetailViewController.swift */,
 				37423E202E70393900BE4D46 /* HomeDetailReactor.swift */,
@@ -280,6 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				37423E642E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift */,
+				37423E7C2E76CB7E00BE4D46 /* ChartRepositoryImpl.swift */,
+				37D843D62E78573800839DC2 /* NewsRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -288,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				37423E5E2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift */,
+				37423E782E76C58E00BE4D46 /* ChartEndpoint.swift */,
+				37D843D02E78518400839DC2 /* NewsEndpoint.swift */,
 				37423E562E74ABE200BE4D46 /* DataMapping */,
 			);
 			path = Network;
@@ -296,7 +327,12 @@
 		37423E562E74ABE200BE4D46 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				37423E702E76A22B00BE4D46 /* ExchangeRateRequestDTO+Mapping.swift */,
 				37423E622E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift */,
+				37423E742E76C3EF00BE4D46 /* ChartRequestDTO+Mapping.swift */,
+				37423E762E76C3FC00BE4D46 /* ChartResponseDTO+Mapping.swift */,
+				37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */,
+				37D843CC2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -313,6 +349,8 @@
 			isa = PBXGroup;
 			children = (
 				37423E602E74B40A00BE4D46 /* ExchangeRate.swift */,
+				37423E722E76C35000BE4D46 /* Chart.swift */,
+				37D843CE2E784F5D00839DC2 /* News.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -321,6 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				37423E662E74BCE000BE4D46 /* ExchangeRateRepository.swift */,
+				37423E7E2E76CB8900BE4D46 /* ChartRepository.swift */,
+				37D843D82E78573F00839DC2 /* NewsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -329,6 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				37423E5C2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift */,
+				37423E7A2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift */,
+				37D843D42E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -656,21 +698,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */,
+				37D843D52E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift in Sources */,
 				37426AE02E69BE25000A7C74 /* TargetRateBottomSheetView.swift in Sources */,
+				37D843CF2E784F5D00839DC2 /* News.swift in Sources */,
 				37E1C5592E5C58B500D9D687 /* UIFont+Extension.swift in Sources */,
 				37423E632E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift in Sources */,
+				37423E792E76C58E00BE4D46 /* ChartEndpoint.swift in Sources */,
 				37423E692E758EFD00BE4D46 /* Double+Extension.swift in Sources */,
 				37423E312E7420E800BE4D46 /* ExchangeEstimateComparisonView.swift in Sources */,
 				37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */,
 				37423E5F2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift in Sources */,
+				37423E732E76C35000BE4D46 /* Chart.swift in Sources */,
+				37D843D92E78573F00839DC2 /* NewsRepository.swift in Sources */,
+				37D843D12E78518400839DC2 /* NewsEndpoint.swift in Sources */,
 				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37423E1B2E7038D000BE4D46 /* HomeDetailView.swift in Sources */,
+				37423E772E76C3FC00BE4D46 /* ChartResponseDTO+Mapping.swift in Sources */,
 				37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */,
 				37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */,
 				37423E352E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift in Sources */,
 				37423E212E70393900BE4D46 /* HomeDetailReactor.swift in Sources */,
+				37423E7D2E76CB7E00BE4D46 /* ChartRepositoryImpl.swift in Sources */,
 				37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */,
+				37423E7F2E76CB8900BE4D46 /* ChartRepository.swift in Sources */,
+				37D843CB2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift in Sources */,
 				37423E0B2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift in Sources */,
 				3728CAF92E5DA4F600D3DC98 /* SplashViewController.swift in Sources */,
 				37423E1F2E70391B00BE4D46 /* HomeDetailViewController.swift in Sources */,
@@ -687,7 +739,6 @@
 				37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */,
 				37423E4F2E74777900BE4D46 /* NetworkService.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
-				37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */,
 				37423E612E74B40A00BE4D46 /* ExchangeRate.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
 				37423E332E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift in Sources */,
@@ -698,9 +749,14 @@
 				37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */,
 				37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */,
 				37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */,
+				37423E752E76C3EF00BE4D46 /* ChartRequestDTO+Mapping.swift in Sources */,
 				37426AAF2E65A222000A7C74 /* NotificationSettingReactor.swift in Sources */,
+				37D843CD2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift in Sources */,
 				37423E142E6F44A400BE4D46 /* NotificationSettingAlertView.swift in Sources */,
+				37423E7B2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift in Sources */,
 				37426A8E2E62C534000A7C74 /* NotificationViewController.swift in Sources */,
+				37D843D72E78573800839DC2 /* NewsRepositoryImpl.swift in Sources */,
+				37423E712E76A22B00BE4D46 /* ExchangeRateRequestDTO+Mapping.swift in Sources */,
 				37E1C54B2E5B522A00D9D687 /* BaseTableViewCell.swift in Sources */,
 				37E1C5402E5B4E9000D9D687 /* HomeViewController.swift in Sources */,
 				37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */,

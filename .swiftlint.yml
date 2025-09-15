@@ -23,7 +23,7 @@ included:
 excluded:
 - HwanYulMate/Application/AppDelegate.swift
 - HwanYulMate/Application/SceneDelegate.swift
-- HwanYulMate/Presentation/HomeDetail/HomeDetailCell.swift
+- HwanYulMate/Presentation/HomeDetail/*
 - HwanYulMate/Presentation/HomeDetail/BottomSheet/*
 - HwanYulMate/Presentation/ExchangeEstimateComparison/ExchangeEstimateComparisonView.swift
 
