@@ -95,9 +95,9 @@ final class HomeDetailViewController: UIViewController, View {
                     guard let url = URL(string: link) else { return }
                     let safariVC = SFSafariViewController(url: url)
                     owner.present(safariVC, animated: true)
-                case .bottomSheet:
+                case .bottomSheet(let currencyCode, let exchangeRate):
                     let exchangeEstimateComparisonBottomSheetVC = ExchangeEstimateComparisonBottomSheetViewController()
-                    exchangeEstimateComparisonBottomSheetVC.reactor = ExchangeEstimateComparisonBottomSheetReactor()
+                    exchangeEstimateComparisonBottomSheetVC.reactor = ExchangeEstimateComparisonBottomSheetReactor(currencyCode: currencyCode, exchangeRate: exchangeRate)
                     exchangeEstimateComparisonBottomSheetVC.modalPresentationStyle = .overFullScreen
                     owner.present(exchangeEstimateComparisonBottomSheetVC, animated: false)
                 }

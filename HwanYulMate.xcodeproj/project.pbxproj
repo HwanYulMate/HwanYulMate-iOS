@@ -69,6 +69,13 @@
 		37D843D52E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843D42E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift */; };
 		37D843D72E78573800839DC2 /* NewsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843D62E78573800839DC2 /* NewsRepositoryImpl.swift */; };
 		37D843D92E78573F00839DC2 /* NewsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843D82E78573F00839DC2 /* NewsRepository.swift */; };
+		37D843E12E78A13300839DC2 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843E02E78A13300839DC2 /* Bank.swift */; };
+		37D843E32E78A18000839DC2 /* BankRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843E22E78A18000839DC2 /* BankRequestDTO+Mapping.swift */; };
+		37D843E52E78A19200839DC2 /* BankResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843E42E78A19200839DC2 /* BankResponseDTO+Mapping.swift */; };
+		37D843E72E78A3E900839DC2 /* BankEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843E62E78A3E900839DC2 /* BankEndpoint.swift */; };
+		37D843E92E78A5D200839DC2 /* BankRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843E82E78A5D200839DC2 /* BankRemoteDataSourceImpl.swift */; };
+		37D843EB2E78A79D00839DC2 /* BankRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843EA2E78A79D00839DC2 /* BankRepositoryImpl.swift */; };
+		37D843ED2E78A7B200839DC2 /* BankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843EC2E78A7B200839DC2 /* BankRepository.swift */; };
 		37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C50F2E5B454A00D9D687 /* SnapKit */; };
 		37E1C5132E5B455900D9D687 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C5122E5B455900D9D687 /* Then */; };
 		37E1C5162E5B457200D9D687 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C5152E5B457200D9D687 /* Alamofire */; };
@@ -162,6 +169,13 @@
 		37D843D42E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
 		37D843D62E78573800839DC2 /* NewsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepositoryImpl.swift; sourceTree = "<group>"; };
 		37D843D82E78573F00839DC2 /* NewsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepository.swift; sourceTree = "<group>"; };
+		37D843E02E78A13300839DC2 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		37D843E22E78A18000839DC2 /* BankRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BankRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37D843E42E78A19200839DC2 /* BankResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BankResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37D843E62E78A3E900839DC2 /* BankEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankEndpoint.swift; sourceTree = "<group>"; };
+		37D843E82E78A5D200839DC2 /* BankRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		37D843EA2E78A79D00839DC2 /* BankRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankRepositoryImpl.swift; sourceTree = "<group>"; };
+		37D843EC2E78A7B200839DC2 /* BankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankRepository.swift; sourceTree = "<group>"; };
 		37E1C4F62E5B444500D9D687 /* HwanYulMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HwanYulMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E1C5252E5B4B5200D9D687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E1C5262E5B4B5200D9D687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -309,6 +323,7 @@
 				37423E642E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift */,
 				37423E7C2E76CB7E00BE4D46 /* ChartRepositoryImpl.swift */,
 				37D843D62E78573800839DC2 /* NewsRepositoryImpl.swift */,
+				37D843EA2E78A79D00839DC2 /* BankRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -319,6 +334,7 @@
 				37423E5E2E74B2EF00BE4D46 /* ExchangeRateEndpoint.swift */,
 				37423E782E76C58E00BE4D46 /* ChartEndpoint.swift */,
 				37D843D02E78518400839DC2 /* NewsEndpoint.swift */,
+				37D843E62E78A3E900839DC2 /* BankEndpoint.swift */,
 				37423E562E74ABE200BE4D46 /* DataMapping */,
 			);
 			path = Network;
@@ -333,6 +349,8 @@
 				37423E762E76C3FC00BE4D46 /* ChartResponseDTO+Mapping.swift */,
 				37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */,
 				37D843CC2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift */,
+				37D843E22E78A18000839DC2 /* BankRequestDTO+Mapping.swift */,
+				37D843E42E78A19200839DC2 /* BankResponseDTO+Mapping.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -351,6 +369,7 @@
 				37423E602E74B40A00BE4D46 /* ExchangeRate.swift */,
 				37423E722E76C35000BE4D46 /* Chart.swift */,
 				37D843CE2E784F5D00839DC2 /* News.swift */,
+				37D843E02E78A13300839DC2 /* Bank.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -361,6 +380,7 @@
 				37423E662E74BCE000BE4D46 /* ExchangeRateRepository.swift */,
 				37423E7E2E76CB8900BE4D46 /* ChartRepository.swift */,
 				37D843D82E78573F00839DC2 /* NewsRepository.swift */,
+				37D843EC2E78A7B200839DC2 /* BankRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -371,6 +391,7 @@
 				37423E5C2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift */,
 				37423E7A2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift */,
 				37D843D42E78534A00839DC2 /* NewsRemoteDataSourceImpl.swift */,
+				37D843E82E78A5D200839DC2 /* BankRemoteDataSourceImpl.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -712,6 +733,8 @@
 				37D843D92E78573F00839DC2 /* NewsRepository.swift in Sources */,
 				37D843D12E78518400839DC2 /* NewsEndpoint.swift in Sources */,
 				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
+				37D843E52E78A19200839DC2 /* BankResponseDTO+Mapping.swift in Sources */,
+				37D843ED2E78A7B200839DC2 /* BankRepository.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37423E1B2E7038D000BE4D46 /* HomeDetailView.swift in Sources */,
 				37423E772E76C3FC00BE4D46 /* ChartResponseDTO+Mapping.swift in Sources */,
@@ -729,6 +752,7 @@
 				37423E652E74BCDB00BE4D46 /* ExchangeRateRepositoryImpl.swift in Sources */,
 				37426A922E62E511000A7C74 /* NotificationReactor.swift in Sources */,
 				37426A902E62D571000A7C74 /* HomeReactor.swift in Sources */,
+				37D843E32E78A18000839DC2 /* BankRequestDTO+Mapping.swift in Sources */,
 				37426ADA2E687AA4000A7C74 /* BaseBottomSheetView.swift in Sources */,
 				37423E6B2E7595D800BE4D46 /* String+Extension.swift in Sources */,
 				37423E5D2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift in Sources */,
@@ -737,11 +761,14 @@
 				37423E6F2E759DBD00BE4D46 /* AppConfig.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
 				37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */,
+				37D843E72E78A3E900839DC2 /* BankEndpoint.swift in Sources */,
+				37D843E92E78A5D200839DC2 /* BankRemoteDataSourceImpl.swift in Sources */,
 				37423E4F2E74777900BE4D46 /* NetworkService.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
 				37423E612E74B40A00BE4D46 /* ExchangeRate.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
 				37423E332E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift in Sources */,
+				37D843EB2E78A79D00839DC2 /* BankRepositoryImpl.swift in Sources */,
 				37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */,
 				37E1C52E2E5B4B5200D9D687 /* SceneDelegate.swift in Sources */,
 				3728CAFB2E5DA4FE00D3DC98 /* SplashView.swift in Sources */,
@@ -751,6 +778,7 @@
 				37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */,
 				37423E752E76C3EF00BE4D46 /* ChartRequestDTO+Mapping.swift in Sources */,
 				37426AAF2E65A222000A7C74 /* NotificationSettingReactor.swift in Sources */,
+				37D843E12E78A13300839DC2 /* Bank.swift in Sources */,
 				37D843CD2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift in Sources */,
 				37423E142E6F44A400BE4D46 /* NotificationSettingAlertView.swift in Sources */,
 				37423E7B2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift in Sources */,

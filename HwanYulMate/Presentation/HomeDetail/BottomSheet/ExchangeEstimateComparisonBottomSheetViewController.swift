@@ -59,9 +59,9 @@ final class ExchangeEstimateComparisonBottomSheetViewController: UIViewControlle
                 guard let route else { return }
                 
                 switch route {
-                case .exchangeEstimateComparison:
+                case .exchangeEstimateComparison(let currencyCode, let exchangeRate):
                     let exchangeEstimateComparisonVC = ExchangeEstimateComparisonViewController()
-                    exchangeEstimateComparisonVC.reactor = ExchangeEstimateComparisonReactor()
+                    exchangeEstimateComparisonVC.reactor = ExchangeEstimateComparisonReactor(currencyCode: currencyCode, exchangeRate: exchangeRate)
                     exchangeEstimateComparisonVC.modalPresentationStyle = .fullScreen
                     owner.present(exchangeEstimateComparisonVC, animated: true)
                 case .dismiss:
@@ -98,5 +98,15 @@ final class ExchangeEstimateComparisonBottomSheetViewController: UIViewControlle
                 owner.exchangeEstimateComparisonBottomSheetView.containerHeightConstraint?.update(offset: constraint)
             }
             .disposed(by: disposeBag)
+        
+        Observable.combineLatest(
+            reactor.state.map { $0.currencyCode },
+            reactor.state.map { $0.exchangeRate }
+        )
+        .map { "1 \($0.0) = \($0.1.toCurrencyString())" }
+        .bind(with: self) { owner, exchangeRate in
+            owner.exchangeEstimateComparisonBottomSheetView.bind(exchangeRate: exchangeRate)
+        }
+        .disposed(by: disposeBag)
     }
 }

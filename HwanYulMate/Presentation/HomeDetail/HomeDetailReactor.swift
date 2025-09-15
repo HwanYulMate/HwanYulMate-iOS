@@ -40,7 +40,7 @@ final class HomeDetailReactor: Reactor {
     enum Route {
         case pop
         case news(String)
-        case bottomSheet
+        case bottomSheet(String, Double)
     }
     
     // MARK: - properties
@@ -125,7 +125,11 @@ final class HomeDetailReactor: Reactor {
                 return .just(.setRoute(nil))
             }
         case .tapExchangeEstimateComparisonButton:
-            return .just(.setRoute(.bottomSheet))
+            if let exchangeRate = currentState.exchangeRate?.exchangeRate {
+                return .just(.setRoute(.bottomSheet(currentState.currencyCode, exchangeRate)))
+            } else {
+                return .just(.setRoute(nil))
+            }
         }
     }
     

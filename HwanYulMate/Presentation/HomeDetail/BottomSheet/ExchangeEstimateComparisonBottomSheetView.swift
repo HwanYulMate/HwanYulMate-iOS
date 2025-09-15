@@ -13,7 +13,7 @@ final class ExchangeEstimateComparisonBottomSheetView: BaseBottomSheetView {
     
     // MARK: - properties
     private let titleLabel = UILabel().then {
-        $0.text = "총 환전 할 금액을 적어주세요"
+        $0.text = "총 환전할 금액을 적어주세요"
         $0.font = .pretendard(size: 18, weight: .semibold)
         $0.textColor = .gray900
     }
@@ -90,5 +90,16 @@ final class ExchangeEstimateComparisonBottomSheetView: BaseBottomSheetView {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-16)
         }
+    }
+    
+    func bind(exchangeRate: String) {
+        bodyLabel.text = "현재 \(exchangeRate) 원"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "지금 \(exchangeRate)",
+            attributes: [
+                .foregroundColor: UIColor.gray400,
+                .font: UIFont.pretendard(size: 14, weight: .medium)
+            ]
+        )
     }
 }
