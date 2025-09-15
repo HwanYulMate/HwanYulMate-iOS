@@ -8,13 +8,12 @@
 import Foundation
 
 enum ExchangeRateEndpoint: Endpoint {
+    case fetchExchangeRate(request: ExchangeRateRequestDTO)
     case fetchAllExchangeRates
 }
 
 // MARK: - extensions
 extension ExchangeRateEndpoint {
-    typealias Response = [ExchangeRateResponseDTO]
-    
     var baseURL: URL {
         URL(string: AppConfig.shared.baseURL)!
     }
@@ -28,11 +27,21 @@ extension ExchangeRateEndpoint {
     }
     
     var path: String {
-        "/api/exchangeList"
+        switch self {
+        case .fetchExchangeRate:
+            return "/api/exchange/realtime"
+        case .fetchAllExchangeRates:
+            return "/api/exchangeList"
+        }
     }
     
     var queryParametersEncodable: (any Encodable)? {
-        nil
+        switch self {
+        case .fetchExchangeRate(let request):
+            return request
+        case .fetchAllExchangeRates:
+            return nil
+        }
     }
     
     var bodyParametersEncodable: (any Encodable)? {

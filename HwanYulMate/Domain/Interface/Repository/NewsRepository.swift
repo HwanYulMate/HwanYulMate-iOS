@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol NewsRepository {
+    func fetchNews(currencyCode: String) -> Single<News>
+}

@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol ChartRepository {
+    func fetchWeeklyChart(currencyCode: String) -> Single<[Chart]>
+    func fetchMonthlyChart(currencyCode: String) -> Single<[Chart]>
+    func fetchThreeMonthsChart(currencyCode: String) -> Single<[Chart]>
+    func fetchSixMonthsChart(currencyCode: String) -> Single<[Chart]>
+    func fetchYearlyChart(currencyCode: String) -> Single<[Chart]>
+}

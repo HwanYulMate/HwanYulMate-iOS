@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct ExchangeRateRequestDTO: Encodable {
+    let currencyCode: String
+}

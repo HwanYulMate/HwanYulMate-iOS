@@ -87,9 +87,9 @@ final class HomeViewController: UIViewController, View {
                     let notificationVC = NotificationViewController(reactor: NotificationReactor())
                     notificationVC.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(notificationVC, animated: true)
-                case .homeDetail:
+                case .homeDetail(let currencyCode):
                     let homeDetailVC = HomeDetailViewController()
-                    homeDetailVC.reactor = HomeDetailReactor()
+                    homeDetailVC.reactor = HomeDetailReactor(currencyCode: currencyCode)
                     homeDetailVC.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(homeDetailVC, animated: true)
                 }

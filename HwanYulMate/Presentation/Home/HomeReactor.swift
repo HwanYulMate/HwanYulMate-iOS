@@ -30,7 +30,7 @@ final class HomeReactor: Reactor {
     
     enum Route {
         case notification
-        case homeDetail
+        case homeDetail(currencyCode: String)
     }
     
     // MARK: - properties
@@ -52,8 +52,8 @@ final class HomeReactor: Reactor {
                 .map { Mutation.setExchangeRates($0) }
         case .tapNotificationButton:
             return .just(.setRoute(.notification))
-        case .tapCellItem:
-            return .just(.setRoute(.homeDetail))
+        case .tapCellItem(let indexPath):
+            return .just(.setRoute(.homeDetail(currencyCode: currentState.exchangeRates[indexPath.row].currencyCode)))
         }
     }
     

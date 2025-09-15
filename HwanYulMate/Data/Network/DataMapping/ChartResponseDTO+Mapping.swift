@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+struct ChartResponseDTO: Decodable {
+    let date: String
+    let rate: Double
+    let timestamp: String
+}
+
+// MARK: - extensions
+extension ChartResponseDTO {
+    func toEntity() -> Chart {
+        return .init(
+            date: date,
+            rate: rate,
+            timestamp: timestamp
+        )
+    }
+}

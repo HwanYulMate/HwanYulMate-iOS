@@ -9,5 +9,6 @@ import Foundation
 import RxSwift
 
 protocol ExchangeRateRepository {
+    func fetchExchangeRate(currencyCode: String) -> Single<ExchangeRate>
     func fetchAllExchangeRates() -> Single<[ExchangeRate]>
 }

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct ChartRequestDTO: Encodable {
+    let currencyCode: String
+}

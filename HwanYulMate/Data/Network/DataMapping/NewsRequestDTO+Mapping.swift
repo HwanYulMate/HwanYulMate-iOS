@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct NewsRequestDTO: Encodable {
+    let currencyCode: String
+    let page: Int
+    let size: Int
+}

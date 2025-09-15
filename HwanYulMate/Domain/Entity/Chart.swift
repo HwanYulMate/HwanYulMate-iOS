@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Chart {
+    let date: String
+    let rate: Double
+    let timestamp: String
+}
