@@ -73,7 +73,19 @@
 		37E1C56C2E5C59BE00D9D687 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */; };
 		37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */; };
 		D63BD2492E7708A400918E5E /* NewsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2482E77089D00918E5E /* NewsNetworkService.swift */; };
-		D63BD24C2E77098100918E5E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D63BD24B2E77098100918E5E /* Config.xcconfig */; };
+		D63BD2762E79CF5E00918E5E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D63BD2752E79CF5E00918E5E /* Config.xcconfig */; };
+		D63BD2792E79CFEF00918E5E /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2782E79CFEF00918E5E /* ProfileCell.swift */; };
+		D63BD27B2E79CFFA00918E5E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD27A2E79CFFA00918E5E /* ProfileView.swift */; };
+		D63BD27D2E79D00800918E5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD27C2E79D00800918E5E /* ProfileViewController.swift */; };
+		D63BD2812E79D05300918E5E /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2802E79D05300918E5E /* PrivacyPolicyViewController.swift */; };
+		D63BD2832E79D05D00918E5E /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2822E79D05D00918E5E /* PrivacyPolicyView.swift */; };
+		D63BD2862E79D08700918E5E /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2852E79D08700918E5E /* OpenSourceLicenseViewController.swift */; };
+		D63BD2882E79D09700918E5E /* OpenSourceLicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2872E79D09600918E5E /* OpenSourceLicenseView.swift */; };
+		D63BD28A2E79D0CD00918E5E /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2892E79D0CD00918E5E /* LogoutViewController.swift */; };
+		D63BD28C2E79D0DC00918E5E /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD28B2E79D0DC00918E5E /* LogoutView.swift */; };
+		D63BD28F2E79D10B00918E5E /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD28E2E79D10B00918E5E /* WithdrawalViewController.swift */; };
+		D63BD2912E79D11500918E5E /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2902E79D11500918E5E /* WithdrawalView.swift */; };
+		D63BD2942E79D15A00918E5E /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2932E79D15A00918E5E /* FeedbackViewController.swift */; };
 		D6ADCF6F2E74653200A95D89 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF6E2E74653200A95D89 /* NewsCell.swift */; };
 		D6ADCF712E74655700A95D89 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF702E74655700A95D89 /* NewsView.swift */; };
 		D6ADCF732E7467C500A95D89 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF722E7467C500A95D89 /* NewsViewController.swift */; };
@@ -140,7 +152,19 @@
 		37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D63BD2482E77089D00918E5E /* NewsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNetworkService.swift; sourceTree = "<group>"; };
-		D63BD24B2E77098100918E5E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D63BD2752E79CF5E00918E5E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = "/Users/hanjw/.Trash/HwanYulMate-iOS/HwanYulMate/Application/Config.xcconfig"; sourceTree = "<absolute>"; };
+		D63BD2782E79CFEF00918E5E /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		D63BD27A2E79CFFA00918E5E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D63BD27C2E79D00800918E5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D63BD2802E79D05300918E5E /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		D63BD2822E79D05D00918E5E /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		D63BD2852E79D08700918E5E /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
+		D63BD2872E79D09600918E5E /* OpenSourceLicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseView.swift; sourceTree = "<group>"; };
+		D63BD2892E79D0CD00918E5E /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		D63BD28B2E79D0DC00918E5E /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		D63BD28E2E79D10B00918E5E /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
+		D63BD2902E79D11500918E5E /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
+		D63BD2932E79D15A00918E5E /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		D6ADCF6E2E74653200A95D89 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		D6ADCF702E74655700A95D89 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		D6ADCF722E7467C500A95D89 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -313,7 +337,7 @@
 			children = (
 				37E1C5252E5B4B5200D9D687 /* AppDelegate.swift */,
 				37E1C52A2E5B4B5200D9D687 /* SceneDelegate.swift */,
-				D63BD24B2E77098100918E5E /* Config.xcconfig */,
+				D63BD2752E79CF5E00918E5E /* Config.xcconfig */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -341,6 +365,7 @@
 				37426A882E62C4F6000A7C74 /* Notification */,
 				37426A932E62EBD5000A7C74 /* NotificationSetting */,
 				D6ADCF6D2E7464FA00A95D89 /* News */,
+				D63BD2772E79CF9800918E5E /* Profile */,
 				37E1C5442E5B4FC100D9D687 /* Util */,
 			);
 			path = Presentation;
@@ -415,6 +440,65 @@
 				37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		D63BD2772E79CF9800918E5E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D63BD2782E79CFEF00918E5E /* ProfileCell.swift */,
+				D63BD27A2E79CFFA00918E5E /* ProfileView.swift */,
+				D63BD27C2E79D00800918E5E /* ProfileViewController.swift */,
+				D63BD27F2E79D03D00918E5E /* PrivacyPolicy */,
+				D63BD2842E79D07B00918E5E /* OpenSourceLicense */,
+				D63BD27E2E79D00D00918E5E /* Logout */,
+				D63BD28D2E79D0F400918E5E /* Withdrawal */,
+				D63BD2922E79D14400918E5E /* Feedback */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D63BD27E2E79D00D00918E5E /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				D63BD28B2E79D0DC00918E5E /* LogoutView.swift */,
+				D63BD2892E79D0CD00918E5E /* LogoutViewController.swift */,
+			);
+			path = Logout;
+			sourceTree = "<group>";
+		};
+		D63BD27F2E79D03D00918E5E /* PrivacyPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				D63BD2822E79D05D00918E5E /* PrivacyPolicyView.swift */,
+				D63BD2802E79D05300918E5E /* PrivacyPolicyViewController.swift */,
+			);
+			path = PrivacyPolicy;
+			sourceTree = "<group>";
+		};
+		D63BD2842E79D07B00918E5E /* OpenSourceLicense */ = {
+			isa = PBXGroup;
+			children = (
+				D63BD2852E79D08700918E5E /* OpenSourceLicenseViewController.swift */,
+				D63BD2872E79D09600918E5E /* OpenSourceLicenseView.swift */,
+			);
+			path = OpenSourceLicense;
+			sourceTree = "<group>";
+		};
+		D63BD28D2E79D0F400918E5E /* Withdrawal */ = {
+			isa = PBXGroup;
+			children = (
+				D63BD2902E79D11500918E5E /* WithdrawalView.swift */,
+				D63BD28E2E79D10B00918E5E /* WithdrawalViewController.swift */,
+			);
+			path = Withdrawal;
+			sourceTree = "<group>";
+		};
+		D63BD2922E79D14400918E5E /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				D63BD2932E79D15A00918E5E /* FeedbackViewController.swift */,
+			);
+			path = Feedback;
 			sourceTree = "<group>";
 		};
 		D6ADCF6D2E7464FA00A95D89 /* News */ = {
@@ -523,7 +607,7 @@
 				37E1C56C2E5C59BE00D9D687 /* Pretendard-Thin.otf in Resources */,
 				37E1C5302E5B4B5200D9D687 /* Assets.xcassets in Resources */,
 				37E1C5342E5B4B6700D9D687 /* .gitignore in Resources */,
-				D63BD24C2E77098100918E5E /* Config.xcconfig in Resources */,
+				D63BD2762E79CF5E00918E5E /* Config.xcconfig in Resources */,
 				37E1C5322E5B4B5200D9D687 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,12 +647,14 @@
 				D6ADCF712E74655700A95D89 /* NewsView.swift in Sources */,
 				37423E312E7420E800BE4D46 /* ExchangeEstimateComparisonView.swift in Sources */,
 				37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */,
+				D63BD2792E79CFEF00918E5E /* ProfileCell.swift in Sources */,
 				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
 				37E1C52D2E5B4B5200D9D687 /* AppDelegate.swift in Sources */,
 				37423E1B2E7038D000BE4D46 /* HomeDetailView.swift in Sources */,
 				37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */,
 				37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */,
 				37423E352E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift in Sources */,
+				D63BD28F2E79D10B00918E5E /* WithdrawalViewController.swift in Sources */,
 				37423E212E70393900BE4D46 /* HomeDetailReactor.swift in Sources */,
 				37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */,
 				37423E0B2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift in Sources */,
@@ -580,30 +666,40 @@
 				D6ADCF732E7467C500A95D89 /* NewsViewController.swift in Sources */,
 				37E1C5422E5B4EBB00D9D687 /* HomeView.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
+				D63BD27D2E79D00800918E5E /* ProfileViewController.swift in Sources */,
 				D6ADCF792E75671A00A95D89 /* NewsModel.swift in Sources */,
 				37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
 				37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */,
 				D63BD2492E7708A400918E5E /* NewsNetworkService.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
+				D63BD2912E79D11500918E5E /* WithdrawalView.swift in Sources */,
 				37423E332E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift in Sources */,
 				37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */,
+				D63BD27B2E79CFFA00918E5E /* ProfileView.swift in Sources */,
 				37E1C52E2E5B4B5200D9D687 /* SceneDelegate.swift in Sources */,
 				3728CAFB2E5DA4FE00D3DC98 /* SplashView.swift in Sources */,
 				37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */,
 				37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */,
 				37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */,
+				D63BD2862E79D08700918E5E /* OpenSourceLicenseViewController.swift in Sources */,
 				37426AAF2E65A222000A7C74 /* NotificationSettingReactor.swift in Sources */,
+				D63BD2942E79D15A00918E5E /* FeedbackViewController.swift in Sources */,
 				37423E142E6F44A400BE4D46 /* NotificationSettingAlertView.swift in Sources */,
+				D63BD2882E79D09700918E5E /* OpenSourceLicenseView.swift in Sources */,
 				37426A8E2E62C534000A7C74 /* NotificationViewController.swift in Sources */,
 				37E1C54B2E5B522A00D9D687 /* BaseTableViewCell.swift in Sources */,
+				D63BD2812E79D05300918E5E /* PrivacyPolicyViewController.swift in Sources */,
+				D63BD28A2E79D0CD00918E5E /* LogoutViewController.swift in Sources */,
 				37E1C5402E5B4E9000D9D687 /* HomeViewController.swift in Sources */,
 				37426A8A2E62C518000A7C74 /* NotificationCell.swift in Sources */,
+				D63BD28C2E79D0DC00918E5E /* LogoutView.swift in Sources */,
 				D6ADCF6F2E74653200A95D89 /* NewsCell.swift in Sources */,
 				37426A952E62EC49000A7C74 /* NotificationSettingViewController.swift in Sources */,
 				37423E2C2E72F12E00BE4D46 /* ExchangeEstimateComparisonBottomSheetView.swift in Sources */,
 				37423E2E2E72F13E00BE4D46 /* ExchangeEstimateComparisonBottomSheetReactor.swift in Sources */,
 				37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */,
+				D63BD2832E79D05D00918E5E /* PrivacyPolicyView.swift in Sources */,
 				37423E0F2E6E07F900BE4D46 /* TimeSelectionBottomSheetReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,13 +720,13 @@
 /* Begin XCBuildConfiguration section */
 		37E1C50A2E5B444600D9D687 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D63BD24B2E77098100918E5E /* Config.xcconfig */;
+			baseConfigurationReference = D63BD2752E79CF5E00918E5E /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
+				DEVELOPMENT_TEAM = G5WGKC822D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HwanYulMate/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -643,7 +739,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apptive.HwanYulMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptive.HwanYulMate2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -657,13 +753,13 @@
 		};
 		37E1C50B2E5B444600D9D687 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D63BD24B2E77098100918E5E /* Config.xcconfig */;
+			baseConfigurationReference = D63BD2752E79CF5E00918E5E /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
+				DEVELOPMENT_TEAM = G5WGKC822D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HwanYulMate/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -676,7 +772,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apptive.HwanYulMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apptive.HwanYulMate2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -690,7 +786,7 @@
 		};
 		37E1C50C2E5B444600D9D687 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D63BD24B2E77098100918E5E /* Config.xcconfig */;
+			baseConfigurationReference = D63BD2752E79CF5E00918E5E /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -755,7 +851,7 @@
 		};
 		37E1C50D2E5B444600D9D687 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D63BD24B2E77098100918E5E /* Config.xcconfig */;
+			baseConfigurationReference = D63BD2752E79CF5E00918E5E /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

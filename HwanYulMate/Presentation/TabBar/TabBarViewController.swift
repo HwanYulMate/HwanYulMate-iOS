@@ -24,8 +24,11 @@ final class TabBarViewController: UITabBarController {
         
         let newsVC = UINavigationController(rootViewController: NewsViewController())
         newsVC.tabBarItem = UITabBarItem(title: "뉴스", image: .news, tag: 1)
-                
-        setViewControllers([homeVC, newsVC], animated: true)
+        
+        let profileVC = UINavigationController(rootViewController: ProfileViewController())
+        profileVC.tabBarItem = UITabBarItem(title: "마이", image: .profile, tag: 2)
+        
+        setViewControllers([homeVC, newsVC, profileVC], animated: true)
     }
     
     private func configureTabBarAppearence() {
