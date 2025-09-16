@@ -90,6 +90,7 @@
 		D6ADCF712E74655700A95D89 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF702E74655700A95D89 /* NewsView.swift */; };
 		D6ADCF732E7467C500A95D89 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF722E7467C500A95D89 /* NewsViewController.swift */; };
 		D6ADCF792E75671A00A95D89 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF782E75671A00A95D89 /* NewsModel.swift */; };
+		D6B060182E7A039E00BBB385 /* ProfileNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B060172E7A039C00BBB385 /* ProfileNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +170,7 @@
 		D6ADCF702E74655700A95D89 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		D6ADCF722E7467C500A95D89 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		D6ADCF782E75671A00A95D89 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		D6B060172E7A039C00BBB385 /* ProfileNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +450,7 @@
 				D63BD2782E79CFEF00918E5E /* ProfileCell.swift */,
 				D63BD27A2E79CFFA00918E5E /* ProfileView.swift */,
 				D63BD27C2E79D00800918E5E /* ProfileViewController.swift */,
+				D6B060172E7A039C00BBB385 /* ProfileNetworkService.swift */,
 				D63BD27F2E79D03D00918E5E /* PrivacyPolicy */,
 				D63BD2842E79D07B00918E5E /* OpenSourceLicense */,
 				D63BD27E2E79D00D00918E5E /* Logout */,
@@ -679,6 +682,7 @@
 				D63BD27B2E79CFFA00918E5E /* ProfileView.swift in Sources */,
 				37E1C52E2E5B4B5200D9D687 /* SceneDelegate.swift in Sources */,
 				3728CAFB2E5DA4FE00D3DC98 /* SplashView.swift in Sources */,
+				D6B060182E7A039E00BBB385 /* ProfileNetworkService.swift in Sources */,
 				37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */,
 				37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */,
 				37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */,
