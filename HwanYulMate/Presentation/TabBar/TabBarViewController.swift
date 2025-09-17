@@ -22,7 +22,13 @@ final class TabBarViewController: UITabBarController {
         let homeVC = UINavigationController(rootViewController: HomeViewController(reactor: HomeReactor()))
         homeVC.tabBarItem = UITabBarItem(title: "환율", image: .exchangeRate, tag: 0)
         
-        setViewControllers([homeVC], animated: true)
+        let newsVC = UINavigationController(rootViewController: NewsViewController())
+        newsVC.tabBarItem = UITabBarItem(title: "뉴스", image: .news, tag: 1)
+        
+        let profileVC = UINavigationController(rootViewController: ProfileViewController())
+        profileVC.tabBarItem = UITabBarItem(title: "마이", image: .profile, tag: 2)
+        
+        setViewControllers([homeVC, newsVC, profileVC], animated: true)
     }
     
     private func configureTabBarAppearence() {
