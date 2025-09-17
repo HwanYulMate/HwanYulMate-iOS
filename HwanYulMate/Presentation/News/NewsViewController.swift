@@ -10,7 +10,7 @@ import SafariServices
 
 final class NewsViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - properties
     private let newsView = NewsView()
     private let networkService = NewsNetworkService.shared
     
@@ -18,15 +18,19 @@ final class NewsViewController: UIViewController {
     private var filteredNews: [NewsModel] = []
     private var isSearching = false
     private var isLoading = false
+    private var isLoadingMore = false
     private var currentPage = 0
+    private var hasNextPage = true
+    private var searchWorkItem: DispatchWorkItem?
     
-    // MARK: - Constants
     private enum Constants {
         static let defaultSearchKeyword = "달러"
         static let pageSize = 10
+        static let searchDebounceTime: TimeInterval = 0.5
+        static let prefetchThreshold = 3 // 마지막에서 3개 남았을 때 다음 페이지 로드
     }
     
-    // MARK: - Life Cycles
+    // MARK: - life cycles
     override func loadView() {
         view = newsView
     }
@@ -37,16 +41,32 @@ final class NewsViewController: UIViewController {
         loadInitialNews()
     }
     
-    // MARK: - Setup Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unregisterKeyboardNotifications()
+    }
+    
+    // MARK: - methods (setting up)
     private func setupUI() {
         setupTableView()
         setupSearchTextField()
         setupRefreshControl()
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setupTableView() {
         newsView.tableView.dataSource = self
         newsView.tableView.delegate = self
+        newsView.tableView.prefetchDataSource = self
     }
     
     private func setupSearchTextField() {
@@ -64,59 +84,155 @@ final class NewsViewController: UIViewController {
         }
     }
     
-    // MARK: - Data Loading Methods
-    private func loadInitialNews() {
-        loadNews(keyword: Constants.defaultSearchKeyword, page: 0)
+    // MARK: - methods (keyboard handling)
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
-    private func loadNews(keyword: String, page: Int) {
-        guard !isLoading else { return }
+    private func unregisterKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         
-        isLoading = true
-        newsView.showLoading()
+        let keyboardHeight = keyboardFrame.height
+        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
         
-        networkService.searchNews(
-            searchKeyword: keyword,
+        newsView.tableView.contentInset = contentInset
+        newsView.tableView.scrollIndicatorInsets = contentInset
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        newsView.tableView.contentInset = .zero
+        newsView.tableView.scrollIndicatorInsets = .zero
+    }
+    
+    // MARK: - methods (data loading)
+    private func loadInitialNews() {
+        resetPaginationState()
+        loadPaginatedNews(page: 0, isRefresh: false)
+    }
+    
+    private func loadPaginatedNews(page: Int, isRefresh: Bool) {
+        guard !isLoading && !isLoadingMore else { return }
+        
+        if page == 0 {
+            isLoading = true
+            if !isRefresh {
+                newsView.showLoading()
+            }
+        } else {
+            isLoadingMore = true
+            newsView.showLoadingMore()
+        }
+        
+        networkService.fetchPaginatedNews(
             page: page,
             size: Constants.pageSize
         ) { [weak self] result in
-            self?.handleNewsResult(result)
+            DispatchQueue.main.async {
+                self?.handlePaginatedNewsResult(result, page: page, isRefresh: isRefresh)
+            }
         }
     }
     
-    private func handleNewsResult(_ result: Result<[NewsModel], NetworkError>) {
+    private func handlePaginatedNewsResult(
+        _ result: Result<NewsSearchResponse, NetworkError>,
+        page: Int,
+        isRefresh: Bool
+    ) {
         isLoading = false
-        newsView.hideLoading()
+        isLoadingMore = false
+        
+        if isRefresh {
+            newsView.endRefreshing()
+        } else {
+            newsView.hideLoading()
+        }
+        
+        newsView.hideLoadingMore()
         
         switch result {
-        case .success(let news):
-            updateNewsData(with: news)
+        case .success(let response):
+            handleSuccessfulPaginatedResponse(response, page: page)
         case .failure(let error):
-            handleNetworkError(error)
+            handlePaginatedNewsError(error, page: page)
         }
     }
     
-    private func updateNewsData(with news: [NewsModel]) {
-        allNews = news
+    private func handleSuccessfulPaginatedResponse(_ response: NewsSearchResponse, page: Int) {
+        let newNewsModels = response.newsList.map { $0.toNewsModel() }
+        
+        if page == 0 {
+            allNews = newNewsModels
+            resetPaginationState()
+        } else {
+            allNews.append(contentsOf: newNewsModels)
+        }
+        
+        currentPage = response.currentPage
+        hasNextPage = response.hasNext
+        
         if !isSearching {
-            filteredNews = news
+            filteredNews = allNews
         }
-        newsView.tableView.reloadData()
+        
+        reloadTableViewData()
+        
+        print("📄 [Pagination] Loaded page \(currentPage), hasNext: \(hasNextPage), total items: \(allNews.count)")
     }
     
-    private func handleNetworkError(_ error: NetworkError) {
+    private func handlePaginatedNewsError(_ error: NetworkError, page: Int) {
         print("네트워크 오류: \(error.localizedDescription)")
-        // 목업 데이터로 폴백
-        allNews = NewsModel.mockData
-        filteredNews = allNews
-        newsView.tableView.reloadData()
-        showAlert(title: "네트워크 오류", message: "목업 데이터를 표시합니다.")
+        
+        if page == 0 {
+            allNews = NewsModel.mockData
+            filteredNews = allNews
+            resetPaginationState()
+            reloadTableViewData()
+            showToast(message: "네트워크 연결을 확인해주세요")
+        } else {
+            showToast(message: "더 많은 뉴스를 불러올 수 없습니다")
+        }
     }
     
-    // MARK: - Search Methods
+    private func resetPaginationState() {
+        currentPage = 0
+        hasNextPage = true
+    }
+    
+    private func reloadTableViewData() {
+        newsView.tableView.reloadData()
+        newsView.updateEmptyState(for: filteredNews.count, isSearching: isSearching)
+    }
+    
+    // MARK: - methods (searching)
     @objc private func searchTextChanged(_ textField: UITextField) {
+        searchWorkItem?.cancel()
+        
         let searchText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        performSearch(with: searchText)
+        
+        searchWorkItem = DispatchWorkItem { [weak self] in
+            self?.performSearch(with: searchText)
+        }
+        
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + Constants.searchDebounceTime,
+            execute: searchWorkItem!
+        )
     }
     
     private func performSearch(with searchText: String) {
@@ -126,9 +242,7 @@ final class NewsViewController: UIViewController {
             filterNews(with: searchText)
         }
         
-        DispatchQueue.main.async { [weak self] in
-            self?.newsView.tableView.reloadData()
-        }
+        reloadTableViewData()
     }
     
     private func resetToAllNews() {
@@ -139,65 +253,79 @@ final class NewsViewController: UIViewController {
     private func filterNews(with searchText: String) {
         isSearching = true
         filteredNews = allNews.filter { news in
-            news.title.localizedCaseInsensitiveContains(searchText)
+            news.title.localizedCaseInsensitiveContains(searchText) ||
+            news.description?.localizedCaseInsensitiveContains(searchText) == true
         }
     }
     
-    // MARK: - Refresh Methods
+    // MARK: - methods (refreshing)
     private func refreshNews() {
-        guard !isLoading else {
+        guard !isLoading && !isLoadingMore else {
             newsView.endRefreshing()
             return
         }
         
-        let keyword = getCurrentSearchKeyword()
-        refreshNewsData(with: keyword)
-    }
-    
-    private func getCurrentSearchKeyword() -> String {
         if isSearching {
-            return newsView.searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? Constants.defaultSearchKeyword
+            refreshSearchData()
+        } else {
+            loadPaginatedNews(page: 0, isRefresh: true)
         }
-        return Constants.defaultSearchKeyword
     }
     
-    private func refreshNewsData(with keyword: String) {
+    private func refreshSearchData() {
+        guard let searchText = newsView.searchTextField.text,
+              !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            newsView.endRefreshing()
+            return
+        }
+        
         isLoading = true
         
         networkService.searchNews(
-            searchKeyword: keyword,
+            searchKeyword: searchText.trimmingCharacters(in: .whitespacesAndNewlines),
             page: 0,
             size: Constants.pageSize
         ) { [weak self] result in
-            self?.handleRefreshResult(result, keyword: keyword)
+            DispatchQueue.main.async {
+                self?.handleSearchRefreshResult(result)
+            }
         }
     }
     
-    private func handleRefreshResult(_ result: Result<[NewsModel], NetworkError>, keyword: String) {
+    private func handleSearchRefreshResult(_ result: Result<[NewsModel], NetworkError>) {
         isLoading = false
         newsView.endRefreshing()
         
         switch result {
         case .success(let news):
-            updateRefreshedNews(with: news, keyword: keyword)
+            allNews = news
+            if isSearching {
+                if let searchText = newsView.searchTextField.text {
+                    filterNews(with: searchText.trimmingCharacters(in: .whitespacesAndNewlines))
+                }
+            } else {
+                filteredNews = news
+            }
+            reloadTableViewData()
         case .failure(let error):
-            showAlert(title: "새로고침 실패", message: error.localizedDescription)
+            showToast(message: "새로고침 실패: \(error.localizedDescription)")
         }
     }
     
-    private func updateRefreshedNews(with news: [NewsModel], keyword: String) {
-        allNews = news
+    // MARK: - methods (infinite scroll)
+    private func loadMoreNewsIfNeeded(for indexPath: IndexPath) {
+        guard !isSearching,
+              hasNextPage,
+              !isLoadingMore,
+              indexPath.row >= filteredNews.count - Constants.prefetchThreshold
+        else { return }
         
-        if !isSearching {
-            filteredNews = news
-        } else {
-            filterNews(with: keyword)
-        }
-        
-        newsView.tableView.reloadData()
+        let nextPage = currentPage + 1
+        print("📄 [Pagination] Loading more news - page: \(nextPage)")
+        loadPaginatedNews(page: nextPage, isRefresh: false)
     }
     
-    // MARK: - Navigation Methods
+    // MARK: - methods (navigation)
     private func openNewsURL(for news: NewsModel) {
         if let validURL = getValidURL(from: news) {
             openSafariViewController(with: validURL)
@@ -217,8 +345,10 @@ final class NewsViewController: UIViewController {
         newsView.showLoading()
         
         networkService.getNewsOriginalLink(for: news.id) { [weak self] result in
-            self?.newsView.hideLoading()
-            self?.handleOriginalLinkResult(result, fallbackNews: news)
+            DispatchQueue.main.async {
+                self?.newsView.hideLoading()
+                self?.handleOriginalLinkResult(result, fallbackNews: news)
+            }
         }
     }
     
@@ -228,7 +358,7 @@ final class NewsViewController: UIViewController {
             if let url = URL(string: urlString) {
                 openSafariViewController(with: url)
             } else {
-                showInvalidURLAlert()
+                showToast(message: "유효하지 않은 URL입니다")
             }
         case .failure(let error):
             handleOriginalLinkFailure(error, fallbackNews: fallbackNews)
@@ -241,7 +371,7 @@ final class NewsViewController: UIViewController {
         if let url = URL(string: fallbackNews.url) {
             openSafariViewController(with: url)
         } else {
-            showAlert(title: "오류", message: "뉴스 링크를 열 수 없습니다.")
+            showToast(message: "뉴스 링크를 열 수 없습니다")
         }
     }
     
@@ -252,19 +382,16 @@ final class NewsViewController: UIViewController {
         present(safariViewController, animated: true)
     }
     
-    // MARK: - Alert Methods
-    private func showInvalidURLAlert() {
-        showAlert(title: "오류", message: "유효하지 않은 URL입니다.")
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default))
+    private func showToast(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         present(alert, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true)
+        }
     }
 }
 
-// MARK: - UITableViewDataSource
 extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredNews.count
@@ -287,20 +414,52 @@ extension NewsViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let selectedNews = filteredNews[indexPath.row]
         openNewsURL(for: selectedNews)
+        
+        print("뉴스 선택됨: \(selectedNews.title)")
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        loadMoreNewsIfNeeded(for: indexPath)
+        
+        let shouldAnimate = indexPath.row < 5 ||
+                           (indexPath.row >= filteredNews.count - Constants.pageSize)
+        
+        if shouldAnimate {
+            cell.alpha = 0
+            UIView.animate(withDuration: 0.25) {
+                cell.alpha = 1
+            }
+        } else {
+            cell.alpha = 1
+        }
     }
 }
 
-// MARK: - UITextFieldDelegate
+extension NewsViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            loadMoreNewsIfNeeded(for: indexPath)
+        }
+    }
+}
+
 extension NewsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        newsView.searchContainerView.layer.borderColor = UIColor.main.cgColor
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        newsView.searchContainerView.layer.borderColor = UIColor.gray100.cgColor
     }
 }

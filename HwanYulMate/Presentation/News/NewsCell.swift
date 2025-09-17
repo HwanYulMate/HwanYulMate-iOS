@@ -11,7 +11,7 @@ import Then
 
 final class NewsCell: BaseTableViewCell {
     
-    // MARK: - Properties
+    // MARK: - properties
     static let identifier = "NewsCell"
     
     private let thumbnailImageView = UIImageView().then {
@@ -31,7 +31,6 @@ final class NewsCell: BaseTableViewCell {
         $0.textColor = .gray500
     }
     
-    // MARK: - Constants
     private enum Constants {
         static let horizontalPadding: CGFloat = 16
         static let verticalPadding: CGFloat = 18
@@ -41,13 +40,13 @@ final class NewsCell: BaseTableViewCell {
         static let lineSpacing: CGFloat = 4.0
     }
     
-    // MARK: - Life Cycles
+    // MARK: - life cycles
     override func prepareForReuse() {
         super.prepareForReuse()
         resetContent()
     }
     
-    // MARK: - Methods
+    // MARK: - methods
     override func configureUI() {
         selectionStyle = .default
         selectedBackgroundView = UIView().then {
@@ -119,8 +118,8 @@ final class NewsCell: BaseTableViewCell {
     }
     
     private func highlightSearchMatches(in attributedText: NSMutableAttributedString,
-                                      text: String,
-                                      searchText: String) {
+                                        text: String,
+                                        searchText: String) {
         let lowercaseText = text.lowercased()
         let lowercaseSearch = searchText.lowercased()
         
