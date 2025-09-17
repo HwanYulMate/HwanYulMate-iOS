@@ -96,7 +96,7 @@ final class HomeCell: BaseTableViewCell {
             rateChangeLabel.text = "+" + changeAmount + "원 (" + changePercent + "%)"
             rateChangeLabel.textColor = .increase
         case .down:
-            rateChangeLabel.text = "-" + changeAmount + "원 (" + changePercent + "%)"
+            rateChangeLabel.text = changeAmount + "원 (" + changePercent + "%)"
             rateChangeLabel.textColor = .decrease
         case .stable:
             rateChangeLabel.text = changeAmount + "원 (" + changePercent + "%)"

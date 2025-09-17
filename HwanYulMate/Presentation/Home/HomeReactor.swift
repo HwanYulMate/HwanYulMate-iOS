@@ -29,29 +29,32 @@ final class HomeReactor: Reactor {
     }
     
     enum Route {
-        case notification
+        case login
+        case notification(exchangeRates: [ExchangeRate])
         case homeDetail(currencyCode: String)
     }
     
     // MARK: - properties
     let initialState = State()
     
-    private let repository: ExchangeRateRepository
+    private let exchangeRateRepository: ExchangeRateRepository
+    private let authRepository: AuthRepository
     
     // MARK: - life cycles
     init() {
-        self.repository = ExchangeRateRepositoryImpl()
+        self.exchangeRateRepository = ExchangeRateRepositoryImpl()
+        self.authRepository = AuthRepositoryImpl()
     }
     
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didLoadView:
-            return repository.fetchAllExchangeRates()
+            return exchangeRateRepository.fetchAllExchangeRates()
                 .asObservable()
                 .map { Mutation.setExchangeRates($0) }
         case .tapNotificationButton:
-            return .just(.setRoute(.notification))
+            return authRepository.isLoggedIn() ? .just(.setRoute(.notification(exchangeRates: currentState.exchangeRates))) : .just(.setRoute(.login))
         case .tapCellItem(let indexPath):
             return .just(.setRoute(.homeDetail(currencyCode: currentState.exchangeRates[indexPath.row].currencyCode)))
         }

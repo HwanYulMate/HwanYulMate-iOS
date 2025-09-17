@@ -26,7 +26,6 @@ final class NotificationView: BaseView {
     }
     
     let tableView = UITableView(frame: .zero, style: .grouped).then {
-        $0.bounces = false
         $0.separatorStyle = .none
         $0.backgroundColor = .white
         $0.showsVerticalScrollIndicator = false

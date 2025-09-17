@@ -83,8 +83,14 @@ final class HomeViewController: UIViewController, View {
                 guard let route else { return }
                 
                 switch route {
-                case .notification:
-                    let notificationVC = NotificationViewController(reactor: NotificationReactor())
+                case .login:
+                    let loginVC = LoginViewController()
+                    loginVC.reactor = LoginReactor()
+                    loginVC.modalPresentationStyle = .fullScreen
+                    owner.present(loginVC, animated: true)
+                case .notification(let exchangeRates):
+                    let notificationVC = NotificationViewController()
+                    notificationVC.reactor = NotificationReactor(exchangeRates: exchangeRates)
                     notificationVC.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(notificationVC, animated: true)
                 case .homeDetail(let currencyCode):
