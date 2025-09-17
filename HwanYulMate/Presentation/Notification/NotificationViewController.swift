@@ -18,16 +18,6 @@ final class NotificationViewController: UIViewController, View {
     var disposeBag = DisposeBag()
     
     // MARK: - life cycles
-    init(reactor: NotificationReactor) {
-        super.init(nibName: nil, bundle: nil)
-        
-        self.reactor = reactor
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func loadView() {
         view = notificationView
     }
@@ -36,6 +26,8 @@ final class NotificationViewController: UIViewController, View {
         super.viewDidLoad()
         
         configureUI()
+        
+        reactor?.action.onNext(.didLoadView)
     }
     
     // MARK: - methods
@@ -71,10 +63,36 @@ final class NotificationViewController: UIViewController, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        reactor.action
-            .filter { $0 == .tapBackBarButtonItem }
-            .bind(with: self) { owner, _ in
-                owner.navigationController?.popViewController(animated: true)
+        notificationView.tableView.rx.itemSelected
+            .map { NotificationReactor.Action.tapCellItem($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.route }
+            .bind(with: self) { owner, route in
+                guard let route else { return }
+                
+                switch route {
+                case .pop:
+                    owner.navigationController?.popViewController(animated: true)
+                case .notificationSetting(let currencyCode):
+                    let notificationSettingViewController = NotificationSettingViewController()
+                    notificationSettingViewController.reactor = NotificationSettingReactor(currencyCode: currencyCode)
+                    owner.navigationController?.pushViewController(notificationSettingViewController, animated: true)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.alertSettings }
+            .bind(
+                to: notificationView.tableView.rx.items(
+                    cellIdentifier: NotificationCell.identifier,
+                    cellType: NotificationCell.self
+                )
+            ) { (_, element, cell) in
+                cell.bind(alertSetting: element)
             }
             .disposed(by: disposeBag)
     }

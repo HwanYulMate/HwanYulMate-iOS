@@ -35,6 +35,10 @@ final class HomeViewController: UIViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        homeView.tableView.register(HomeCell.self, forCellReuseIdentifier: HomeCell.identifier)
+        
+        reactor?.action.onNext(.didLoadView)
+        
         homeView.tableView.rx.contentOffset
             .map { $0.y }
             .bind(with: self) { owner, offset in
@@ -79,16 +83,41 @@ final class HomeViewController: UIViewController, View {
                 guard let route else { return }
                 
                 switch route {
-                case .notification:
-                    let notificationVC = NotificationViewController(reactor: NotificationReactor())
+                case .login:
+                    let loginVC = LoginViewController()
+                    loginVC.reactor = LoginReactor()
+                    loginVC.modalPresentationStyle = .fullScreen
+                    owner.present(loginVC, animated: true)
+                case .notification(let exchangeRates):
+                    let notificationVC = NotificationViewController()
+                    notificationVC.reactor = NotificationReactor(exchangeRates: exchangeRates)
                     notificationVC.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(notificationVC, animated: true)
-                case .homeDetail:
+                case .homeDetail(let currencyCode):
                     let homeDetailVC = HomeDetailViewController()
-                    homeDetailVC.reactor = HomeDetailReactor()
+                    homeDetailVC.reactor = HomeDetailReactor(currencyCode: currencyCode)
                     homeDetailVC.hidesBottomBarWhenPushed = true
                     owner.navigationController?.pushViewController(homeDetailVC, animated: true)
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.exchangeRates }
+            .bind(
+                to: homeView.tableView.rx.items(
+                    cellIdentifier: HomeCell.identifier,
+                    cellType: HomeCell.self
+                )
+            ) { (_, element, cell) in
+                cell.bind(exchangeRate: element)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.baseDate }
+            .bind(with: self) { owner, date in
+                owner.homeView.bind(date: date)
             }
             .disposed(by: disposeBag)
     }

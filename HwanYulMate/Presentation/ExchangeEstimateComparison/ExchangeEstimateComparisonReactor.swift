@@ -12,15 +12,20 @@ final class ExchangeEstimateComparisonReactor: Reactor {
     
     // MARK: - nested types
     enum Action {
+        case didLoadView
         case tapBackButton
     }
     
     enum Mutation {
         case setRoute(Route?)
+        case setBanks([Bank])
     }
     
     struct State {
         var route: Route?
+        var currencyCode: String = ""
+        var exchangeRate: Double = 0.0
+        var banks: [Bank] = []
     }
     
     enum Route {
@@ -28,11 +33,26 @@ final class ExchangeEstimateComparisonReactor: Reactor {
     }
     
     // MARK: - properties
-    let initialState = State()
+    let initialState: State
+    
+    private let repository: BankRepository
+    
+    // MARK: - life cycles
+    init(currencyCode: String, exchangeRate: Double) {
+        self.initialState = State(currencyCode: currencyCode, exchangeRate: exchangeRate)
+        self.repository = BankRepositoryImpl()
+    }
     
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .didLoadView:
+            return repository.fetchAllBankExchangeInfos(
+                currencyCode: currentState.currencyCode,
+                exchangeRate: currentState.exchangeRate
+            )
+            .asObservable()
+            .map { Mutation.setBanks($0) }
         case .tapBackButton:
             return .concat(
                 .just(.setRoute(.dismiss)),
@@ -47,6 +67,8 @@ final class ExchangeEstimateComparisonReactor: Reactor {
         switch mutation {
         case .setRoute(let route):
             newState.route = route
+        case .setBanks(let banks):
+            newState.banks = banks
         }
         
         return newState
