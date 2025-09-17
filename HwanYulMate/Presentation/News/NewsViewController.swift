@@ -5,7 +5,6 @@
 //  Created by HanJW on 8/28/25.
 //
 
-//  NewsViewController.swift
 import UIKit
 import SafariServices
 
