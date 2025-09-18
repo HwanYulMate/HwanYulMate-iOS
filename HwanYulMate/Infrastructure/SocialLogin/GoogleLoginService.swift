@@ -6,26 +6,30 @@
 //
 
 import Foundation
-import RxSwift
 import GoogleSignIn
+import RxSwift
 
-//final class GoogleLoginService: SocialLoginService {
-//    
-//    // MARK: - methods
-//    func login() -> Single<SocialLoginCredentialResponseDTO> {
-//        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
-//            guard error == nil else { return }
-//            guard let signInResult = signInResult else { return }
-//            
-//            let user = signInResult.user
-//            
-//            let emailAddress = user.profile?.email
-//            
-//            let fullName = user.profile?.name
-//            let givenName = user.profile?.givenName
-//            let familyName = user.profile?.familyName
-//            
-//            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-//        }
-//    }
-//}
+final class GoogleLoginService {
+    
+    // MARK: - methods
+    func login(vc: UIViewController) -> Single<SocialLoginCredentialResponseDTO> {
+        return Single.create { single in
+            GIDSignIn.sharedInstance.signIn(withPresenting: vc) { signInResult, error in
+                guard error == nil else { return }
+                guard let signInResult else { return }
+                
+                let response = SocialLoginCredentialResponseDTO(
+                    user: signInResult.user.userID ?? "",
+                    email: signInResult.user.profile?.email ?? "",
+                    fullName: signInResult.user.profile?.name ?? "",
+                    identityToken: signInResult.user.accessToken.tokenString,
+                    authorizationCode: ""
+                )
+                
+                single(.success(response))
+            }
+            
+            return Disposables.create()
+        }
+    }
+}

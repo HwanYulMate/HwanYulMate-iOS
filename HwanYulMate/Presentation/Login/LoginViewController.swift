@@ -30,7 +30,7 @@ final class LoginViewController: UIViewController, View {
             .disposed(by: disposeBag)
         
         loginView.googleLoginButton.rx.tap
-            .map { LoginReactor.Action.tapGoogleLoginButton }
+            .map { LoginReactor.Action.tapGoogleLoginButton(self) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
