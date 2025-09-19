@@ -12,33 +12,51 @@ final class HomeReactor: Reactor {
     
     // MARK: - nested types
     enum Action {
+        case didLoadView
         case tapNotificationButton
         case tapCellItem(IndexPath)
     }
     
     enum Mutation {
         case setRoute(Route?)
+        case setExchangeRates([ExchangeRate])
     }
     
     struct State {
         var route: Route?
+        var exchangeRates: [ExchangeRate] = []
+        var baseDate: String = ""
     }
     
     enum Route {
-        case notification
-        case homeDetail
+        case login
+        case notification(exchangeRates: [ExchangeRate])
+        case homeDetail(currencyCode: String)
     }
     
     // MARK: - properties
     let initialState = State()
     
+    private let exchangeRateRepository: ExchangeRateRepository
+    private let authRepository: AuthRepository
+    
+    // MARK: - life cycles
+    init() {
+        self.exchangeRateRepository = ExchangeRateRepositoryImpl()
+        self.authRepository = AuthRepositoryImpl()
+    }
+    
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .didLoadView:
+            return exchangeRateRepository.fetchAllExchangeRates()
+                .asObservable()
+                .map { Mutation.setExchangeRates($0) }
         case .tapNotificationButton:
-            return .just(.setRoute(.notification))
-        case .tapCellItem:
-            return .just(.setRoute(.homeDetail))
+            return authRepository.isLoggedIn() ? .just(.setRoute(.notification(exchangeRates: currentState.exchangeRates))) : .just(.setRoute(.login))
+        case .tapCellItem(let indexPath):
+            return .just(.setRoute(.homeDetail(currencyCode: currentState.exchangeRates[indexPath.row].currencyCode)))
         }
     }
     
@@ -48,6 +66,9 @@ final class HomeReactor: Reactor {
         switch mutation {
         case .setRoute(let route):
             newState.route = route
+        case .setExchangeRates(let exchangeRates):
+            newState.exchangeRates = exchangeRates
+            newState.baseDate = exchangeRates.first?.baseDate ?? ""
         }
         
         return newState

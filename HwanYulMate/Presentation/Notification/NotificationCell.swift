@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 import Then
 
@@ -65,5 +66,14 @@ final class NotificationCell: BaseTableViewCell {
             $0.width.equalTo(16)
             $0.height.equalTo(20)
         }
+    }
+    
+    func bind(alertSetting: AlertSetting) {
+        countryImageView.kf.setImage(with: URL(string: AppConfig.shared.baseURL + alertSetting.flagImageUrl))
+        currencyNameLabel.text = alertSetting.currencyName
+        notificationButton.setImage(
+            (alertSetting.isTargetPriceEnabled || alertSetting.isDailyAlertEnabled) ? .notificationOn : .notificationOff,
+            for: .normal
+        )
     }
 }

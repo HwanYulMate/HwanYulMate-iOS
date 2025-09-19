@@ -1,0 +1,12 @@
+//
+//  ExchangeRateRequestDTO+Mapping.swift
+//  HwanYulMate
+//
+//  Created by 김정호 on 9/14/25.
+//
+
+import Foundation
+
+struct ExchangeRateRequestDTO: Encodable {
+    let currencyCode: String
+}

@@ -22,6 +22,12 @@ final class ExchangeEstimateComparisonViewController: UIViewController, View {
         view = exchangeEstimateComparisonView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        reactor?.action.onNext(.didLoadView)
+    }
+    
     // MARK: - methods
     func bind(reactor: ExchangeEstimateComparisonReactor) {
         exchangeEstimateComparisonView.backButton.rx.tap
@@ -37,6 +43,15 @@ final class ExchangeEstimateComparisonViewController: UIViewController, View {
                 switch route {
                 case .dismiss:
                     owner.dismiss(animated: true)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.banks }
+            .bind(with: self) { owner, banks in
+                if banks.count == 7 {
+                    owner.exchangeEstimateComparisonView.bind(banks: banks)
                 }
             }
             .disposed(by: disposeBag)

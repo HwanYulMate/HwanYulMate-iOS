@@ -17,7 +17,7 @@ struct NewsModel: Codable {
     let pubDate: String?
 }
 
-// MARK: - 네트워킹 응답 모델 (수정됨)
+// MARK: - response models
 struct NewsSearchResponse: Codable {
     let newsList: [NewsItem]
     let currentPage: Int
@@ -89,7 +89,7 @@ struct NewsItem: Codable {
     }
 }
 
-// MARK: - Mock Data
+// MARK: - mock data models
 extension NewsModel {
     static let mockData: [NewsModel] = [
         NewsModel(

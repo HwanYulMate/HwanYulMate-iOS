@@ -291,4 +291,9 @@ final class NotificationSettingView: BaseView {
             $0.bottom.equalTo(safeAreaLayoutGuide).offset(-47)
         }
     }
+    
+    func bind(alertSetting: AlertSetting) {
+        alarmSwitch.isOn = alertSetting.isTargetPriceEnabled
+        scheduleSwitch.isOn = alertSetting.isDailyAlertEnabled
+    }
 }

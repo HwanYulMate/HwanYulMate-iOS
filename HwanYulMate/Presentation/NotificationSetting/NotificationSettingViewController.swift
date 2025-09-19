@@ -18,16 +18,6 @@ final class NotificationSettingViewController: UIViewController, View {
     var disposeBag = DisposeBag()
     
     // MARK: - life cycles
-    init(reactor: NotificationSettingReactor) {
-        super.init(nibName: nil, bundle: nil)
-        
-        self.reactor = reactor
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func loadView() {
         view = notificationSettingView
     }
@@ -85,6 +75,13 @@ final class NotificationSettingViewController: UIViewController, View {
                     timeSelectionBottomSheetViewController.modalPresentationStyle = .overFullScreen
                     owner.present(timeSelectionBottomSheetViewController, animated: false)
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .compactMap { $0.alertSetting }
+            .bind(with: self) { owner, alertSetting in
+                owner.notificationSettingView.bind(alertSetting: alertSetting)
             }
             .disposed(by: disposeBag)
     }

@@ -31,15 +31,22 @@ final class ExchangeEstimateComparisonBottomSheetReactor: Reactor {
         var keyboardDistance: CGFloat = 10
         var containerBottomConstraint: Float = 290
         var containerHeightConstraint: Float = 290
+        var currencyCode: String = ""
+        var exchangeRate: Double = 0.0
     }
     
     enum Route {
-        case exchangeEstimateComparison
+        case exchangeEstimateComparison(String, Double)
         case dismiss
     }
     
     // MARK: - properties
-    let initialState = State()
+    let initialState: State
+    
+    // MARK: - life cycles
+    init(currencyCode: String, exchangeRate: Double) {
+        self.initialState = State(currencyCode: currencyCode, exchangeRate: exchangeRate)
+    }
     
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
@@ -61,7 +68,7 @@ final class ExchangeEstimateComparisonBottomSheetReactor: Reactor {
         case .tapTrailingButton:
             return .concat(
                 .just(.updateKeyboardDistance(10)),
-                .just(.setRoute(.exchangeEstimateComparison)),
+                .just(.setRoute(.exchangeEstimateComparison(currentState.currencyCode, currentState.exchangeRate))),
                 .just(.setRoute(nil)),
             )
         }

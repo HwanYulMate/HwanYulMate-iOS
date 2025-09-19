@@ -12,6 +12,10 @@ import Then
 final class LoginView: BaseView {
     
     // MARK: - properties
+    let backButton = UIButton().then {
+        $0.setImage(.dismiss, for: .normal)
+    }
+    
     private let logoImageView = UIImageView().then {
         $0.image = .loginLogo
     }
@@ -36,6 +40,7 @@ final class LoginView: BaseView {
     }
     
     override func configureHierarchy() {
+        addSubview(backButton)
         addSubview(logoImageView)
         addSubview(loginTitleLabel)
         addSubview(googleLoginButton)
@@ -43,6 +48,11 @@ final class LoginView: BaseView {
     }
     
     override func configureConstraints() {
+        backButton.snp.makeConstraints {
+            $0.top.leading.equalTo(safeAreaLayoutGuide).offset(22)
+            $0.size.equalTo(12)
+        }
+        
         logoImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().multipliedBy(0.9)

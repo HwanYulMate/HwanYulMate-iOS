@@ -36,49 +36,42 @@ final class ExchangeEstimateComparisonView: BaseView {
     }
     
     let row1Column0Label = UILabel().then {
-        $0.text = "신한은행"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row2Column0Label = UILabel().then {
-        $0.text = "우리은행"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row3Column0Label = UILabel().then {
-        $0.text = "국민은행"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row4Column0Label = UILabel().then {
-        $0.text = "하나은행"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row5Column0Label = UILabel().then {
-        $0.text = "SC제일은행"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row6Column0Label = UILabel().then {
-        $0.text = "한국씨티은행"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row7Column0Label = UILabel().then {
-        $0.text = "IM 뱅크"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
@@ -98,49 +91,42 @@ final class ExchangeEstimateComparisonView: BaseView {
     }
     
     let row1Column1Label = UILabel().then {
-        $0.text = "1,280.00"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row2Column1Label = UILabel().then {
-        $0.text = "1,280.00"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row3Column1Label = UILabel().then {
-        $0.text = "1,280.00"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row4Column1Label = UILabel().then {
-        $0.text = "1,280.00"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row5Column1Label = UILabel().then {
-        $0.text = "1,280.00"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row6Column1Label = UILabel().then {
-        $0.text = "1,280.00"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row7Column1Label = UILabel().then {
-        $0.text = "1,280.00"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
@@ -160,49 +146,42 @@ final class ExchangeEstimateComparisonView: BaseView {
     }
     
     let row1Column2Label = UILabel().then {
-        $0.text = "5,000"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row2Column2Label = UILabel().then {
-        $0.text = "5,000"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row3Column2Label = UILabel().then {
-        $0.text = "5,000"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row4Column2Label = UILabel().then {
-        $0.text = "5,000"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row5Column2Label = UILabel().then {
-        $0.text = "5,000"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row6Column2Label = UILabel().then {
-        $0.text = "5,000"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row7Column2Label = UILabel().then {
-        $0.text = "5,000"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
@@ -222,49 +201,42 @@ final class ExchangeEstimateComparisonView: BaseView {
     }
     
     let row1Column3Label = UILabel().then {
-        $0.text = "80%"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row2Column3Label = UILabel().then {
-        $0.text = "80%"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row3Column3Label = UILabel().then {
-        $0.text = "80%"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row4Column3Label = UILabel().then {
-        $0.text = "80%"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row5Column3Label = UILabel().then {
-        $0.text = "80%"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row6Column3Label = UILabel().then {
-        $0.text = "80%"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row7Column3Label = UILabel().then {
-        $0.text = "80%"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
@@ -284,49 +256,42 @@ final class ExchangeEstimateComparisonView: BaseView {
     }
     
     let row1Column4Label = UILabel().then {
-        $0.text = "$ 772.50"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row2Column4Label = UILabel().then {
-        $0.text = "$ 772.50"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row3Column4Label = UILabel().then {
-        $0.text = "$ 772.50"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row4Column4Label = UILabel().then {
-        $0.text = "$ 772.50"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row5Column4Label = UILabel().then {
-        $0.text = "$ 772.50"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row6Column4Label = UILabel().then {
-        $0.text = "$ 772.50"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
     }
     
     let row7Column4Label = UILabel().then {
-        $0.text = "$ 772.50"
         $0.font = .pretendard(size: 12, weight: .regular)
         $0.textAlignment = .center
         $0.backgroundColor = .white
@@ -664,5 +629,43 @@ final class ExchangeEstimateComparisonView: BaseView {
             $0.top.equalTo(exchangeRateNoticeTitleLabel.snp.bottom).offset(20)
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(32)
         }
+    }
+    
+    func bind(banks: [Bank]) {
+        row1Column0Label.text = banks[0].bankName
+        row2Column0Label.text = banks[1].bankName
+        row3Column0Label.text = banks[2].bankName
+        row4Column0Label.text = banks[3].bankName
+        row5Column0Label.text = banks[4].bankName
+        row6Column0Label.text = banks[5].bankName
+        row7Column0Label.text = banks[6].bankName
+        row1Column1Label.text = banks[0].appliedRate.toCurrencyString()
+        row2Column1Label.text = banks[1].appliedRate.toCurrencyString()
+        row3Column1Label.text = banks[2].appliedRate.toCurrencyString()
+        row4Column1Label.text = banks[3].appliedRate.toCurrencyString()
+        row5Column1Label.text = banks[4].appliedRate.toCurrencyString()
+        row6Column1Label.text = banks[5].appliedRate.toCurrencyString()
+        row7Column1Label.text = banks[6].appliedRate.toCurrencyString()
+        row1Column2Label.text = banks[0].totalFee.toCurrencyString()
+        row2Column2Label.text = banks[1].totalFee.toCurrencyString()
+        row3Column2Label.text = banks[2].totalFee.toCurrencyString()
+        row4Column2Label.text = banks[3].totalFee.toCurrencyString()
+        row5Column2Label.text = banks[4].totalFee.toCurrencyString()
+        row6Column2Label.text = banks[5].totalFee.toCurrencyString()
+        row7Column2Label.text = banks[6].totalFee.toCurrencyString()
+        row1Column3Label.text = banks[0].preferentialRate.toCurrencyString() + "%"
+        row2Column3Label.text = banks[1].preferentialRate.toCurrencyString() + "%"
+        row3Column3Label.text = banks[2].preferentialRate.toCurrencyString() + "%"
+        row4Column3Label.text = banks[3].preferentialRate.toCurrencyString() + "%"
+        row5Column3Label.text = banks[4].preferentialRate.toCurrencyString() + "%"
+        row6Column3Label.text = banks[5].preferentialRate.toCurrencyString() + "%"
+        row7Column3Label.text = banks[6].preferentialRate.toCurrencyString() + "%"
+        row1Column4Label.text = banks[0].finalAmount.toCurrencyString()
+        row2Column4Label.text = banks[1].finalAmount.toCurrencyString()
+        row3Column4Label.text = banks[2].finalAmount.toCurrencyString()
+        row4Column4Label.text = banks[3].finalAmount.toCurrencyString()
+        row5Column4Label.text = banks[4].finalAmount.toCurrencyString()
+        row6Column4Label.text = banks[5].finalAmount.toCurrencyString()
+        row7Column4Label.text = banks[6].finalAmount.toCurrencyString()
     }
 }
