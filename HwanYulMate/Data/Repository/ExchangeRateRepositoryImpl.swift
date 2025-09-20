@@ -19,8 +19,8 @@ final class ExchangeRateRepositoryImpl: ExchangeRateRepository {
     }
     
     // MARK: - methods
-    func fetchExchangeRate(currencyCode: String) -> Single<ExchangeRate> {
-        return remote.fetchExchangeRate(currencyCode: currencyCode).map { $0.toEntity() }
+    func fetchExchangeRate(currencyCode: String) -> Single<[ExchangeRate]> {
+        return remote.fetchExchangeRate(currencyCode: currencyCode).map { $0.map { $0.toEntity() } }
     }
     
     func fetchAllExchangeRates() -> Single<[ExchangeRate]> {

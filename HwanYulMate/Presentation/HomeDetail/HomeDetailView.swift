@@ -640,7 +640,7 @@ final class HomeDetailView: BaseView {
             rateChangeLabel.text = "+" + changeAmount + "원 (" + changePercent + "%)"
             rateChangeLabel.textColor = .increase
         case .down:
-            rateChangeLabel.text = "-" + changeAmount + "원 (" + changePercent + "%)"
+            rateChangeLabel.text = changeAmount + "원 (" + changePercent + "%)"
             rateChangeLabel.textColor = .decrease
         case .stable:
             rateChangeLabel.text = changeAmount + "원 (" + changePercent + "%)"
@@ -649,6 +649,11 @@ final class HomeDetailView: BaseView {
     }
     
     func bind(chart: [Chart]) {
+        if !chart.isEmpty {
+            lowestRateValueLabel.text = chart.map { $0.rate }.min()!.toCurrencyString() + " 원"
+            highestRateValueLabel.text = chart.map { $0.rate }.max()!.toCurrencyString() + " 원"
+        }
+        
         var entries: [ChartDataEntry] = []
         
         for (index, element) in chart.enumerated() {
