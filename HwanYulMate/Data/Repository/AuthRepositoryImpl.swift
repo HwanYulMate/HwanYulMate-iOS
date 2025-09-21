@@ -53,6 +53,7 @@ final class AuthRepositoryImpl: AuthRepository {
             .do { dto in
                 self.local.saveTokens(access: dto.accessToken, refresh: dto.refreshToken)
                 self.local.saveUser(name: dto.user.name, email: dto.user.email)
+                _ = self.remote.sendFCMToken(accessToken: dto.accessToken)
             }
             .map { $0.user.toEntity() }
     }
@@ -70,6 +71,7 @@ final class AuthRepositoryImpl: AuthRepository {
             .do { dto in
                 self.local.saveTokens(access: dto.accessToken, refresh: dto.refreshToken)
                 self.local.saveUser(name: dto.user.name, email: dto.user.email)
+                _ = self.remote.sendFCMToken(accessToken: dto.accessToken)
             }
             .map { $0.user.toEntity() }
     }
