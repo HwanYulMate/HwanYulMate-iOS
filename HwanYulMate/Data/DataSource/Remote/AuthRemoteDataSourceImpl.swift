@@ -15,6 +15,7 @@ protocol AuthRemoteDataSource {
         email: String,
         provider: SocialProvider
     ) -> Single<SocialLoginResponseDTO>
+    func sendFCMToken(accessToken: String) -> Single<String>
 }
 
 final class AuthRemoteDataSourceImpl: AuthRemoteDataSource {
@@ -39,6 +40,15 @@ final class AuthRemoteDataSourceImpl: AuthRemoteDataSource {
         
         return networkService.request(endpoint).map { data in
             try endpoint.responseDecoder.decode(data) as SocialLoginResponseDTO
+        }
+    }
+    
+    func sendFCMToken(accessToken: String) -> Single<String> {
+        let request = FCMRequestDTO(fcmToken: TokenStorage.shared.load(.fcm)!)
+        let endpoint = AuthEndpoint.sendFCMToken(request: request, accessToken: accessToken)
+        
+        return networkService.request(endpoint).map { data in
+            try endpoint.responseDecoder.decode(data) as String
         }
     }
 }
