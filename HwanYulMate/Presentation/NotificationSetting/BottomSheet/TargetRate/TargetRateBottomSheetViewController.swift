@@ -18,6 +18,8 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
     
     var disposeBag = DisposeBag()
     
+    let resultRelay = PublishRelay<TargetPrice?>()
+    
     // MARK: - life cycles
     override func loadView() {
         view = targetRateBottomSheetView
@@ -49,7 +51,8 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
             .disposed(by: disposeBag)
         
         targetRateBottomSheetView.trailingButton.rx.tap
-            .map { TargetRateBottomSheetReactor.Action.tapTrailingButton }
+            .withLatestFrom(targetRateBottomSheetView.textField.rx.text.orEmpty)
+            .map { TargetRateBottomSheetReactor.Action.tapTrailingButton($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -86,6 +89,12 @@ final class TargetRateBottomSheetViewController: UIViewController, View {
                     owner.view.layoutIfNeeded()
                 } completion: { completion in
                     if constraint == 290 && completion {
+                        if let targetPrice = reactor.currentState.targetPrice {
+                            owner.resultRelay.accept(targetPrice)
+                        } else {
+                            owner.resultRelay.accept(nil)
+                        }
+                        
                         owner.dismiss(animated: false)
                     }
                 }
