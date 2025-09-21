@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct DailyAlert {
+    let success: Bool
+    let message: String
+    let currencyCode: String
+    let alertType: String
+    let status: String
+}
