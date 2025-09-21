@@ -13,7 +13,7 @@ final class FeedbackViewController: UIViewController {
     // MARK: - properties
     private let recipientEmail = "gh7052@gmail.com"
     
-    // MARK: - life Cycles
+    // MARK: - life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,7 +83,6 @@ final class FeedbackViewController: UIViewController {
     }
 }
 
-// MARK: - MFMailComposeViewControllerDelegate
 extension FeedbackViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(
@@ -97,7 +96,7 @@ extension FeedbackViewController: MFMailComposeViewControllerDelegate {
         case .sent:
             message = "메일이 성공적으로 전송되었습니다."
         case .cancelled:
-            message = "" // 취소 시에는 메시지 표시하지 않음
+            message = ""
         case .failed:
             message = "메일 전송에 실패했습니다.\n다시 시도해주세요."
         case .saved:
