@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct DailyAlertRequestDTO: Encodable {
+    let alertTime: String
+}

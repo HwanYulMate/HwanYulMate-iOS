@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct FCMRequestDTO: Encodable {
+    let fcmToken: String
+}

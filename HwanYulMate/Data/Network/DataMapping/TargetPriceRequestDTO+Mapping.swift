@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct TargetPriceRequestDTO: Encodable {
+    let targetPrice: Double
+    let condition: String
+}
