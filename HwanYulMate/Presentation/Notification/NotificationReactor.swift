@@ -12,15 +12,16 @@ final class NotificationReactor: Reactor {
     
     // MARK: - nested types
     enum Action {
-        case didLoadView
+        case willAppearView
         case tapBackBarButtonItem
-        case tapCellItem(IndexPath)
+        case tapCellItem(IndexPath, String)
     }
     
     enum Mutation {
         case setRoute(Route?)
         case setAlertSettings([AlertSetting])
         case setCurrencyCode(String)
+        case setNotificationSettingTitle(String)
     }
     
     struct State {
@@ -28,11 +29,12 @@ final class NotificationReactor: Reactor {
         var exchangeRates: [ExchangeRate] = []
         var alertSettings: [AlertSetting] = []
         var currencyCode: String = ""
+        var notificationSettingTitle: String = ""
     }
     
     enum Route {
         case pop
-        case notificationSetting(String)
+        case notificationSetting(String, String)
     }
     
     // MARK: - properties
@@ -49,14 +51,18 @@ final class NotificationReactor: Reactor {
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .didLoadView:
+        case .willAppearView:
             return repository.fetchAllAlertSettings()
                 .asObservable()
                 .map { Mutation.setAlertSettings($0) }
         case .tapBackBarButtonItem:
             return .just(.setRoute(.pop))
-        case .tapCellItem(let index):
-            return .just(.setCurrencyCode(currentState.alertSettings[index.row].currencyCode))
+        case .tapCellItem(let index, let notificationSettingTitle):
+            return .merge([
+                .just(.setNotificationSettingTitle(notificationSettingTitle)),
+                .just(.setCurrencyCode(currentState.alertSettings[index.row].currencyCode)),
+                .just(.setRoute(nil))
+            ])
         }
     }
     
@@ -70,7 +76,9 @@ final class NotificationReactor: Reactor {
             newState.alertSettings = alertSettings
         case .setCurrencyCode(let currencyCode):
             newState.currencyCode = currencyCode
-            newState.route = .notificationSetting(currencyCode)
+            newState.route = .notificationSetting(currencyCode, currentState.notificationSettingTitle)
+        case .setNotificationSettingTitle(let title):
+            newState.notificationSettingTitle = title
         }
         
         return newState

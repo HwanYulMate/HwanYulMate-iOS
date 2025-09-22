@@ -26,8 +26,12 @@ final class NotificationViewController: UIViewController, View {
         super.viewDidLoad()
         
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        reactor?.action.onNext(.didLoadView)
+        reactor?.action.onNext(.willAppearView)
     }
     
     // MARK: - methods
@@ -63,8 +67,12 @@ final class NotificationViewController: UIViewController, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        notificationView.tableView.rx.itemSelected
-            .map { NotificationReactor.Action.tapCellItem($0) }
+        Observable
+            .zip(
+                notificationView.tableView.rx.itemSelected,
+                notificationView.tableView.rx.modelSelected(AlertSetting.self)
+            )
+            .map { NotificationReactor.Action.tapCellItem($0, $1.currencyName) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -76,9 +84,12 @@ final class NotificationViewController: UIViewController, View {
                 switch route {
                 case .pop:
                     owner.navigationController?.popViewController(animated: true)
-                case .notificationSetting(let currencyCode):
+                case .notificationSetting(let currencyCode, let navigationTitle):
                     let notificationSettingViewController = NotificationSettingViewController()
-                    notificationSettingViewController.reactor = NotificationSettingReactor(currencyCode: currencyCode)
+                    notificationSettingViewController.reactor = NotificationSettingReactor(
+                        currencyCode: currencyCode,
+                        navigationTitle: navigationTitle
+                    )
                     owner.navigationController?.pushViewController(notificationSettingViewController, animated: true)
                 }
             }
