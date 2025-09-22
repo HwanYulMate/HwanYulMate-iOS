@@ -88,6 +88,13 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         if let fcmToken {
             TokenStorage.shared.save(token: fcmToken, type: .fcm)
+            
+            let dataDict: [String: String] = ["token": fcmToken]
+            NotificationCenter.default.post(
+                name: Notification.Name("FCMToken"),
+                object: nil,
+                userInfo: dataDict
+            )
         }
     }
 }
