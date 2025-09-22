@@ -25,7 +25,7 @@ final class TimeSelectionBottomSheetView: BaseBottomSheetView {
     }
     
     let selectButton1 = UIButton().then {
-        $0.setImage(.timeSelectionUnselected, for: .normal)
+        $0.setImage(.timeSelectionSelected, for: .normal)
     }
     
     private let timeLabel1 = UILabel().then {
@@ -141,6 +141,21 @@ final class TimeSelectionBottomSheetView: BaseBottomSheetView {
         buttonStackView.snp.makeConstraints {
             $0.top.equalTo(selectButton4.snp.bottom).offset(38)
             $0.horizontalEdges.equalToSuperview().inset(24)
+        }
+    }
+    
+    func bind(selectedButtonIndex: Int) {
+        [
+            selectButton1,
+            selectButton2,
+            selectButton3,
+            selectButton4
+        ].enumerated().forEach { (index, button) in
+            if index == selectedButtonIndex {
+                button.setImage(.timeSelectionSelected, for: .normal)
+            } else {
+                button.setImage(.timeSelectionUnselected, for: .normal)
+            }
         }
     }
 }
