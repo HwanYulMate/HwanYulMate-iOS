@@ -15,10 +15,10 @@ struct News {
     let hasNext: Bool
 }
 
-//struct NewsItem {
-//    let title: String
-//    let description: String
-//    let link: String
-//    let originalLink: String
-//    let pubDate: String
-//}
+struct NewsItem {
+    let title: String
+    let description: String
+    let link: String
+    let originalLink: String
+    let pubDate: String
+}
