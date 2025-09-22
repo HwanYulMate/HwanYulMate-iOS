@@ -130,8 +130,8 @@
 		37E1C56B2E5C59BE00D9D687 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C55E2E5C59BE00D9D687 /* Pretendard-ExtraLight.otf */; };
 		37E1C56C2E5C59BE00D9D687 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */; };
 		37E1C5702E5C63C100D9D687 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */; };
+		D604A4E62E7FF08F0070525E /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604A4E52E7FF08A0070525E /* APIErrorResponse.swift */; };
 		D63BD2492E7708A400918E5E /* NewsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2482E77089D00918E5E /* NewsNetworkService.swift */; };
-		D63BD2762E79CF5E00918E5E /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D63BD2752E79CF5E00918E5E /* Config.xcconfig */; };
 		D63BD2792E79CFEF00918E5E /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD2782E79CFEF00918E5E /* ProfileCell.swift */; };
 		D63BD27B2E79CFFA00918E5E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD27A2E79CFFA00918E5E /* ProfileView.swift */; };
 		D63BD27D2E79D00800918E5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63BD27C2E79D00800918E5E /* ProfileViewController.swift */; };
@@ -149,6 +149,7 @@
 		D6ADCF732E7467C500A95D89 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF722E7467C500A95D89 /* NewsViewController.swift */; };
 		D6ADCF792E75671A00A95D89 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADCF782E75671A00A95D89 /* NewsModel.swift */; };
 		D6B060182E7A039E00BBB385 /* ProfileNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B060172E7A039C00BBB385 /* ProfileNetworkService.swift */; };
+		D6B060252E7F432E00BBB385 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B060242E7F432800BBB385 /* UserInfoManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -267,8 +268,8 @@
 		37E1C5622E5C59BE00D9D687 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		37E1C5632E5C59BE00D9D687 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		37E1C56F2E5C63C100D9D687 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		D604A4E52E7FF08A0070525E /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
 		D63BD2482E77089D00918E5E /* NewsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNetworkService.swift; sourceTree = "<group>"; };
-		D63BD2752E79CF5E00918E5E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = "/Users/hanjw/.Trash/HwanYulMate-iOS/HwanYulMate/Application/Config.xcconfig"; sourceTree = "<absolute>"; };
 		D63BD2782E79CFEF00918E5E /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D63BD27A2E79CFFA00918E5E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D63BD27C2E79D00800918E5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +287,7 @@
 		D6ADCF722E7467C500A95D89 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		D6ADCF782E75671A00A95D89 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		D6B060172E7A039C00BBB385 /* ProfileNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkService.swift; sourceTree = "<group>"; };
+		D6B060242E7F432800BBB385 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -740,6 +742,8 @@
 		D63BD2772E79CF9800918E5E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				D604A4E52E7FF08A0070525E /* APIErrorResponse.swift */,
+				D6B060242E7F432800BBB385 /* UserInfoManager.swift */,
 				D63BD2782E79CFEF00918E5E /* ProfileCell.swift */,
 				D63BD27A2E79CFFA00918E5E /* ProfileView.swift */,
 				D63BD27C2E79D00800918E5E /* ProfileViewController.swift */,
@@ -774,8 +778,8 @@
 		D63BD2842E79D07B00918E5E /* OpenSourceLicense */ = {
 			isa = PBXGroup;
 			children = (
-				D63BD2852E79D08700918E5E /* OpenSourceLicenseViewController.swift */,
 				D63BD2872E79D09600918E5E /* OpenSourceLicenseView.swift */,
+				D63BD2852E79D08700918E5E /* OpenSourceLicenseViewController.swift */,
 			);
 			path = OpenSourceLicense;
 			sourceTree = "<group>";
@@ -959,8 +963,8 @@
 				37423E732E76C35000BE4D46 /* Chart.swift in Sources */,
 				37D843D92E78573F00839DC2 /* NewsRepository.swift in Sources */,
 				37D843D12E78518400839DC2 /* NewsEndpoint.swift in Sources */,
-                D63BD2792E79CFEF00918E5E /* ProfileCell.swift in Sources */,
-                D6ADCF712E74655700A95D89 /* NewsView.swift in Sources */,
+				D63BD2792E79CFEF00918E5E /* ProfileCell.swift in Sources */,
+				D6ADCF712E74655700A95D89 /* NewsView.swift in Sources */,
 				37423E0D2E6E07E600BE4D46 /* TimeSelectionBottomSheetViewController.swift in Sources */,
 				37D843E52E78A19200839DC2 /* BankResponseDTO+Mapping.swift in Sources */,
 				37D843ED2E78A7B200839DC2 /* BankRepository.swift in Sources */,
@@ -1008,6 +1012,7 @@
 				37423E6F2E759DBD00BE4D46 /* AppConfig.swift in Sources */,
 				37E1C5472E5B4FFA00D9D687 /* BaseView.swift in Sources */,
 				D63BD27D2E79D00800918E5E /* ProfileViewController.swift in Sources */,
+				D604A4E62E7FF08F0070525E /* APIErrorResponse.swift in Sources */,
 				D6ADCF792E75671A00A95D89 /* NewsModel.swift in Sources */,
 				37423E2A2E72F11300BE4D46 /* ExchangeEstimateComparisonBottomSheetViewController.swift in Sources */,
 				37D843E72E78A3E900839DC2 /* BankEndpoint.swift in Sources */,
@@ -1015,7 +1020,6 @@
 				37423E4F2E74777900BE4D46 /* NetworkService.swift in Sources */,
 				37426AAD2E64995B000A7C74 /* NotificationHeaderView.swift in Sources */,
 				37423E612E74B40A00BE4D46 /* ExchangeRate.swift in Sources */,
-				37423E1D2E7038D900BE4D46 /* HomeDetailCell.swift in Sources */,
 				D63BD2492E7708A400918E5E /* NewsNetworkService.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
 				D63BD2912E79D11500918E5E /* WithdrawalView.swift in Sources */,
@@ -1030,6 +1034,7 @@
 				37423E182E6F451300BE4D46 /* NotificationSettingAlertReactor.swift in Sources */,
 				37D8441E2E7A0D0B00839DC2 /* AlertSettingResponseDTO+Mapping.swift in Sources */,
 				37426A852E617A1D000A7C74 /* UILabel+Extension.swift in Sources */,
+				D6B060252E7F432E00BBB385 /* UserInfoManager.swift in Sources */,
 				37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */,
 				37423E752E76C3EF00BE4D46 /* ChartRequestDTO+Mapping.swift in Sources */,
 				37426AAF2E65A222000A7C74 /* NotificationSettingReactor.swift in Sources */,
@@ -1038,9 +1043,9 @@
 				37D843CD2E784C1200839DC2 /* NewsResponseDTO+Mapping.swift in Sources */,
 				37423E142E6F44A400BE4D46 /* NotificationSettingAlertView.swift in Sources */,
 				37423E7B2E76C93E00BE4D46 /* ChartRemoteDataSourceImpl.swift in Sources */,
-                D63BD2862E79D08700918E5E /* OpenSourceLicenseViewController.swift in Sources */,
-                D63BD2942E79D15A00918E5E /* FeedbackViewController.swift in Sources */,
-                D63BD2882E79D09700918E5E /* OpenSourceLicenseView.swift in Sources */,
+				D63BD2862E79D08700918E5E /* OpenSourceLicenseViewController.swift in Sources */,
+				D63BD2942E79D15A00918E5E /* FeedbackViewController.swift in Sources */,
+				D63BD2882E79D09700918E5E /* OpenSourceLicenseView.swift in Sources */,
 				37426A8E2E62C534000A7C74 /* NotificationViewController.swift in Sources */,
 				37D843D72E78573800839DC2 /* NewsRepositoryImpl.swift in Sources */,
 				37423E712E76A22B00BE4D46 /* ExchangeRateRequestDTO+Mapping.swift in Sources */,

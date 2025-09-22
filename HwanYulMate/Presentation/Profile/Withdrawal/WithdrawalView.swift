@@ -30,7 +30,7 @@ final class WithdrawalView: BaseView {
         $0.textColor = .black
         $0.numberOfLines = 2
         $0.textAlignment = .left
-        $0.text = "00님\n정말 탈퇴하시겠어요?" // 추후 API 연동 시 userName으로 변경
+        $0.text = "님\n정말 탈퇴하시겠어요?"
     }
     
     private let descriptionBackgroundView = UIView().then {
@@ -273,7 +273,9 @@ final class WithdrawalView: BaseView {
     }
     
     func updateUserName(_ userName: String) {
-        titleLabel.text = "\(userName)님\n정말 탈퇴하시겠어요?"
+        let displayName = userName.isEmpty ? "사용자" : userName
+        titleLabel.text = "\(displayName)님\n정말 탈퇴하시겠어요?"
+        print("🔍 [WithdrawalView] titleLabel 업데이트: \(displayName)님")
     }
     
     func updateCharCount(_ count: Int) {
