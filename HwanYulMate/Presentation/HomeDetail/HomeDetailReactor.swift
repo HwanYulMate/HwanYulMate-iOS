@@ -64,15 +64,12 @@ final class HomeDetailReactor: Reactor {
         case .didLoadView:
             let exchangeRate = exchangeRateRepository.fetchExchangeRate(currencyCode: currentState.currencyCode)
                 .asObservable()
-                .map { Mutation.setExchangeRate($0) }
-            let weeklyChart = chartRepository.fetchWeeklyChart(currencyCode: currentState.currencyCode)
-                .asObservable()
-                .map { Mutation.setChart($0) }
+                .map { Mutation.setExchangeRate($0[0]) }
             let news = newsRepository.fetchNews(currencyCode: currentState.currencyCode)
                 .asObservable()
                 .map { Mutation.setNews($0) }
             
-            return .merge(exchangeRate, weeklyChart, news)
+            return .merge(exchangeRate, news)
         case .tapBackBarButtonItem:
             return .just(.setRoute(.pop))
         case .tapSegmentedControl(let index):

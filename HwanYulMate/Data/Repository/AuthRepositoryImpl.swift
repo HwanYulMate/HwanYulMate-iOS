@@ -5,7 +5,7 @@
 //  Created by 김정호 on 9/16/25.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 
 final class AuthRepositoryImpl: AuthRepository {
@@ -14,6 +14,8 @@ final class AuthRepositoryImpl: AuthRepository {
     private let remote: AuthRemoteDataSource
     private let local: AuthLocalDataSource
     private var social: SocialLoginService
+    
+    private let googleService = GoogleLoginService()
     
     // MARK: - life cycles
     init(
@@ -51,6 +53,25 @@ final class AuthRepositoryImpl: AuthRepository {
             .do { dto in
                 self.local.saveTokens(access: dto.accessToken, refresh: dto.refreshToken)
                 self.local.saveUser(name: dto.user.name, email: dto.user.email)
+                _ = self.remote.sendFCMToken(accessToken: dto.accessToken)
+            }
+            .map { $0.user.toEntity() }
+    }
+    
+    func socialLogin(provider: SocialProvider, vc: UIViewController) -> Single<User> {
+        return googleService.login(vc: vc)
+            .flatMap { credential in
+                self.remote.socialLogin(
+                    accessToken: credential.identityToken,
+                    name: credential.fullName,
+                    email: credential.email,
+                    provider: provider
+                )
+            }
+            .do { dto in
+                self.local.saveTokens(access: dto.accessToken, refresh: dto.refreshToken)
+                self.local.saveUser(name: dto.user.name, email: dto.user.email)
+                _ = self.remote.sendFCMToken(accessToken: dto.accessToken)
             }
             .map { $0.user.toEntity() }
     }

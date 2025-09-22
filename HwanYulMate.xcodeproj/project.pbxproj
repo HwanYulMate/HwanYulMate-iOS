@@ -60,6 +60,12 @@
 		37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AE12E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift */; };
 		37426AE42E69D228000A7C74 /* TargetRateBottomSheetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */; };
 		37426AE72E6B582A000A7C74 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */; };
+		3754DE012E7BDF5100AFCFB3 /* TargetPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE002E7BDF5100AFCFB3 /* TargetPrice.swift */; };
+		3754DE032E7DB6BC00AFCFB3 /* DailyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE022E7DB6BC00AFCFB3 /* DailyAlert.swift */; };
+		3754DE082E7F220B00AFCFB3 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3754DE072E7F220B00AFCFB3 /* FirebaseMessaging */; };
+		3754DE0C2E7F7C6000AFCFB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3754DE0B2E7F7C6000AFCFB3 /* GoogleService-Info.plist */; };
+		3754DE0F2E7FE11400AFCFB3 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE0E2E7FE11400AFCFB3 /* TokenStorage.swift */; };
+		3754DE112E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE102E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
 		37D843CB2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */; };
@@ -101,6 +107,12 @@
 		37D844262E7A111700839DC2 /* AlertSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D844252E7A111700839DC2 /* AlertSettingsRepository.swift */; };
 		37D844282E7A140C00839DC2 /* AlertSettingsLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D844272E7A140C00839DC2 /* AlertSettingsLocalDataSourceImpl.swift */; };
 		37D8442C2E7A28DB00839DC2 /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8442B2E7A28DB00839DC2 /* AlertSetting.swift */; };
+		37DC18D22E7A7D0E003A0386 /* TargetPriceRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DC18D12E7A7D0E003A0386 /* TargetPriceRequestDTO+Mapping.swift */; };
+		37DC18D42E7A7D38003A0386 /* TargetPriceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DC18D32E7A7D38003A0386 /* TargetPriceResponseDTO+Mapping.swift */; };
+		37DC18D62E7A7E5F003A0386 /* DailyAlertRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DC18D52E7A7E5F003A0386 /* DailyAlertRequestDTO+Mapping.swift */; };
+		37DC18D82E7A7E6A003A0386 /* DailyAlertResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DC18D72E7A7E6A003A0386 /* DailyAlertResponseDTO+Mapping.swift */; };
+		37DC18DA2E7A7FB2003A0386 /* TargetPriceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DC18D92E7A7FB2003A0386 /* TargetPriceEndpoint.swift */; };
+		37DC18DC2E7A7FBF003A0386 /* DailyAlertEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DC18DB2E7A7FBF003A0386 /* DailyAlertEndpoint.swift */; };
 		37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C50F2E5B454A00D9D687 /* SnapKit */; };
 		37E1C5132E5B455900D9D687 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C5122E5B455900D9D687 /* Then */; };
 		37E1C5162E5B457200D9D687 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 37E1C5152E5B457200D9D687 /* Alamofire */; };
@@ -205,6 +217,11 @@
 		37426ADF2E69BE25000A7C74 /* TargetRateBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRateBottomSheetView.swift; sourceTree = "<group>"; };
 		37426AE12E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRateBottomSheetViewController.swift; sourceTree = "<group>"; };
 		37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRateBottomSheetReactor.swift; sourceTree = "<group>"; };
+		3754DE002E7BDF5100AFCFB3 /* TargetPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPrice.swift; sourceTree = "<group>"; };
+		3754DE022E7DB6BC00AFCFB3 /* DailyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAlert.swift; sourceTree = "<group>"; };
+		3754DE0B2E7F7C6000AFCFB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3754DE0E2E7FE11400AFCFB3 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		3754DE102E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FCMRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37D1B11F2E5DB9A9000732A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
@@ -245,6 +262,12 @@
 		37D844252E7A111700839DC2 /* AlertSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingsRepository.swift; sourceTree = "<group>"; };
 		37D844272E7A140C00839DC2 /* AlertSettingsLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingsLocalDataSourceImpl.swift; sourceTree = "<group>"; };
 		37D8442B2E7A28DB00839DC2 /* AlertSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSetting.swift; sourceTree = "<group>"; };
+		37DC18D12E7A7D0E003A0386 /* TargetPriceRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetPriceRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37DC18D32E7A7D38003A0386 /* TargetPriceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetPriceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37DC18D52E7A7E5F003A0386 /* DailyAlertRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyAlertRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37DC18D72E7A7E6A003A0386 /* DailyAlertResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyAlertResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37DC18D92E7A7FB2003A0386 /* TargetPriceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPriceEndpoint.swift; sourceTree = "<group>"; };
+		37DC18DB2E7A7FBF003A0386 /* DailyAlertEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAlertEndpoint.swift; sourceTree = "<group>"; };
 		37E1C4F62E5B444500D9D687 /* HwanYulMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HwanYulMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E1C5252E5B4B5200D9D687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E1C5262E5B4B5200D9D687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -295,6 +318,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3754DE082E7F220B00AFCFB3 /* FirebaseMessaging in Frameworks */,
 				37E1C5242E5B45FA00D9D687 /* DGCharts in Frameworks */,
 				37E1C5162E5B457200D9D687 /* Alamofire in Frameworks */,
 				37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */,
@@ -376,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				37423E4B2E746A4200BE4D46 /* Network */,
+				3754DE0D2E7FE0D900AFCFB3 /* Storage */,
 				37D843EE2E78E7D700839DC2 /* SocialLogin */,
 			);
 			path = Infrastructure;
@@ -431,6 +456,8 @@
 				37D843E62E78A3E900839DC2 /* BankEndpoint.swift */,
 				37D844012E798D5100839DC2 /* AuthEndpoint.swift */,
 				37D8441F2E7A0E3E00839DC2 /* AlertSettingEndpoint.swift */,
+				37DC18D92E7A7FB2003A0386 /* TargetPriceEndpoint.swift */,
+				37DC18DB2E7A7FBF003A0386 /* DailyAlertEndpoint.swift */,
 				37423E562E74ABE200BE4D46 /* DataMapping */,
 			);
 			path = Network;
@@ -450,8 +477,13 @@
 				37D843F92E7974F600839DC2 /* SocialLoginCredentialResponseDTO+Mapping.swift */,
 				37D844032E798EA600839DC2 /* SocialLoginRequestDTO+Mapping.swift */,
 				37D844052E798EAC00839DC2 /* SocialLoginResponseDTO+Mapping.swift */,
+				3754DE102E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift */,
 				37D8441B2E7A0CFA00839DC2 /* AlertSettingRequestDTO+Mapping.swift */,
 				37D8441D2E7A0D0B00839DC2 /* AlertSettingResponseDTO+Mapping.swift */,
+				37DC18D12E7A7D0E003A0386 /* TargetPriceRequestDTO+Mapping.swift */,
+				37DC18D32E7A7D38003A0386 /* TargetPriceResponseDTO+Mapping.swift */,
+				37DC18D52E7A7E5F003A0386 /* DailyAlertRequestDTO+Mapping.swift */,
+				37DC18D72E7A7E6A003A0386 /* DailyAlertResponseDTO+Mapping.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -473,6 +505,8 @@
 				37D843E02E78A13300839DC2 /* Bank.swift */,
 				37D8440B2E799EAA00839DC2 /* User.swift */,
 				37D8442B2E7A28DB00839DC2 /* AlertSetting.swift */,
+				3754DE002E7BDF5100AFCFB3 /* TargetPrice.swift */,
+				3754DE022E7DB6BC00AFCFB3 /* DailyAlert.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -540,6 +574,14 @@
 				37426AE32E69D228000A7C74 /* TargetRateBottomSheetReactor.swift */,
 			);
 			path = TargetRate;
+			sourceTree = "<group>";
+		};
+		3754DE0D2E7FE0D900AFCFB3 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3754DE0E2E7FE11400AFCFB3 /* TokenStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		37D1B11C2E5DB97F000732A3 /* Login */ = {
@@ -642,6 +684,7 @@
 				37E1C55A2E5C598F00D9D687 /* Font */,
 				37E1C5262E5B4B5200D9D687 /* Assets.xcassets */,
 				37E1C5272E5B4B5200D9D687 /* Info.plist */,
+				3754DE0B2E7F7C6000AFCFB3 /* GoogleService-Info.plist */,
 				37E1C5292E5B4B5200D9D687 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
@@ -842,6 +885,7 @@
 				37426AE62E6B582A000A7C74 /* IQKeyboardManagerSwift */,
 				37D844152E79DD9D00839DC2 /* GoogleSignIn */,
 				37D844172E79DD9D00839DC2 /* GoogleSignInSwift */,
+				3754DE072E7F220B00AFCFB3 /* FirebaseMessaging */,
 			);
 			productName = HwanYulMate;
 			productReference = 37E1C4F62E5B444500D9D687 /* HwanYulMate.app */;
@@ -882,6 +926,7 @@
 				37E1C5352E5B4C7200D9D687 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				37D844142E79DD9D00839DC2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				3754DE062E7F220B00AFCFB3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 37E1C4F72E5B444500D9D687 /* Products */;
@@ -900,6 +945,7 @@
 			files = (
 				37E1C5392E5B4D1400D9D687 /* .swiftlint.yml in Resources */,
 				37E1C5642E5C59BE00D9D687 /* Pretendard-ExtraBold.otf in Resources */,
+				3754DE0C2E7F7C6000AFCFB3 /* GoogleService-Info.plist in Resources */,
 				37E1C5652E5C59BE00D9D687 /* Pretendard-Medium.otf in Resources */,
 				37E1C5662E5C59BE00D9D687 /* Pretendard-Light.otf in Resources */,
 				37E1C5672E5C59BE00D9D687 /* Pretendard-Regular.otf in Resources */,
@@ -954,7 +1000,9 @@
 				37423E632E74B5DE00BE4D46 /* ExchangeRateResponseDTO+Mapping.swift in Sources */,
 				37423E792E76C58E00BE4D46 /* ChartEndpoint.swift in Sources */,
 				37D8440C2E799EAA00839DC2 /* User.swift in Sources */,
+				37DC18D22E7A7D0E003A0386 /* TargetPriceRequestDTO+Mapping.swift in Sources */,
 				37423E692E758EFD00BE4D46 /* Double+Extension.swift in Sources */,
+				3754DE0F2E7FE11400AFCFB3 /* TokenStorage.swift in Sources */,
 				37D8441C2E7A0CFA00839DC2 /* AlertSettingRequestDTO+Mapping.swift in Sources */,
 				37423E312E7420E800BE4D46 /* ExchangeEstimateComparisonView.swift in Sources */,
 				37423E162E6F44FC00BE4D46 /* NotificationSettingAlertViewController.swift in Sources */,
@@ -974,6 +1022,7 @@
 				37426A8C2E62C522000A7C74 /* NotificationView.swift in Sources */,
 				37426A972E62EC6A000A7C74 /* NotificationSettingView.swift in Sources */,
 				37D844242E7A111200839DC2 /* AlertSettingsRepositoryImpl.swift in Sources */,
+				37DC18D62E7A7E5F003A0386 /* DailyAlertRequestDTO+Mapping.swift in Sources */,
 				37D844222E7A0FED00839DC2 /* AlertSettingsRemoteDataSourceImpl.swift in Sources */,
 				37D843FC2E798A5900839DC2 /* AuthRepositoryImpl.swift in Sources */,
 				37423E352E7420FF00BE4D46 /* ExchangeEstimateComparisonReactor.swift in Sources */,
@@ -983,10 +1032,13 @@
 				37423E7D2E76CB7E00BE4D46 /* ChartRepositoryImpl.swift in Sources */,
 				37D844262E7A111700839DC2 /* AlertSettingsRepository.swift in Sources */,
 				37426AE22E69C2A8000A7C74 /* TargetRateBottomSheetViewController.swift in Sources */,
+				37DC18D42E7A7D38003A0386 /* TargetPriceResponseDTO+Mapping.swift in Sources */,
 				37423E7F2E76CB8900BE4D46 /* ChartRepository.swift in Sources */,
+				37DC18DC2E7A7FBF003A0386 /* DailyAlertEndpoint.swift in Sources */,
 				37D843FA2E7974F600839DC2 /* SocialLoginCredentialResponseDTO+Mapping.swift in Sources */,
 				37D844102E79BBC300839DC2 /* NoOperationSocialLoginService.swift in Sources */,
 				37D843CB2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift in Sources */,
+				37DC18D82E7A7E6A003A0386 /* DailyAlertResponseDTO+Mapping.swift in Sources */,
 				37D844062E798EAC00839DC2 /* SocialLoginResponseDTO+Mapping.swift in Sources */,
 				37D8440A2E799C1500839DC2 /* AuthLocalDataSourceImpl.swift in Sources */,
 				37423E0B2E6E07DB00BE4D46 /* TimeSelectionBottomSheetView.swift in Sources */,
@@ -1003,6 +1055,7 @@
 				37D843F62E796BCD00839DC2 /* RxASAuthorizationControllerDelegateProxy.swift in Sources */,
 				37D8441A2E79F49700839DC2 /* GoogleLoginService.swift in Sources */,
 				37D843FE2E798A6D00839DC2 /* AuthRepository.swift in Sources */,
+				3754DE012E7BDF5100AFCFB3 /* TargetPrice.swift in Sources */,
 				37423E5D2E74AF5900BE4D46 /* ExchangeRateRemoteDataSourceImpl.swift in Sources */,
 				37423E512E747AD800BE4D46 /* Endpoint.swift in Sources */,
 				37D844022E798D5100839DC2 /* AuthEndpoint.swift in Sources */,
@@ -1022,12 +1075,14 @@
 				37423E612E74B40A00BE4D46 /* ExchangeRate.swift in Sources */,
 				D63BD2492E7708A400918E5E /* NewsNetworkService.swift in Sources */,
 				37426A832E604D00000A7C74 /* HomeCell.swift in Sources */,
+				37DC18DA2E7A7FB2003A0386 /* TargetPriceEndpoint.swift in Sources */,
 				D63BD2912E79D11500918E5E /* WithdrawalView.swift in Sources */,
 				37423E332E7420F200BE4D46 /* ExchangeEstimateComparisonViewController.swift in Sources */,
 				37D843EB2E78A79D00839DC2 /* BankRepositoryImpl.swift in Sources */,
 				37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */,
 				D63BD27B2E79CFFA00918E5E /* ProfileView.swift in Sources */,
 				37E1C52E2E5B4B5200D9D687 /* SceneDelegate.swift in Sources */,
+				3754DE112E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift in Sources */,
 				3728CAFB2E5DA4FE00D3DC98 /* SplashView.swift in Sources */,
 				37423E672E74BCE000BE4D46 /* ExchangeRateRepository.swift in Sources */,
 				D6B060182E7A039E00BBB385 /* ProfileNetworkService.swift in Sources */,
@@ -1057,6 +1112,7 @@
 				D63BD28C2E79D0DC00918E5E /* LogoutView.swift in Sources */,
 				D6ADCF6F2E74653200A95D89 /* NewsCell.swift in Sources */,
 				37426A952E62EC49000A7C74 /* NotificationSettingViewController.swift in Sources */,
+				3754DE032E7DB6BC00AFCFB3 /* DailyAlert.swift in Sources */,
 				37423E2C2E72F12E00BE4D46 /* ExchangeEstimateComparisonBottomSheetView.swift in Sources */,
 				37423E2E2E72F13E00BE4D46 /* ExchangeEstimateComparisonBottomSheetReactor.swift in Sources */,
 				37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */,
@@ -1088,7 +1144,7 @@
 				CODE_SIGN_ENTITLEMENTS = HwanYulMate/HwanYulMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HwanYulMate/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1122,7 +1178,7 @@
 				CODE_SIGN_ENTITLEMENTS = HwanYulMate/HwanYulMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HwanYulMate/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1302,6 +1358,14 @@
 				minimumVersion = 8.0.1;
 			};
 		};
+		3754DE062E7F220B00AFCFB3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.3.0;
+			};
+		};
 		37D844142E79DD9D00839DC2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -1381,6 +1445,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		3754DE072E7F220B00AFCFB3 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3754DE062E7F220B00AFCFB3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		37D844152E79DD9D00839DC2 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -238,6 +238,10 @@ final class NotificationSettingView: BaseView {
     }
     
     override func configureConstraints() {
+        navigationTitleLabel.snp.makeConstraints {
+            $0.width.equalTo(200)
+        }
+        
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).offset(24)
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(22)
@@ -292,8 +296,20 @@ final class NotificationSettingView: BaseView {
         }
     }
     
+    func bind(navigationTitle: String) {
+        navigationTitleLabel.text = navigationTitle
+    }
+    
     func bind(alertSetting: AlertSetting) {
-        alarmSwitch.isOn = alertSetting.isTargetPriceEnabled
-        scheduleSwitch.isOn = alertSetting.isDailyAlertEnabled
+        alarmSwitch.setOn(alertSetting.isTargetPriceEnabled, animated: false)
+        scheduleSwitch.setOn(alertSetting.isDailyAlertEnabled, animated: false)
+    }
+    
+    func bind(isAlarmSwitchOn: Bool) {
+        alarmSwitch.setOn(isAlarmSwitchOn, animated: false)
+    }
+    
+    func bind(isScheduleSwitchOn: Bool) {
+        scheduleSwitch.setOn(isScheduleSwitchOn, animated: false)
     }
 }

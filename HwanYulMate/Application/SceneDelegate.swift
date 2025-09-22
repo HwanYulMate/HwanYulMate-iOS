@@ -19,6 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = SplashViewController()
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name("FCMToken"), object: nil, queue: .main) { notification in
+            guard let token = notification.userInfo?["token"] as? Bool else { return }
+            
+            if token {
+                self.window?.rootViewController = SplashViewController()
+            } else {
+                self.window?.rootViewController = SplashViewController()
+            }
+        }
+        
         window?.makeKeyAndVisible()
     }
 

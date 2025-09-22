@@ -5,7 +5,7 @@
 //  Created by 김정호 on 9/17/25.
 //
 
-import Foundation
+import UIKit
 import ReactorKit
 
 final class LoginReactor: Reactor {
@@ -13,7 +13,7 @@ final class LoginReactor: Reactor {
     // MARK: - nested types
     enum Action {
         case tapBackButton
-        case tapGoogleLoginButton
+        case tapGoogleLoginButton(UIViewController)
         case tapAppleLoginButton
     }
     
@@ -33,7 +33,7 @@ final class LoginReactor: Reactor {
     // MARK: - properties
     let initialState = State()
     
-    private var authRepository: AuthRepository
+    private var authRepository: AuthRepositoryImpl
     
     // MARK: - life cycles
     init() {
@@ -45,8 +45,8 @@ final class LoginReactor: Reactor {
         switch action {
         case .tapBackButton:
             return .just(.setRoute(.dismiss))
-        case .tapGoogleLoginButton:
-            return authRepository.socialLogin(provider: .google)
+        case .tapGoogleLoginButton(let vc):
+            return authRepository.socialLogin(provider: .google, vc: vc)
                 .asObservable()
                 .map { Mutation.setUser($0) }
         case .tapAppleLoginButton:

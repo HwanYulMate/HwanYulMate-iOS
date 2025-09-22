@@ -16,12 +16,13 @@ final class TargetRateBottomSheetReactor: Reactor {
         case willDisappearView
         case didAppearView
         case tapLeadingButton
-        case tapTrailingButton
+        case tapTrailingButton(String)
     }
     
     enum Mutation {
         case setRoute(Route?)
         case setContainerHeightConstraint(Float)
+        case setTargetPrice(TargetPrice)
         case updateKeyboardDistance(CGFloat)
         case updateContainerBottomConstraint(Float)
     }
@@ -31,6 +32,8 @@ final class TargetRateBottomSheetReactor: Reactor {
         var keyboardDistance: CGFloat = 10
         var containerBottomConstraint: Float = 290
         var containerHeightConstraint: Float = 290
+        var currencyCode: String = ""
+        var targetPrice: TargetPrice?
     }
     
     enum Route {
@@ -39,7 +42,15 @@ final class TargetRateBottomSheetReactor: Reactor {
     }
     
     // MARK: - properties
-    let initialState = State()
+    let initialState: State
+    
+    private let alertSettingsRepository: AlertSettingsRepository
+    
+    // MARK: - life cycles
+    init(currencyCode: String) {
+        self.initialState = State(currencyCode: currencyCode)
+        self.alertSettingsRepository = AlertSettingsRepositoryImpl()
+    }
     
     // MARK: - methods
     func mutate(action: Action) -> Observable<Mutation> {
@@ -58,12 +69,26 @@ final class TargetRateBottomSheetReactor: Reactor {
                 .just(.updateKeyboardDistance(10)),
                 .just(.updateContainerBottomConstraint(290))
             )
-        case .tapTrailingButton:
-            return .concat(
-                .just(.setRoute(.alert)),
-                .just(.updateKeyboardDistance(10)),
-                .just(.setRoute(nil)),
-            )
+        case .tapTrailingButton(let targetRateString):
+            if let targetRate = Double(targetRateString), targetRate > 0 {
+                let targetPrice = alertSettingsRepository
+                    .enableTargetPriceAlert(
+                        currencyCode: currentState.currencyCode,
+                        targetPrice: targetRate,
+                        condition: "ABOVE"
+                    )
+                    .asObservable()
+                    .map { Mutation.setTargetPrice($0) }
+                
+                return .concat(
+                    targetPrice,
+                    .just(.setRoute(.alert)),
+                    .just(.updateKeyboardDistance(10)),
+                    .just(.setRoute(nil)),
+                )
+            } else {
+                return .just(.setRoute(nil))
+            }
         }
     }
     
@@ -75,6 +100,12 @@ final class TargetRateBottomSheetReactor: Reactor {
             newState.route = route
         case .setContainerHeightConstraint(let constraint):
             newState.containerHeightConstraint = constraint
+        case .setTargetPrice(let targetPrice):
+            if targetPrice.success {
+                newState.targetPrice = targetPrice
+                newState.route = .alert
+                newState.route = nil
+            }
         case .updateKeyboardDistance(let distance):
             newState.keyboardDistance = distance
         case .updateContainerBottomConstraint(let constraint):

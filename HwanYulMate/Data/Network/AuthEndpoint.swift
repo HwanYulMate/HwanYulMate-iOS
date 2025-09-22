@@ -9,6 +9,7 @@ import Foundation
 
 enum AuthEndpoint: Endpoint {
     case socialLogin(request: SocialLoginRequestDTO, provider: SocialProvider)
+    case sendFCMToken(request: FCMRequestDTO, accessToken: String)
 }
 
 // MARK: - extensions
@@ -18,7 +19,15 @@ extension AuthEndpoint {
     }
     
     var headers: [String: String]? {
-        ["Content-Type": "application/json"]
+        switch self {
+        case .socialLogin:
+            return ["Content-Type": "application/json"]
+        case .sendFCMToken(_, let token):
+            return [
+                "Content-Type": "application/json",
+                "Authorization": "Bearer \(token)"
+            ]
+        }
     }
     
     var method: HTTPMethodType {
@@ -29,6 +38,8 @@ extension AuthEndpoint {
         switch self {
         case .socialLogin(_, let provider):
             return "/api/oauth/\(provider.rawValue)"
+        case .sendFCMToken:
+            return "/api/fcm/token"
         }
     }
     
@@ -39,6 +50,8 @@ extension AuthEndpoint {
     var bodyParametersEncodable: (any Encodable)? {
         switch self {
         case .socialLogin(let request, _):
+            return request
+        case .sendFCMToken(let request, _):
             return request
         }
     }

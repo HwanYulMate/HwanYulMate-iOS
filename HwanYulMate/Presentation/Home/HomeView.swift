@@ -50,6 +50,7 @@ final class HomeView: BaseView {
     }
     
     let tableView = UITableView().then {
+        $0.bounces = false
         $0.separatorStyle = .none
         $0.showsVerticalScrollIndicator = false
     }
