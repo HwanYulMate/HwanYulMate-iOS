@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - data models
 struct NewsModel: Codable {
     let id: String
     let title: String
@@ -19,14 +20,15 @@ struct NewsModel: Codable {
 
 // MARK: - response models
 struct NewsSearchResponse: Codable {
-    let newsList: [NewsItem]
+    let newsList: [NewsItemsForList]
     let currentPage: Int
     let pageSize: Int
     let totalCount: Int
     let hasNext: Bool
 }
 
-struct NewsItem: Codable {
+// MARK: - data models
+struct NewsItemsForList: Codable {
     let title: String
     let description: String
     let link: String
@@ -42,7 +44,7 @@ struct NewsItem: Codable {
             id: UUID().uuidString,
             title: cleanTitle,
             publishedDate: formattedDate,
-            url: originalLink,  // originalLink 사용
+            url: originalLink,
             link: link,
             description: cleanDescription,
             pubDate: pubDate

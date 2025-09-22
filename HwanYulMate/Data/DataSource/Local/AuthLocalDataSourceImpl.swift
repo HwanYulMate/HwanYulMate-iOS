@@ -38,3 +38,25 @@ final class AuthLocalDataSourceImpl: AuthLocalDataSource {
         userDefaults.set(email, forKey: "email")
     }
 }
+
+extension AuthLocalDataSourceImpl {
+    
+    func clearAllData() {
+        userDefaults.removeObject(forKey: "access")
+        userDefaults.removeObject(forKey: "refresh")
+        userDefaults.removeObject(forKey: "name")
+        userDefaults.removeObject(forKey: "email")
+        userDefaults.synchronize()
+        
+        print("✅ [AuthLocalDataSource] 모든 로컬 데이터 삭제 완료")
+    }
+    
+    func printCurrentStatus() {
+        print("🔍 [AuthLocalDataSource] 현재 저장된 데이터:")
+        print("   - access: \(userDefaults.string(forKey: "access") != nil ? "존재" : "없음")")
+        print("   - refresh: \(userDefaults.string(forKey: "refresh") != nil ? "존재" : "없음")")
+        print("   - name: \(userDefaults.string(forKey: "name") ?? "없음")")
+        print("   - email: \(userDefaults.string(forKey: "email") ?? "없음")")
+        print("   - isLoggedIn(): \(isLoggedIn())")
+    }
+}

@@ -27,7 +27,7 @@ final class NewsViewController: UIViewController {
         static let defaultSearchKeyword = "달러"
         static let pageSize = 10
         static let searchDebounceTime: TimeInterval = 0.5
-        static let prefetchThreshold = 3 // 마지막에서 3개 남았을 때 다음 페이지 로드
+        static let prefetchThreshold = 3 /// 마지막에서 3개 남았을 때 다음 페이지 로드
     }
     
     // MARK: - life cycles

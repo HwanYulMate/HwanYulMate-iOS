@@ -8,6 +8,8 @@
 import Foundation
 
 final class NewsNetworkService {
+    
+    // MARK: - properties
     static let shared = NewsNetworkService()
     
     var baseURL: String {
@@ -85,7 +87,7 @@ final class NewsNetworkService {
         components.path = "/api/exchange/news/paginated"
         components.queryItems = [
             URLQueryItem(name: "page", value: String(page)),
-            URLQueryItem(name: "size", value: String(max(1, min(100, size)))) // 1-100 범위 제한
+            URLQueryItem(name: "size", value: String(max(1, min(100, size))))
         ]
         
         guard let url = components.url else {
@@ -267,7 +269,7 @@ final class NewsNetworkService {
         do {
             let newsResponse = try JSONDecoder().decode(NewsSearchResponse.self, from: data)
             
-            // 500 에러의 경우에도 성공적으로 디코딩되면 빈 응답으로 처리
+            /// 500 에러의 경우에도 성공적으로 디코딩되면 빈 응답으로 처리
             if statusCode == 500 && newsResponse.newsList.isEmpty {
                 logSuccess("Received empty response (server error handled)")
             } else {
@@ -280,7 +282,7 @@ final class NewsNetworkService {
         } catch {
             logDecodingError(error: error, data: data)
             
-            // 서버 에러 처리: 빈 응답 반환
+            /// 서버 에러 처리: 빈 응답 반환
             if statusCode >= 500 {
                 let emptyResponse = NewsSearchResponse(
                     newsList: [],

@@ -12,7 +12,7 @@ final class PrivacyPolicyViewController: UIViewController {
     // MARK: - properties
     private let privacyPolicyView = PrivacyPolicyView()
     
-    // MARK: - life Cycles
+    // MARK: - life cycles
     override func loadView() {
         view = privacyPolicyView
     }

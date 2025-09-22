@@ -12,7 +12,7 @@ final class OpenSourceLicenseViewController: UIViewController {
     // MARK: - properties
     private let openSourceLicenseView = OpenSourceLicenseView()
     
-    // MARK: - life Cycles
+    // MARK: - life cycles
     override func loadView() {
         view = openSourceLicenseView
     }
