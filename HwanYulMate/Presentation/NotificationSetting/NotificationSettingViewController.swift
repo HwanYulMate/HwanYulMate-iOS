@@ -26,6 +26,8 @@ final class NotificationSettingViewController: UIViewController, View {
         super.viewDidLoad()
         
         configureUI()
+        
+        reactor?.action.onNext(.didLoadView)
     }
     
     // MARK: - methods
@@ -46,13 +48,13 @@ final class NotificationSettingViewController: UIViewController, View {
         
         notificationSettingView.alarmSwitch.rx.isOn
             .changed
-            .map { _ in NotificationSettingReactor.Action.tapAlarmSwitch }
+            .map { NotificationSettingReactor.Action.tapAlarmSwitch($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
         notificationSettingView.scheduleSwitch.rx.isOn
             .changed
-            .map { _ in NotificationSettingReactor.Action.tapScheduleSwitch }
+            .map { NotificationSettingReactor.Action.tapScheduleSwitch($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -64,16 +66,26 @@ final class NotificationSettingViewController: UIViewController, View {
                 switch route {
                 case .pop:
                     owner.navigationController?.popViewController(animated: true)
-                case .targetRate:
-                    let targetRateBottomSheetViewController = TargetRateBottomSheetViewController()
-                    targetRateBottomSheetViewController.reactor = TargetRateBottomSheetReactor()
-                    targetRateBottomSheetViewController.modalPresentationStyle = .overFullScreen
-                    owner.present(targetRateBottomSheetViewController, animated: false)
-                case .timeSelection:
-                    let timeSelectionBottomSheetViewController = TimeSelectionBottomSheetViewController()
-                    timeSelectionBottomSheetViewController.reactor = TimeSelectionBottomSheetReactor()
-                    timeSelectionBottomSheetViewController.modalPresentationStyle = .overFullScreen
-                    owner.present(timeSelectionBottomSheetViewController, animated: false)
+                case .targetRate(let currencyCode):
+                    let targetRateBottomSheetVC = TargetRateBottomSheetViewController()
+                    targetRateBottomSheetVC.reactor = TargetRateBottomSheetReactor(currencyCode: currencyCode)
+                    targetRateBottomSheetVC.modalPresentationStyle = .overFullScreen
+                    targetRateBottomSheetVC.resultRelay
+                        .take(1)
+                        .map { NotificationSettingReactor.Action.applyTargetRate($0) }
+                        .bind(to: reactor.action)
+                        .disposed(by: owner.disposeBag)
+                    owner.present(targetRateBottomSheetVC, animated: false)
+                case .timeSelection(let currencyCode):
+                    let timeSelectionBottomSheetVC = TimeSelectionBottomSheetViewController()
+                    timeSelectionBottomSheetVC.reactor = TimeSelectionBottomSheetReactor(currencyCode: currencyCode)
+                    timeSelectionBottomSheetVC.modalPresentationStyle = .overFullScreen
+                    timeSelectionBottomSheetVC.resultRelay
+                        .take(1)
+                        .map { NotificationSettingReactor.Action.applyDailyAlert($0) }
+                        .bind(to: reactor.action)
+                        .disposed(by: owner.disposeBag)
+                    owner.present(timeSelectionBottomSheetVC, animated: false)
                 }
             }
             .disposed(by: disposeBag)
@@ -82,6 +94,27 @@ final class NotificationSettingViewController: UIViewController, View {
             .compactMap { $0.alertSetting }
             .bind(with: self) { owner, alertSetting in
                 owner.notificationSettingView.bind(alertSetting: alertSetting)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isAlarmSwitchOn }
+            .bind(with: self) { owner, isAlarmSwitchOn in
+                owner.notificationSettingView.bind(isAlarmSwitchOn: isAlarmSwitchOn)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isScheduleSwitchOn }
+            .bind(with: self) { owner, isScheduleSwitchOn in
+                owner.notificationSettingView.bind(isScheduleSwitchOn: isScheduleSwitchOn)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.navigationTitle }
+            .bind(with: self) { owner, navigationTitle in
+                owner.notificationSettingView.bind(navigationTitle: navigationTitle)
             }
             .disposed(by: disposeBag)
     }
