@@ -20,8 +20,9 @@ struct BankResponseDTO: Decodable {
     let inputAmount: Double
     let currencyCode: String
     let flagImageUrl: String
+    let isOnlineAvailable: Bool
     let description: String
-    let onlineAvailable: Bool
+    let baseDate: String
 }
 
 // MARK: - extensions
@@ -48,8 +49,9 @@ extension BankResponseDTO {
             inputAmount: inputAmount,
             currencyCode: currencyCode,
             flagImageUrl: flagImageUrl,
+            isOnlineAvailable: isOnlineAvailable,
             description: description,
-            onlineAvailable: onlineAvailable
+            baseDate: baseDate
         )
     }
 }

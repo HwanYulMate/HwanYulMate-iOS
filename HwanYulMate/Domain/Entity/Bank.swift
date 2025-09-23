@@ -20,8 +20,9 @@ struct Bank {
     let inputAmount: Double
     let currencyCode: String
     let flagImageUrl: String
+    let isOnlineAvailable: Bool
     let description: String
-    let onlineAvailable: Bool
+    let baseDate: String
 }
 
 struct FeeDetail {
