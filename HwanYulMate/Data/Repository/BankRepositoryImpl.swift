@@ -19,10 +19,10 @@ final class BankRepositoryImpl: BankRepository {
     }
     
     // MARK: - methods
-    func fetchAllBankExchangeInfos(currencyCode: String, exchangeRate: Double) -> Single<[Bank]> {
+    func fetchAllBankExchangeInfos(currencyCode: String, exchangeEstimateComparison: Double) -> Single<[Bank]> {
         return remote.fetchAllBankExchangeInfos(
             currencyCode: currencyCode,
-            exchangeRate: exchangeRate
+            exchangeEstimateComparison: exchangeEstimateComparison
         ).map { $0.map { $0.toEntity() } }
     }
 }

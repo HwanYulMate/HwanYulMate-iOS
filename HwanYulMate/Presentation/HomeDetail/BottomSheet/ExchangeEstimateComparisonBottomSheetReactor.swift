@@ -16,7 +16,7 @@ final class ExchangeEstimateComparisonBottomSheetReactor: Reactor {
         case willDisappearView
         case didAppearView
         case tapLeadingButton
-        case tapTrailingButton
+        case tapTrailingButton(String)
     }
     
     enum Mutation {
@@ -65,12 +65,16 @@ final class ExchangeEstimateComparisonBottomSheetReactor: Reactor {
                 .just(.updateKeyboardDistance(10)),
                 .just(.updateContainerBottomConstraint(290))
             )
-        case .tapTrailingButton:
-            return .concat(
-                .just(.updateKeyboardDistance(10)),
-                .just(.setRoute(.exchangeEstimateComparison(currentState.currencyCode, currentState.exchangeRate))),
-                .just(.setRoute(nil)),
-            )
+        case .tapTrailingButton(let exchangeEstimateComparisonString):
+            if let exchangeEstimateComparison = Double(exchangeEstimateComparisonString), exchangeEstimateComparison > 0 {
+                return .concat(
+                    .just(.updateKeyboardDistance(10)),
+                    .just(.setRoute(.exchangeEstimateComparison(currentState.currencyCode, exchangeEstimateComparison))),
+                    .just(.setRoute(nil)),
+                )
+            } else {
+                return .just(.setRoute(nil))
+            }
         }
     }
     

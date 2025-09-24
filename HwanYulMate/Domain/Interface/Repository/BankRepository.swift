@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol BankRepository {
-    func fetchAllBankExchangeInfos(currencyCode: String, exchangeRate: Double) -> Single<[Bank]>
+    func fetchAllBankExchangeInfos(currencyCode: String, exchangeEstimateComparison: Double) -> Single<[Bank]>
 }
