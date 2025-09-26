@@ -49,7 +49,8 @@ final class ExchangeEstimateComparisonBottomSheetViewController: UIViewControlle
             .disposed(by: disposeBag)
         
         exchangeEstimateComparisonBottomSheetView.trailingButton.rx.tap
-            .map { ExchangeEstimateComparisonBottomSheetReactor.Action.tapTrailingButton }
+            .withLatestFrom(exchangeEstimateComparisonBottomSheetView.textField.rx.text.orEmpty)
+            .map { ExchangeEstimateComparisonBottomSheetReactor.Action.tapTrailingButton($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -59,9 +60,9 @@ final class ExchangeEstimateComparisonBottomSheetViewController: UIViewControlle
                 guard let route else { return }
                 
                 switch route {
-                case .exchangeEstimateComparison(let currencyCode, let exchangeRate):
+                case .exchangeEstimateComparison(let currencyCode, let exchangeEstimateComparison):
                     let exchangeEstimateComparisonVC = ExchangeEstimateComparisonViewController()
-                    exchangeEstimateComparisonVC.reactor = ExchangeEstimateComparisonReactor(currencyCode: currencyCode, exchangeRate: exchangeRate)
+                    exchangeEstimateComparisonVC.reactor = ExchangeEstimateComparisonReactor(currencyCode: currencyCode, exchangeEstimateComparison: exchangeEstimateComparison)
                     exchangeEstimateComparisonVC.modalPresentationStyle = .fullScreen
                     owner.present(exchangeEstimateComparisonVC, animated: true)
                 case .dismiss:

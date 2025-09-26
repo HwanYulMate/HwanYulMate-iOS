@@ -117,13 +117,19 @@ final class HomeDetailReactor: Reactor {
             }
         case .tapNewsButton(let index):
             if let news = currentState.news {
-                return .just(.setRoute(.news(news.newsList[index].originalLink)))
+                return .merge(
+                    .just(.setRoute(.news(news.newsList[index].originalLink))),
+                    .just(.setRoute(nil))
+                )
             } else {
                 return .just(.setRoute(nil))
             }
         case .tapExchangeEstimateComparisonButton:
             if let exchangeRate = currentState.exchangeRate?.exchangeRate {
-                return .just(.setRoute(.bottomSheet(currentState.currencyCode, exchangeRate)))
+                return .merge(
+                    .just(.setRoute(.bottomSheet(currentState.currencyCode, exchangeRate))),
+                    .just(.setRoute(nil))
+                )
             } else {
                 return .just(.setRoute(nil))
             }

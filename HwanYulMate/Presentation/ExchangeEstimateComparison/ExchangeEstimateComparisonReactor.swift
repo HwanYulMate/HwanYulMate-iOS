@@ -24,7 +24,7 @@ final class ExchangeEstimateComparisonReactor: Reactor {
     struct State {
         var route: Route?
         var currencyCode: String = ""
-        var exchangeRate: Double = 0.0
+        var exchangeEstimateComparison: Double = 0.0
         var banks: [Bank] = []
     }
     
@@ -38,8 +38,8 @@ final class ExchangeEstimateComparisonReactor: Reactor {
     private let repository: BankRepository
     
     // MARK: - life cycles
-    init(currencyCode: String, exchangeRate: Double) {
-        self.initialState = State(currencyCode: currencyCode, exchangeRate: exchangeRate)
+    init(currencyCode: String, exchangeEstimateComparison: Double) {
+        self.initialState = State(currencyCode: currencyCode, exchangeEstimateComparison: exchangeEstimateComparison)
         self.repository = BankRepositoryImpl()
     }
     
@@ -49,7 +49,7 @@ final class ExchangeEstimateComparisonReactor: Reactor {
         case .didLoadView:
             return repository.fetchAllBankExchangeInfos(
                 currencyCode: currentState.currencyCode,
-                exchangeRate: currentState.exchangeRate
+                exchangeEstimateComparison: currentState.exchangeEstimateComparison
             )
             .asObservable()
             .map { Mutation.setBanks($0) }

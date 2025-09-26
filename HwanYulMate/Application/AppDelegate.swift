@@ -26,10 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: { _, _ in }
-        )
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { granted, error in
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(
+                    name: Notification.Name("FCMTokenPermission"),
+                    object: nil,
+                    userInfo: ["FCMTokenPermission": granted]
+                )
+            }
+        }
         
         application.registerForRemoteNotifications()
         
@@ -88,13 +94,6 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         if let fcmToken {
             TokenStorage.shared.save(token: fcmToken, type: .fcm)
-            
-            let dataDict: [String: String] = ["token": fcmToken]
-            NotificationCenter.default.post(
-                name: Notification.Name("FCMToken"),
-                object: nil,
-                userInfo: dataDict
-            )
         }
     }
 }

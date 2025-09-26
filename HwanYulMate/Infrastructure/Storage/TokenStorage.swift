@@ -19,6 +19,12 @@ final class TokenStorage {
     private init() {}
     
     // MARK: - methods
+    func hasToken(type: TokenType) -> Bool {
+        guard let token = load(type) else { return false }
+        
+        return !token.isEmpty
+    }
+    
     func save(token: String, type: TokenType) {
         UserDefaults.standard.set(token, forKey: type.rawValue)
     }

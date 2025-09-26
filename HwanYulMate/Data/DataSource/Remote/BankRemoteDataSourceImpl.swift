@@ -9,7 +9,10 @@ import Foundation
 import RxSwift
 
 protocol BankRemoteDataSource {
-    func fetchAllBankExchangeInfos(currencyCode: String, exchangeRate: Double) -> Single<[BankResponseDTO]>
+    func fetchAllBankExchangeInfos(
+        currencyCode: String,
+        exchangeEstimateComparison: Double
+    ) -> Single<[BankResponseDTO]>
 }
 
 final class BankRemoteDataSourceImpl: BankRemoteDataSource {
@@ -23,8 +26,15 @@ final class BankRemoteDataSourceImpl: BankRemoteDataSource {
     }
     
     // MARK: - methods
-    func fetchAllBankExchangeInfos(currencyCode: String, exchangeRate: Double) -> Single<[BankResponseDTO]> {
-        let request = BankRequestDTO(currencyCode: currencyCode, amount: exchangeRate, direction: "KRW_TO_FOREIGN")
+    func fetchAllBankExchangeInfos(
+        currencyCode: String,
+        exchangeEstimateComparison: Double
+    ) -> Single<[BankResponseDTO]> {
+        let request = BankRequestDTO(
+            currencyCode: currencyCode,
+            amount: exchangeEstimateComparison,
+            direction: "KRW_TO_FOREIGN"
+        )
         let endpoint = BankEndpoint.fetchAllBankExchangeInfos(request: request)
         
         return networkService.request(endpoint).map { data in
