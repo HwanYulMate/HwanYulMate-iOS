@@ -66,6 +66,7 @@
 		3754DE0C2E7F7C6000AFCFB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3754DE0B2E7F7C6000AFCFB3 /* GoogleService-Info.plist */; };
 		3754DE0F2E7FE11400AFCFB3 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE0E2E7FE11400AFCFB3 /* TokenStorage.swift */; };
 		3754DE112E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE102E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift */; };
+		37D0050F2E9C143C00C20FF7 /* LicensePlistCore in Frameworks */ = {isa = PBXBuildFile; productRef = 37D0050E2E9C143C00C20FF7 /* LicensePlistCore */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
 		37D843CB2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */; };
@@ -320,6 +321,7 @@
 			files = (
 				3754DE082E7F220B00AFCFB3 /* FirebaseMessaging in Frameworks */,
 				37E1C5242E5B45FA00D9D687 /* DGCharts in Frameworks */,
+				37D0050F2E9C143C00C20FF7 /* LicensePlistCore in Frameworks */,
 				37E1C5162E5B457200D9D687 /* Alamofire in Frameworks */,
 				37E1C5102E5B454A00D9D687 /* SnapKit in Frameworks */,
 				37E1C5212E5B45CB00D9D687 /* Kingfisher in Frameworks */,
@@ -886,6 +888,7 @@
 				37D844152E79DD9D00839DC2 /* GoogleSignIn */,
 				37D844172E79DD9D00839DC2 /* GoogleSignInSwift */,
 				3754DE072E7F220B00AFCFB3 /* FirebaseMessaging */,
+				37D0050E2E9C143C00C20FF7 /* LicensePlistCore */,
 			);
 			productName = HwanYulMate;
 			productReference = 37E1C4F62E5B444500D9D687 /* HwanYulMate.app */;
@@ -927,6 +930,7 @@
 				37426AE52E6B582A000A7C74 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				37D844142E79DD9D00839DC2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				3754DE062E7F220B00AFCFB3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				37D0050D2E9C143C00C20FF7 /* XCRemoteSwiftPackageReference "LicensePlist" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 37E1C4F72E5B444500D9D687 /* Products */;
@@ -1368,6 +1372,14 @@
 				minimumVersion = 12.3.0;
 			};
 		};
+		37D0050D2E9C143C00C20FF7 /* XCRemoteSwiftPackageReference "LicensePlist" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mono0926/LicensePlist";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.27.1;
+			};
+		};
 		37D844142E79DD9D00839DC2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -1452,6 +1464,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3754DE062E7F220B00AFCFB3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		37D0050E2E9C143C00C20FF7 /* LicensePlistCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37D0050D2E9C143C00C20FF7 /* XCRemoteSwiftPackageReference "LicensePlist" */;
+			productName = LicensePlistCore;
 		};
 		37D844152E79DD9D00839DC2 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
