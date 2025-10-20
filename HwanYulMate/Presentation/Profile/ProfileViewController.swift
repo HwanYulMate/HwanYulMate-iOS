@@ -233,9 +233,9 @@ final class ProfileViewController: UIViewController {
             
         case (1, 1):
             /// 오픈소스 라이선스
-            let openSourceLicenseVC = OpenSourceLicenseViewController()
-            navigationController?.pushViewController(openSourceLicenseVC, animated: true)
-            
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
         case (2, 0) where isUserLoggedIn:
             /// 로그아웃 (로그인된 사용자만)
             let logoutVC = LogoutViewController()

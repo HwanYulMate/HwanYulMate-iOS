@@ -66,6 +66,7 @@
 		3754DE0C2E7F7C6000AFCFB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3754DE0B2E7F7C6000AFCFB3 /* GoogleService-Info.plist */; };
 		3754DE0F2E7FE11400AFCFB3 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE0E2E7FE11400AFCFB3 /* TokenStorage.swift */; };
 		3754DE112E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754DE102E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift */; };
+		37D005132E9C1A2B00C20FF7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37D005122E9C1A2B00C20FF7 /* Settings.bundle */; };
 		37D1B11E2E5DB99F000732A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */; };
 		37D1B1202E5DB9A9000732A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B11F2E5DB9A9000732A3 /* LoginView.swift */; };
 		37D843CB2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */; };
@@ -222,6 +223,7 @@
 		3754DE0B2E7F7C6000AFCFB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3754DE0E2E7FE11400AFCFB3 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		3754DE102E7FEEA100AFCFB3 /* FCMRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FCMRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		37D005122E9C1A2B00C20FF7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		37D1B11D2E5DB99F000732A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37D1B11F2E5DB9A9000732A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		37D843CA2E784C0900839DC2 /* NewsRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 				37E1C5262E5B4B5200D9D687 /* Assets.xcassets */,
 				37E1C5272E5B4B5200D9D687 /* Info.plist */,
 				3754DE0B2E7F7C6000AFCFB3 /* GoogleService-Info.plist */,
+				37D005122E9C1A2B00C20FF7 /* Settings.bundle */,
 				37E1C5292E5B4B5200D9D687 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
@@ -951,6 +954,7 @@
 				37E1C5672E5C59BE00D9D687 /* Pretendard-Regular.otf in Resources */,
 				37E1C5682E5C59BE00D9D687 /* Pretendard-Black.otf in Resources */,
 				37E1C5692E5C59BE00D9D687 /* Pretendard-SemiBold.otf in Resources */,
+				37D005132E9C1A2B00C20FF7 /* Settings.bundle in Resources */,
 				37E1C56A2E5C59BE00D9D687 /* Pretendard-Bold.otf in Resources */,
 				37E1C56B2E5C59BE00D9D687 /* Pretendard-ExtraLight.otf in Resources */,
 				37E1C56C2E5C59BE00D9D687 /* Pretendard-Thin.otf in Resources */,
@@ -1143,7 +1147,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HwanYulMate/HwanYulMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HwanYulMate/Resource/Info.plist;
@@ -1178,7 +1182,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HwanYulMate/HwanYulMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Z4QC7WDU5Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HwanYulMate/Resource/Info.plist;
